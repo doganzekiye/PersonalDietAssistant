@@ -10,7 +10,7 @@ import retrofit2.http.Query
 
 interface FoodApiService {
 
-    @GET("parser")
+    @GET("parser") //endpoint of url
     fun getFoods(
         @Query("app_id") appId: String,
         @Query("app_key") appKey: String,
@@ -27,11 +27,12 @@ interface FoodApiService {
 
         fun create(): FoodApiService {
 
+            //create retrofit builder object
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create()) //to attach the data from json file to models
                 .baseUrl(BASE_URL)
                 .build()
-            return retrofit.create(FoodApiService::class.java)
+            return retrofit.create(FoodApiService::class.java) //where the declared GET request
 
         }
     }
