@@ -1,14 +1,15 @@
 package com.example.personaldietassistant.WebService
 
+import com.example.personaldietassistant.Model.FoodNutrientsRequestModel.FoodNutrientsRequest
+import com.example.personaldietassistant.Model.FoodNutrientsResponseModel.FoodNutrientsResponse
 import com.example.personaldietassistant.Model.FoodSearchModel.FoodResponse
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.*
 
 
-interface FoodApiService {
+interface FoodApi {
 
     @GET("parser") //endpoint of url
     fun getFoods(
@@ -18,6 +19,14 @@ interface FoodApiService {
         @Query("nutrition-type") nutritionType: String
     ): Call<FoodResponse>
 
+    @Headers("Content-Type: application/json")
+    @POST("nutrients")
+    fun getFoodNutrients(
+        @Body foodNutrientsRequest: FoodNutrientsRequest,
+        @Query("app_id") appId: String,
+        @Query("app_key") appKey: String,
+    ): Call<FoodNutrientsResponse>
+
     companion object {//static values of the class
 
         var BASE_URL = "https://api.edamam.com/api/food-database/v2/"
@@ -25,14 +34,14 @@ interface FoodApiService {
         val EDAMAM_KEY = "c17c26a3424687a1bc6f68ee9061ea43"
         val NUTRITION_TYPE = "logging"
 
-        fun create(): FoodApiService {
+        fun create(): FoodApi {
 
             //create retrofit builder object
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create()) //to attach the data from json file to models
                 .baseUrl(BASE_URL)
                 .build()
-            return retrofit.create(FoodApiService::class.java) //where the declared GET request
+            return retrofit.create(FoodApi::class.java) //where the declared GET request
 
         }
     }
