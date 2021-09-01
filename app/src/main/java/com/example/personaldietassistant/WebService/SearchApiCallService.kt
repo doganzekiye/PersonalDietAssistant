@@ -1,7 +1,7 @@
 package com.example.personaldietassistant.WebService
 
 import android.util.Log
-import com.example.personaldietassistant.Model.FoodSearchModel.FoodResponse
+import com.example.personaldietassistant.Model.FoodSearch.FoodResponse
 import com.example.personaldietassistant.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback

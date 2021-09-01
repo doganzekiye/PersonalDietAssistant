@@ -1,8 +1,8 @@
 package com.example.personaldietassistant.WebService
 
-import com.example.personaldietassistant.Model.FoodNutrientsRequestModel.FoodNutrientsRequest
-import com.example.personaldietassistant.Model.FoodNutrientsResponseModel.FoodNutrientsResponse
-import com.example.personaldietassistant.Model.FoodSearchModel.FoodResponse
+import com.example.personaldietassistant.Model.FoodNutrientsRequest.FoodNutrientsRequest
+import com.example.personaldietassistant.Model.FoodNutrientsResponse.FoodNutrientsResponse
+import com.example.personaldietassistant.Model.FoodSearch.FoodResponse
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

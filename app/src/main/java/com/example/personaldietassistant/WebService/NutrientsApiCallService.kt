@@ -1,9 +1,9 @@
 package com.example.personaldietassistant.WebService
 
 import android.util.Log
-import com.example.personaldietassistant.Model.FoodNutrientsRequestModel.FoodNutrientsRequest
-import com.example.personaldietassistant.Model.FoodNutrientsRequestModel.NutrientsIngredient
-import com.example.personaldietassistant.Model.FoodNutrientsResponseModel.FoodNutrientsResponse
+import com.example.personaldietassistant.Model.FoodNutrientsRequest.FoodNutrientsRequest
+import com.example.personaldietassistant.Model.FoodNutrientsRequest.NutrientsIngredient
+import com.example.personaldietassistant.Model.FoodNutrientsResponse.FoodNutrientsResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
