@@ -3,7 +3,7 @@ package com.example.personaldietassistant
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.personaldietassistant.Model.Food
+import com.example.personaldietassistant.Model.FoodSearchModel.FoodResponse
 import com.example.personaldietassistant.WebService.FoodApiService
 import com.example.personaldietassistant.databinding.ActivityMainBinding
 import retrofit2.Call
@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
             FoodApiService.EDAMAM_KEY,
             keyword,
             FoodApiService.NUTRITION_TYPE
-        ).enqueue(object : Callback<Food?> {
+        ).enqueue(object : Callback<FoodResponse?> {
             override fun onResponse(
-                call: Call<Food?>,
-                response: Response<Food?>
+                call: Call<FoodResponse?>,
+                response: Response<FoodResponse?>
             ) { // if response exist -> response
                 val responseBody = response?.body()
                 val stringBuilder = StringBuilder()
@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                     //responseBody
                         for(foodLabel in responseBody.hints){
                             stringBuilder.append(foodLabel.food.label)
+
                             stringBuilder.append("\n")
                         }
 
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(
-                call: Call<Food?>,
+                call: Call<FoodResponse?>,
                 t: Throwable
             ) { //if response does not exist -> t
                 Log.d("error", t.toString())

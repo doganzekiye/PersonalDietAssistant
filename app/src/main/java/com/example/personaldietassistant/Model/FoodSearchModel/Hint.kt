@@ -1,4 +1,4 @@
-package com.example.personaldietassistant.Model
+package com.example.personaldietassistant.Model.FoodSearchModel
 
 data class Hint(
     val food: FoodX,

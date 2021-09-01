@@ -1,6 +1,6 @@
 package com.example.personaldietassistant.WebService
 
-import com.example.personaldietassistant.Model.Food
+import com.example.personaldietassistant.Model.FoodSearchModel.FoodResponse
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,7 +16,7 @@ interface FoodApiService {
         @Query("app_key") appKey: String,
         @Query("ingr") keyword: String,
         @Query("nutrition-type") nutritionType: String
-    ): Call<Food>
+    ): Call<FoodResponse>
 
     companion object {//static values of the class
 
