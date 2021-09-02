@@ -10,13 +10,13 @@ import retrofit2.Response
 
 class NutrientsApiCallService {
 
-    fun getFoodNutrients() {//foodId: String, measureURI: String, quantity: Double
+    fun getFoodNutrients(quantity :Double = 1.0) {//foodId: String, measureURI: String, quantity: Double
         val request = FoodNutrientsRequest(
             ingredients = listOf(
                 NutrientsIngredient(
                     foodId = "food_bjsfxtcaidvmhaa3afrbna43q3hu",
                     measureURI = "http://www.edamam.com/ontologies/edamam.owl#Measure_serving",
-                    quantity = 2.0
+                    quantity = quantity
                 )
             )
 

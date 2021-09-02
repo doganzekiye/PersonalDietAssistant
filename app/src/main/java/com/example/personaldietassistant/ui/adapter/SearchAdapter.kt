@@ -7,11 +7,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.personaldietassistant.R
+import com.example.personaldietassistant.model.foodNutrientsRequest.NutrientsIngredient
+import com.example.personaldietassistant.model.foodSearch.FoodResponse
 import com.example.personaldietassistant.model.foodSearch.Hint
+import com.example.personaldietassistant.model.foodSearch.Parsed
 import com.example.personaldietassistant.ui.FoodNutrientsActivity
 
-class SearchAdapter(private var foodList: MutableList<Hint>) :
+class SearchAdapter(private var foodResponse: FoodResponse?) :
     RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
+
+    val hintList = mutableListOf<Hint>()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val foodName = itemView.findViewById<TextView>(R.id.foodName)
@@ -30,36 +35,49 @@ class SearchAdapter(private var foodList: MutableList<Hint>) :
 
     // Involves populating data into the item through holder
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+        if (foodResponse != null) {
+            // Get the data model based on position
+            val foodHint: Hint = foodResponse!!.hints[position]
+            val foodParsed: Parsed = foodResponse!!.parsed[position]
+            // Set item views based on your views and data model
+            val foodNameTextView = viewHolder.foodName
+            foodNameTextView.text = foodHint.food.label
+            val foodCalTextView = viewHolder.foodCal
+            foodCalTextView.text = foodHint.food.nutrients.ENERC_KCAL.toString()
 
-        // Get the data model based on position
-        val food: Hint = foodList[position]
-        // Set item views based on your views and data model
-        val foodNameTextView = viewHolder.foodName
-        foodNameTextView.text = food.food.label
-        val foodCalTextView = viewHolder.foodCal
-        foodCalTextView.text = food.food.nutrients.ENERC_KCAL.toString()
+            viewHolder.itemView.setOnClickListener {
+                val selectedItem = NutrientsIngredient(
+                    foodId = foodHint.food.foodId,
+                    measureURI = foodParsed.measure.uri
+                )
+                val context = viewHolder.foodName.context
+                val intent = Intent(context, FoodNutrientsActivity::class.java)
 
-        viewHolder.itemView.setOnClickListener {
-            val context = viewHolder.foodName.context
-            val intent = Intent(context, FoodNutrientsActivity::class.java)
-
-            //intent.putExtra("doctorName", doctor.full_name)
-            context.startActivity(intent)
+                //intent.putExtra("doctorName", doctor.full_name)
+                context.startActivity(intent)
+            }
         }
     }
 
     // Returns the total count of items in the list
     override fun getItemCount(): Int {
-        return foodList.size
+        return if(foodResponse== null){
+            0
+        } else{
+            foodResponse!!.hints.size
+        }
+
     }
 
     fun filterList(filteredList: List<Hint>) {
-        foodList.clear()
-        foodList.addAll(filteredList)
+        hintList.clear()
+        hintList.addAll(filteredList)
         notifyDataSetChanged()
     }
-    fun clearAdapterList(){
-        foodList.clear()
+
+    fun clearAdapterList() {
+        hintList.clear()
         notifyDataSetChanged()
     }
+
 }

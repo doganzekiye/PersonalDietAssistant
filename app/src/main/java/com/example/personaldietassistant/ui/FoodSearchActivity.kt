@@ -20,7 +20,7 @@ class FoodSearchActivity : AppCompatActivity() {
     lateinit var editTextDoctor: EditText
     lateinit var foodSearchRecyclerView: RecyclerView
     lateinit var adapter: SearchAdapter
-    var searchResultList: List<Hint> = emptyList()
+    private var searchResult: FoodResponse? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,14 +42,14 @@ class FoodSearchActivity : AppCompatActivity() {
                 call: Call<FoodResponse?>,
                 response: Response<FoodResponse?>
             ) { // if response exist -> response
-                val responseBody = response?.body()
+                val responseBody = response.body()
                 setAdapterList()
                 if (response.code() == 400) {
                     adapter.clearAdapterList()
                 } else {
                     if (responseBody != null) {
-                        searchResultList = responseBody?.hints!!
-                        adapter.filterList(searchResultList)
+                        searchResult = responseBody
+                        adapter.filterList(searchResult!!.hints)
                     }
                 }
             }
@@ -74,7 +74,7 @@ class FoodSearchActivity : AppCompatActivity() {
         })
     }
     fun setAdapterList(){
-        adapter = SearchAdapter(searchResultList.toMutableList())
+        adapter = SearchAdapter(searchResult)
         // Attach the adapter to the recyclerview to populate items
         foodSearchRecyclerView.adapter = adapter
     }
