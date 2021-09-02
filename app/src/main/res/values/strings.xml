@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">PersonalDietAssistant</string>
+    <string name="search_text">Search for meal.</string>
+    <string name="food_name_exp">Banana</string>
+    <string name="food_cal_exp">195</string>
 </resources>

@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_food_nutrients.xml" value="0.3489583333333333" />
+        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_food_search.xml" value="0.36302083333333335" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/item_food.xml" value="0.36302083333333335" />
       </map>
     </option>
   </component>
