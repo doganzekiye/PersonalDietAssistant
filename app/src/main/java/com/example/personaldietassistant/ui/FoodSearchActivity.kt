@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.EditText
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.personaldietassistant.R
+import com.example.personaldietassistant.databinding.ActivityMainBinding
 import com.example.personaldietassistant.model.foodSearch.FoodResponse
 import com.example.personaldietassistant.model.foodSearch.Hint
 import com.example.personaldietassistant.ui.adapter.SearchAdapter
@@ -18,20 +21,23 @@ import retrofit2.Response
 
 class FoodSearchActivity : AppCompatActivity() {
     lateinit var editTextDoctor: EditText
+    lateinit var progressBar: ProgressBar
     lateinit var foodSearchRecyclerView: RecyclerView
     lateinit var adapter: SearchAdapter
-    private var searchResult: FoodResponse? = null
+    var searchResult: MutableList<Hint> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_food_search)
         foodSearchRecyclerView = findViewById(R.id.foodSearchRecyclerView)
         editTextDoctor = findViewById(R.id.editTextSearchFilter)
+        progressBar = findViewById(R.id.progress_bar)
         setListener()
 
     }
 
     fun getFoodSearch(keyword: String) {
+        progressBar.visibility = View.VISIBLE
         FoodApi.create().getFoods(
             FoodApi.EDAMAM_ID,
             FoodApi.EDAMAM_KEY,
@@ -48,10 +54,11 @@ class FoodSearchActivity : AppCompatActivity() {
                     adapter.clearAdapterList()
                 } else {
                     if (responseBody != null) {
-                        searchResult = responseBody
-                        adapter.filterList(searchResult!!.hints)
+                        searchResult = responseBody.hints.toMutableList()
+                        adapter.filterList(searchResult)
                     }
                 }
+                progressBar.visibility = View.GONE
             }
 
             override fun onFailure(
@@ -59,7 +66,9 @@ class FoodSearchActivity : AppCompatActivity() {
                 t: Throwable
             ) { //if response does not exist -> t
                 Log.d("error", t.toString())
+                progressBar.visibility = View.GONE
             }
+
         })
     }
 
@@ -73,7 +82,8 @@ class FoodSearchActivity : AppCompatActivity() {
             }
         })
     }
-    fun setAdapterList(){
+
+    fun setAdapterList() {
         adapter = SearchAdapter(searchResult)
         // Attach the adapter to the recyclerview to populate items
         foodSearchRecyclerView.adapter = adapter

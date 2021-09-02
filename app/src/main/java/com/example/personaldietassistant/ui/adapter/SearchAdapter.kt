@@ -13,10 +13,8 @@ import com.example.personaldietassistant.model.foodSearch.Hint
 import com.example.personaldietassistant.model.foodSearch.Parsed
 import com.example.personaldietassistant.ui.FoodNutrientsActivity
 
-class SearchAdapter(private var foodResponse: FoodResponse?) :
+class SearchAdapter(private var foodHintList: MutableList<Hint>) :
     RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
-
-    val hintList = mutableListOf<Hint>()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val foodName = itemView.findViewById<TextView>(R.id.foodName)
@@ -35,10 +33,8 @@ class SearchAdapter(private var foodResponse: FoodResponse?) :
 
     // Involves populating data into the item through holder
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        if (foodResponse != null) {
             // Get the data model based on position
-            val foodHint: Hint = foodResponse!!.hints[position]
-            val foodParsed: Parsed = foodResponse!!.parsed[position]
+            val foodHint: Hint = foodHintList[position]
             // Set item views based on your views and data model
             val foodNameTextView = viewHolder.foodName
             foodNameTextView.text = foodHint.food.label
@@ -48,35 +44,30 @@ class SearchAdapter(private var foodResponse: FoodResponse?) :
             viewHolder.itemView.setOnClickListener {
                 val selectedItem = NutrientsIngredient(
                     foodId = foodHint.food.foodId,
-                    measureURI = foodParsed.measure.uri
+                    measureURI = foodHint.measures[0].uri
                 )
                 val context = viewHolder.foodName.context
                 val intent = Intent(context, FoodNutrientsActivity::class.java)
 
-                //intent.putExtra("doctorName", doctor.full_name)
+                intent.putExtra("data", selectedItem)
                 context.startActivity(intent)
             }
-        }
     }
 
     // Returns the total count of items in the list
     override fun getItemCount(): Int {
-        return if(foodResponse== null){
-            0
-        } else{
-            foodResponse!!.hints.size
-        }
+        return foodHintList.size
 
     }
 
     fun filterList(filteredList: List<Hint>) {
-        hintList.clear()
-        hintList.addAll(filteredList)
+        foodHintList.clear()
+        foodHintList.addAll(filteredList)
         notifyDataSetChanged()
     }
 
     fun clearAdapterList() {
-        hintList.clear()
+        foodHintList.clear()
         notifyDataSetChanged()
     }
 
