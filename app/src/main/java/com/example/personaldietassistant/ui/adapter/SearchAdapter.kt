@@ -8,9 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.model.foodNutrientsRequest.NutrientsIngredient
-import com.example.personaldietassistant.model.foodSearch.FoodResponse
 import com.example.personaldietassistant.model.foodSearch.Hint
-import com.example.personaldietassistant.model.foodSearch.Parsed
 import com.example.personaldietassistant.ui.FoodNutrientsActivity
 
 class SearchAdapter(private var foodHintList: MutableList<Hint>) :
@@ -33,25 +31,25 @@ class SearchAdapter(private var foodHintList: MutableList<Hint>) :
 
     // Involves populating data into the item through holder
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-            // Get the data model based on position
-            val foodHint: Hint = foodHintList[position]
-            // Set item views based on your views and data model
-            val foodNameTextView = viewHolder.foodName
-            foodNameTextView.text = foodHint.food.label
-            val foodCalTextView = viewHolder.foodCal
-            foodCalTextView.text = foodHint.food.nutrients.ENERC_KCAL.toString()
+        // Get the data model based on position
+        val foodHint: Hint = foodHintList[position]
+        // Set item views based on your views and data model
+        val foodNameTextView = viewHolder.foodName
+        foodNameTextView.text = foodHint.food.label
+        val foodCalTextView = viewHolder.foodCal
+        foodCalTextView.text = String.format("%.2f", foodHint.food.nutrients.ENERC_KCAL)
 
-            viewHolder.itemView.setOnClickListener {
-                val selectedItem = NutrientsIngredient(
-                    foodId = foodHint.food.foodId,
-                    measureURI = foodHint.measures[0].uri
-                )
-                val context = viewHolder.foodName.context
-                val intent = Intent(context, FoodNutrientsActivity::class.java)
+        viewHolder.itemView.setOnClickListener {
+            val selectedItem = NutrientsIngredient(
+                foodId = foodHint.food.foodId,
+                measureURI = foodHint.measures[0].uri
+            )
+            val context = viewHolder.foodName.context
+            val intent = Intent(context, FoodNutrientsActivity::class.java)
 
-                intent.putExtra("data", selectedItem)
-                context.startActivity(intent)
-            }
+            intent.putExtra("data", selectedItem)
+            context.startActivity(intent)
+        }
     }
 
     // Returns the total count of items in the list

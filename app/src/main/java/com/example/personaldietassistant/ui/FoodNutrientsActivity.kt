@@ -54,7 +54,7 @@ class FoodNutrientsActivity : AppCompatActivity() {
             ) { // if response exist -> response
                 val responseBody = response.body()
                 responseBody?.let {
-                    testTxt.text = "cal: ${it.calories}  weight: ${it.totalWeight}"
+                    testTxt.text = "cal: ${String.format("%.2f", it.calories)}  weight: ${String.format("%.2f", it.totalWeight)}"
                 }
             }
 
