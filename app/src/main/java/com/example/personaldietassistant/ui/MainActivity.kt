@@ -2,28 +2,24 @@ package com.example.personaldietassistant.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.example.personaldietassistant.R
-import com.example.personaldietassistant.webService.NutrientsApiCallService
 import com.example.personaldietassistant.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
     lateinit var mainTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         mainTextView = binding.foodText
         setListener()
         //val nutrientsApiCallService = NutrientsApiCallService()
         //nutrientsApiCallService.getFoodNutrients()
     }
+
     private fun setListener() {
 
         mainTextView.setOnClickListener {

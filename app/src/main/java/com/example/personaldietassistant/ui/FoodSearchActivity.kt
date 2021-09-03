@@ -8,9 +8,10 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.personaldietassistant.R
-import com.example.personaldietassistant.databinding.ActivityMainBinding
+import com.example.personaldietassistant.databinding.ActivityFoodSearchBinding
 import com.example.personaldietassistant.model.foodSearch.FoodResponse
 import com.example.personaldietassistant.model.foodSearch.Hint
 import com.example.personaldietassistant.ui.adapter.SearchAdapter
@@ -28,10 +29,10 @@ class FoodSearchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_food_search)
-        foodSearchRecyclerView = findViewById(R.id.foodSearchRecyclerView)
-        editTextDoctor = findViewById(R.id.editTextSearchFilter)
-        progressBar = findViewById(R.id.progress_bar)
+        val binding: ActivityFoodSearchBinding = DataBindingUtil.setContentView(this, R.layout.activity_food_search)
+        foodSearchRecyclerView = binding.foodSearchRecyclerView
+        editTextDoctor = binding.editTextSearchFilter
+        progressBar = binding.progressBar
         setListener()
 
     }

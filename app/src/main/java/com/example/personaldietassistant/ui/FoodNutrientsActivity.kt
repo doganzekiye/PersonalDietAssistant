@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.example.personaldietassistant.R
+import com.example.personaldietassistant.databinding.ActivityFoodNutrientsBinding
 import com.example.personaldietassistant.model.foodNutrientsRequest.FoodNutrientsRequest
 import com.example.personaldietassistant.model.foodNutrientsRequest.NutrientsIngredient
 import com.example.personaldietassistant.model.foodNutrientsResponse.FoodNutrientsResponse
@@ -14,15 +16,15 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class FoodNutrientsActivity : AppCompatActivity() {
-    lateinit var testTxt: TextView
+    lateinit var titleTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_food_nutrients)
+        val binding: ActivityFoodNutrientsBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_food_nutrients)
 
         val dataX = intent.getParcelableExtra<NutrientsIngredient>("data")
-        val titleTextView: TextView = findViewById(R.id.nutrients_txt)
-        testTxt = titleTextView
+        titleTextView = binding.nutrientsTxt
         getFoodNutrients(dataX!!.foodId, dataX!!.measureURI)
 
     }
@@ -54,7 +56,12 @@ class FoodNutrientsActivity : AppCompatActivity() {
             ) { // if response exist -> response
                 val responseBody = response.body()
                 responseBody?.let {
-                    testTxt.text = "cal: ${String.format("%.2f", it.calories)}  weight: ${String.format("%.2f", it.totalWeight)}"
+                    titleTextView.text = "cal: ${String.format("%.2f", it.calories)}  weight: ${
+                        String.format(
+                            "%.2f",
+                            it.totalWeight
+                        )
+                    }"
                 }
             }
 
