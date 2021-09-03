@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.personaldietassistant.databinding.ItemFoodBinding
+import com.example.personaldietassistant.model.FoodItem
 import com.example.personaldietassistant.model.foodNutrientsRequest.NutrientsIngredient
 import com.example.personaldietassistant.model.foodSearch.Hint
 import com.example.personaldietassistant.ui.FoodNutrientsActivity
@@ -15,8 +16,8 @@ class SearchAdapter(private var foodHintList: MutableList<Hint>) :
     inner class ViewHolder(private val binding : ItemFoodBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Hint) {
             with(binding){
-                foodName.text = item.food.label
-                foodCal.text =  String.format("%.2f", item.food.nutrients.ENERC_KCAL)
+                val setFoodItem = FoodItem(name = item.food.label, image = item.food.image, cal = String.format("%.2f", item.food.nutrients.ENERC_KCAL))
+                foodItem = setFoodItem
             }
         }
     }
