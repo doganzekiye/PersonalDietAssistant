@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PersonalDietAssistant">
         <activity
+            android:name=".ui.MainActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.FoodNutrientsActivity"
             android:exported="true" />
         <activity
             android:name=".ui.FoodSearchActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
