@@ -10,6 +10,7 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.ActivityFoodSearchBinding
 import com.example.personaldietassistant.model.foodSearch.FoodResponse
@@ -22,7 +23,7 @@ import retrofit2.Response
 
 class FoodSearchActivity : AppCompatActivity() {
     lateinit var editTextDoctor: EditText
-    lateinit var progressBar: ProgressBar
+    lateinit var searchLoadingAnimationView: LottieAnimationView
     lateinit var foodSearchRecyclerView: RecyclerView
     lateinit var adapter: SearchAdapter
     var searchResult: MutableList<Hint> = mutableListOf()
@@ -32,13 +33,13 @@ class FoodSearchActivity : AppCompatActivity() {
         val binding: ActivityFoodSearchBinding = DataBindingUtil.setContentView(this, R.layout.activity_food_search)
         foodSearchRecyclerView = binding.foodSearchRecyclerView
         editTextDoctor = binding.editTextSearchFilter
-        progressBar = binding.progressBar
+        searchLoadingAnimationView = binding.loadingAnimation
         setListener()
 
     }
 
     fun getFoodSearch(keyword: String) {
-        progressBar.visibility = View.VISIBLE
+        searchLoadingAnimationView.visibility = View.VISIBLE
         FoodApi.create().getFoods(
             FoodApi.EDAMAM_ID,
             FoodApi.EDAMAM_KEY,
@@ -59,7 +60,7 @@ class FoodSearchActivity : AppCompatActivity() {
                         adapter.filterList(searchResult)
                     }
                 }
-                progressBar.visibility = View.GONE
+                searchLoadingAnimationView.visibility = View.GONE
             }
 
             override fun onFailure(
@@ -67,7 +68,7 @@ class FoodSearchActivity : AppCompatActivity() {
                 t: Throwable
             ) { //if response does not exist -> t
                 Log.d("error", t.toString())
-                progressBar.visibility = View.GONE
+                searchLoadingAnimationView.visibility = View.GONE
             }
 
         })
