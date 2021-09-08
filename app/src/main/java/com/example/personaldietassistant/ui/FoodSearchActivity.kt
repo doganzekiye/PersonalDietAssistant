@@ -3,91 +3,56 @@ package com.example.personaldietassistant.ui
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.view.View
-import android.widget.EditText
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.RecyclerView
-import com.airbnb.lottie.LottieAnimationView
+import androidx.lifecycle.ViewModelProvider
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.ActivityFoodSearchBinding
-import com.example.personaldietassistant.model.foodSearch.FoodResponse
 import com.example.personaldietassistant.model.foodSearch.Hint
 import com.example.personaldietassistant.ui.adapter.SearchAdapter
-import com.example.personaldietassistant.webService.FoodApi
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.personaldietassistant.util.show
+import com.example.personaldietassistant.util.showMessage
 
 class FoodSearchActivity : AppCompatActivity() {
-    lateinit var editTextDoctor: EditText
-    lateinit var searchLoadingAnimationView: LottieAnimationView
-    lateinit var foodSearchRecyclerView: RecyclerView
+    lateinit var searchViewModel: FoodSearchViewModel
+    lateinit var binding: ActivityFoodSearchBinding
     lateinit var adapter: SearchAdapter
-    var searchResult: MutableList<Hint> = mutableListOf()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityFoodSearchBinding = DataBindingUtil.setContentView(this, R.layout.activity_food_search)
-        foodSearchRecyclerView = binding.foodSearchRecyclerView
-        editTextDoctor = binding.editTextSearchFilter
-        searchLoadingAnimationView = binding.loadingAnimation
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_food_search)
+        searchViewModel = ViewModelProvider(this).get(FoodSearchViewModel::class.java)
+        observeChange()
         setListener()
-
     }
 
-    fun getFoodSearch(keyword: String) {
-        searchLoadingAnimationView.visibility = View.VISIBLE
-        FoodApi.create().getFoods(
-            FoodApi.EDAMAM_ID,
-            FoodApi.EDAMAM_KEY,
-            keyword,
-            FoodApi.NUTRITION_TYPE
-        ).enqueue(object : Callback<FoodResponse?> {
-            override fun onResponse(
-                call: Call<FoodResponse?>,
-                response: Response<FoodResponse?>
-            ) { // if response exist -> response
-                val responseBody = response.body()
-                setAdapterList()
-                if (response.code() == 400) {
-                    adapter.clearAdapterList()
-                } else {
-                    if (responseBody != null) {
-                        searchResult = responseBody.hints.toMutableList()
-                        adapter.filterList(searchResult)
-                    }
-                }
-                searchLoadingAnimationView.visibility = View.GONE
-            }
-
-            override fun onFailure(
-                call: Call<FoodResponse?>,
-                t: Throwable
-            ) { //if response does not exist -> t
-                Log.d("error", t.toString())
-                searchLoadingAnimationView.visibility = View.GONE
-            }
-
+    private fun observeChange() {
+        searchViewModel.hintLiveData.observe(this, { hints ->
+            setAdapterList(hints)
+            showMessage("done")
         })
     }
 
     private fun setListener() {
 
-        editTextDoctor.addTextChangedListener(object : TextWatcher {
+        binding.editTextSearchFilter.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable) {
-                getFoodSearch(s.toString())
+                searchViewModel.getFoodSearch(s.toString(), showLoading = {
+                    binding.loadingAnimation.show(it)
+                }
+                )
             }
         })
     }
 
-    fun setAdapterList() {
-        adapter = SearchAdapter(searchResult)
+    private fun setAdapterList(hints: List<Hint>) {
+        adapter = SearchAdapter(hints.toMutableList())
         // Attach the adapter to the recyclerview to populate items
-        foodSearchRecyclerView.adapter = adapter
+        binding.foodSearchRecyclerView.adapter = adapter
     }
+
+
 }
