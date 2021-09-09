@@ -11,7 +11,6 @@ import com.example.personaldietassistant.databinding.ActivityFoodSearchBinding
 import com.example.personaldietassistant.model.foodSearch.Hint
 import com.example.personaldietassistant.ui.adapter.SearchAdapter
 import com.example.personaldietassistant.util.show
-import com.example.personaldietassistant.util.showMessage
 
 class FoodSearchActivity : AppCompatActivity() {
     lateinit var searchViewModel: FoodSearchViewModel
@@ -23,14 +22,13 @@ class FoodSearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_food_search)
         searchViewModel = ViewModelProvider(this).get(FoodSearchViewModel::class.java)
-        observeChange()
+        observeFoodSearch()
         setListener()
     }
 
-    private fun observeChange() {
+    private fun observeFoodSearch() {
         searchViewModel.hintLiveData.observe(this, { hints ->
             setAdapterList(hints)
-            showMessage("done")
         })
     }
 
