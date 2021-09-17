@@ -1,24 +1,26 @@
 package com.example.personaldietassistant.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
+import com.example.personaldietassistant.IntroPagerActivity
 import com.example.personaldietassistant.R
 
 class SplashActivity : AppCompatActivity() {
-    val splashScreenLoadingDuration: Long = 6000
+    private val splashScreenLoadingDuration: Long = 10000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         loadSplashScreen()
 
     }
-    private fun loadSplashScreen(){
+
+    private fun loadSplashScreen() {
         Handler().postDelayed({
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this, IntroPagerActivity::class.java)
             startActivity(intent)
             finish()
-        },splashScreenLoadingDuration)
+        }, splashScreenLoadingDuration)
     }
 }

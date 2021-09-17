@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".IntroPagerActivity">
+
+        <TextView
+            android:id="@+id/intro_skip"
+            style="@style/PdaTextNunitoMedium.SkipText"
+            android:layout_width="@dimen/dp32"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp32"
+            android:text="@string/skip"
+            app:layout_constraintBottom_toBottomOf="@+id/button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button"
+            android:layout_width="@dimen/dp96"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp32"
+            android:layout_marginEnd="@dimen/dp32"
+            android:layout_marginBottom="@dimen/dp48"
+            android:backgroundTint="@color/intro_button"
+            android:insetLeft="@dimen/dp0"
+            android:insetTop="@dimen/dp0"
+            android:insetRight="@dimen/dp0"
+            android:insetBottom="@dimen/dp0"
+            app:icon="@drawable/ic_white_arrow"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/dp0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/intro_view_pager"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp0"
+            app:layout_constraintBottom_toTopOf="@id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/intro_indicator" />
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/intro_indicator"
+            android:layout_width="@dimen/dp64"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp32"
+            android:layout_marginTop="@dimen/dp32"
+            app:ci_drawable="@drawable/ic_indicator_selected"
+            app:ci_drawable_unselected="@drawable/ic_indicator_unselected"
+            app:ci_margin="@dimen/indicatorCiMarginSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

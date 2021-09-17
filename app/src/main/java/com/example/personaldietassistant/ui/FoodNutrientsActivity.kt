@@ -1,14 +1,12 @@
 package com.example.personaldietassistant.ui
 
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.ActivityFoodNutrientsBinding
 import com.example.personaldietassistant.model.foodNutrientsRequest.NutrientsIngredient
-import com.example.personaldietassistant.util.showMessage
 
 class FoodNutrientsActivity : AppCompatActivity() {
     lateinit var nutrientsViewModel: FoodNutrientsViewModel
@@ -25,13 +23,14 @@ class FoodNutrientsActivity : AppCompatActivity() {
 
     private fun observeFoodNutrients() {
         nutrientsViewModel.nutrientsLiveData.observe(this, { nutrients ->
-            binding.nutrientsTxt.text =
-                "cal: ${String.format("%.2f", nutrients.calories)} " + "fat: ${
-                    String.format(
-                        "%.2f",
-                        nutrients.totalDaily.FAT.quantity
-                    )
-                }"
+            val textValue = "cal: ${String.format("%.2f", nutrients.calories)} " + "fat: ${
+                String.format(
+                    "%.2f",
+                    nutrients.totalDaily.FAT.quantity
+                )
+            }"
+            binding.nutrientsTxt.text = textValue
+
         })
     }
 }

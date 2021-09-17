@@ -2,11 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="foodItem"
             type="com.example.personaldietassistant.model.FoodItem" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,46 +17,44 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/foodImage"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
             imageUrl="@{foodItem.image}"
-            tools:src="@mipmap/ic_launcher"
+            android:layout_width="@dimen/dp32"
+            android:layout_height="@dimen/dp32"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginBottom="@dimen/dp16"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            tools:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/foodName"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp0"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginEnd="@dimen/dp16"
             android:text="@{foodItem.name}"
-            tools:text="@string/food_name_exp"
             app:layout_constraintBottom_toBottomOf="@id/foodImage"
             app:layout_constraintEnd_toStartOf="@id/foodCal"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/foodImage"
             app:layout_constraintTop_toTopOf="@id/foodImage"
-            app:layout_constraintVertical_bias="0.47" />
+            tools:text="@string/food_name_exp" />
 
         <TextView
             android:id="@+id/foodCal"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp0"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/dp16"
             android:text="@{foodItem.cal}"
-            tools:text="@string/food_cal_exp"
-            app:layout_constraintTop_toTopOf="@id/foodName"
             app:layout_constraintBottom_toBottomOf="@id/foodName"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/foodName"
+            tools:text="@string/food_cal_exp" />
 
         <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/foodItemLineSize"
             android:background="@color/divider"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

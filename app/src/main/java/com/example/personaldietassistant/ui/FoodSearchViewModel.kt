@@ -25,7 +25,6 @@ class FoodSearchViewModel : ViewModel() {
                 response: Response<FoodResponse?>
             ) {
                 showLoading.invoke(false)
-                // if response exist -> response
                 val responseBody = response.body()
                 if (response.code() == 400) {
                     hintLiveData.value = emptyList()

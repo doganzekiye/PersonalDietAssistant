@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "user_table")
 data class User(
     @PrimaryKey(autoGenerate = true)// generates unique ids automatically
-    val id: Int,
+    val id: Int = 0,
     val name: String,
     val height: Double,
     val weight: Double,

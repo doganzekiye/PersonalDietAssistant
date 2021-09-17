@@ -2,22 +2,21 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.FoodSearchActivity">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewSearch"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp0"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginStart="@dimen/dp24"
+            android:layout_marginTop="@dimen/dp24"
+            android:layout_marginEnd="@dimen/dp24"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="7dp"
-            app:cardElevation="4dp"
+            app:cardCornerRadius="@dimen/searchCardCornerRadiusSize"
+            app:cardElevation="@dimen/searchCardElevationSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -25,15 +24,15 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/searchContainer"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="@dimen/dp56">
 
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="@dimen/dp16"
+                    android:layout_marginTop="@dimen/dp16"
+                    android:layout_marginBottom="@dimen/dp16"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -41,17 +40,17 @@
 
                 <EditText
                     android:id="@+id/editTextSearchFilter"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/dp0"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="@dimen/dp16"
+                    android:layout_marginTop="@dimen/dp16"
+                    android:layout_marginEnd="@dimen/dp16"
+                    android:layout_marginBottom="@dimen/dp16"
                     android:backgroundTint="@color/white"
                     android:hint="@string/search_text"
                     android:inputType="textPersonName"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/searchHintSize"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -63,25 +62,25 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loading_animation"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/cardViewSearch"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardViewSearch"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/search_loading"/>
+            app:lottie_rawRes="@raw/search_loading" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/foodSearchRecyclerView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="32dp"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp0"
+            android:layout_marginStart="@dimen/dp24"
+            android:layout_marginTop="@dimen/dp24"
+            android:layout_marginEnd="@dimen/dp24"
+            android:layout_marginBottom="@dimen/dp32"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"

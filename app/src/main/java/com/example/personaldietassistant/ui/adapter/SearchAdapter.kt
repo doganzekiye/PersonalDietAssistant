@@ -13,10 +13,15 @@ import com.example.personaldietassistant.ui.FoodNutrientsActivity
 class SearchAdapter(private var foodHintList: MutableList<Hint>) :
     RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
-    inner class ViewHolder(private val binding : ItemFoodBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemFoodBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Hint) {
-            with(binding){
-                val setFoodItem = FoodItem(name = item.food.label, image = item.food.image, cal = String.format("%.2f", item.food.nutrients.ENERC_KCAL))
+            with(binding) {
+                val setFoodItem = FoodItem(
+                    name = item.food.label,
+                    image = item.food.image,
+                    cal = String.format("%.2f", item.food.nutrients.ENERC_KCAL)
+                )
                 foodItem = setFoodItem
             }
         }
@@ -27,9 +32,8 @@ class SearchAdapter(private var foodHintList: MutableList<Hint>) :
         val context = parent.context
         //Layout inflater is a class that reads xml view description and converts them to java based View objects.
         val inflater = LayoutInflater.from(context)
-        val binding = ItemFoodBinding.inflate(inflater,parent ,false)
+        val binding = ItemFoodBinding.inflate(inflater, parent, false)
         // Inflate the custom layout
-        //val foodView = inflater.inflate(R.layout.item_food, parent, false)
         // Return a new holder instance
         return ViewHolder(binding)
     }

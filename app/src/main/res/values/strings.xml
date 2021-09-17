@@ -1,6 +1,18 @@
 <resources>
-    <string name="app_name">PersonalDietAssistant</string>
+    <string name="general_app_name">PersonalDietAssistant</string>
     <string name="search_text">Search for meal.</string>
     <string name="food_name_exp">Banana</string>
     <string name="food_cal_exp">195</string>
+    <string name="app_name">Application Name</string>
+    <string name="skip">Atla</string>
+
+
+    <string name="screen_intro1_title">TITLE1</string>
+    <string name="screen_intro1_desc">DESCRIPTION1</string>
+
+    <string name="screen_intro2_title">TITLE2</string>
+    <string name="screen_intro2_desc">DESCRIPTION2</string>
+
+    <string name="screen_intro3_title">TITLE3</string>
+    <string name="screen_intro3_desc">DESCRIPTION3</string>
 </resources>

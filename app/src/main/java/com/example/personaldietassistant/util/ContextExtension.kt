@@ -3,6 +3,6 @@ package com.example.personaldietassistant.util
 import android.content.Context
 import android.widget.Toast
 
-fun Context.showMessage(text: String){
+fun Context.showMessage(text: String) {
     Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 }

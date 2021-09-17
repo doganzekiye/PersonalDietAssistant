@@ -13,4 +13,40 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="PdaTextBold">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">cursive</item>
+    </style>
+
+    <style name="PdaTextBold.SplashAppName">
+        <item name="android:textSize">@dimen/appNameSize</item>
+        <item name="android:textColor">@color/pumpkin</item>
+    </style>
+
+    <style name="PdaTextNunitoRegular">
+        <item name="android:fontFamily">@font/nunito</item>
+        <item name="fontFamily">@font/nunito</item>
+    </style>
+
+    <style name="PdaTextNunitoBold">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="fontFamily">@font/nunito_bold</item>
+    </style>
+
+    <style name="PdaTextNunitoMedium">
+        <item name="android:fontFamily">@font/nunito_semibold</item>
+        <item name="fontFamily">@font/nunito_semibold</item>
+    </style>
+
+    <style name="PdaTextNunitoBold.Title">
+        <item name="android:textColor">@color/intro_title</item>
+        <item name="android:textSize">@dimen/fontTitleSize</item>
+    </style>
+
+    <style name="PdaTextNunitoMedium.SkipText">
+        <item name="android:textSize">@dimen/introSkipSize</item>
+        <item name="android:textColor">@color/intro_skip</item>
+    </style>
+
 </resources>

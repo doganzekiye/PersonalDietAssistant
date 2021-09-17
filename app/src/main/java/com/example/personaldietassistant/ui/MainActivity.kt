@@ -13,24 +13,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
         mainTextView = binding.foodText
         setListener()
-        //val nutrientsApiCallService = NutrientsApiCallService()
-        //nutrientsApiCallService.getFoodNutrients()
     }
 
     private fun setListener() {
-
         mainTextView.setOnClickListener {
             val context = mainTextView.context
             val intent = Intent(context, FoodSearchActivity::class.java)
-
             //intent.putExtra("doctorName", doctor.full_name)
-            // intent.putExtra("userStatus", doctor.user_status)
-            //intent.putExtra("imageUrl", doctor.image.url)
             context.startActivity(intent)
-
         }
     }
 }

@@ -17,7 +17,7 @@ class FoodNutrientsViewModel : ViewModel() {
         foodId: String,
         measureURI: String,
         quantity: Double = 1.0
-    ) {//foodId: String, measureURI: String, quantity: Double
+    ) {
         val request = FoodNutrientsRequest(
             ingredients = listOf(
                 NutrientsIngredient(
