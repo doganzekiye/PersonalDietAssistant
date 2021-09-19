@@ -1,17 +1,24 @@
 package com.example.personaldietassistant.util
 
-import android.content.Context
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.example.personaldietassistant.R
 import com.google.android.material.snackbar.Snackbar
 
-fun Context.showMessage(text: String) {
-    Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+
+/**
+ * Created by Akın DEMİR on 20.09.2021.
+ * Copyright (c) 2021
+ */
+
+
+fun Fragment.showMessage(text: String) {
+    Toast.makeText(this.context, text, Toast.LENGTH_SHORT).show()
 }
 
-fun Context.showMessage(view: View, text: String) {
+fun Fragment.showMessage(view: View, text: String) {
     val snack = Snackbar.make(view, text, Snackbar.LENGTH_SHORT)
     snack.setBackgroundTint(ContextCompat.getColor(view.context, R.color.pumpkin))
     snack.setTextColor(ContextCompat.getColor(view.context, R.color.white))

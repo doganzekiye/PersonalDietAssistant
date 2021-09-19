@@ -16,8 +16,20 @@
 
     <string name="screen_intro3_title">TITLE3</string>
     <string name="screen_intro3_desc">DESCRIPTION3</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_info_screen">InfoScreenActivity</string>
+
+    <!-- Info screens -->
+    <string name="screen_info_plan_1_title">Kilo Verme</string>
+    <string name="screen_info_plan_2_title">Kilo Alma</string>
+    <string name="screen_info_plan_3_title">Detoks</string>
+    <string name="screen_info_plan_4_title">pH Dengesi</string>
+    <string name="screen_info_plan_5_title">Şeker Dengesi</string>
+    <string name="screen_info_plan_1_desc">Kilo Verme description</string>
+    <string name="screen_info_plan_2_desc">Kilo Alma description</string>
+    <string name="screen_info_plan_3_desc">Detoks description</string>
+    <string name="screen_info_plan_4_desc">pH Dengesi description</string>
+    <string name="screen_info_plan_5_desc">Şeker Dengesi description</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

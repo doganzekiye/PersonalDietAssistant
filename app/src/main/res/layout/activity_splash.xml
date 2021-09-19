@@ -22,7 +22,7 @@
         app:lottie_rawRes="@raw/splash_girl" />
 
     <TextView
-        style="@style/PdaTextBold.SplashAppName"
+        style="@style/SplashAppName"
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_marginStart="@dimen/dp16"

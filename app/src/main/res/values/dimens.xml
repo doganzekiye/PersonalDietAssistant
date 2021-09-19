@@ -17,6 +17,7 @@
     <dimen name="appNameSize">24sp</dimen>
     <dimen name="searchHintSize">12sp</dimen>
     <dimen name="introSkipSize">16sp</dimen>
-    <dimen name="planTextSize">18sp</dimen>
+    <dimen name="card_title">18sp</dimen>
+    <dimen name="card_description">12sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 </resources>

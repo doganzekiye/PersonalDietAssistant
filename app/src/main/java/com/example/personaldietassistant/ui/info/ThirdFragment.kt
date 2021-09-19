@@ -1,10 +1,11 @@
-package com.example.personaldietassistant
+package com.example.personaldietassistant.ui.info
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.personaldietassistant.R
 
 class ThirdFragment : Fragment() {
 
