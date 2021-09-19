@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="dp0">0dp</dimen>
+    <dimen name="dp8">8dp</dimen>
     <dimen name="dp32">32dp</dimen>
     <dimen name="dp48">48dp</dimen>
     <dimen name="dp24">24dp</dimen>
@@ -16,4 +17,6 @@
     <dimen name="appNameSize">24sp</dimen>
     <dimen name="searchHintSize">12sp</dimen>
     <dimen name="introSkipSize">16sp</dimen>
+    <dimen name="planTextSize">18sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

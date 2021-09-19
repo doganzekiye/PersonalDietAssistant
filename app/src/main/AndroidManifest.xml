@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.personaldietassistant">
+    package="com.example.personaldietassistant" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,9 +10,14 @@
         android:label="@string/general_app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PersonalDietAssistant">
+        android:theme="@style/Theme.PersonalDietAssistant" >
         <activity
-            android:name=".IntroPagerActivity"
+            android:name=".ui.InfoScreenActivity"
+            android:exported="true"
+            android:label="@string/title_activity_info_screen"
+            android:theme="@style/Theme.PersonalDietAssistant.NoActionBar" />
+        <activity
+            android:name=".ui.IntroPagerActivity"
             android:exported="true" />
         <activity
             android:name=".ui.MainActivity"
@@ -25,7 +30,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.SplashActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

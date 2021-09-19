@@ -5,7 +5,7 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#2E2E2E</color>
     <color name="white">#FFFFFFFF</color>
     <color name="divider">#ecf0f1</color>
     <color name="orange">#f39c12</color>
@@ -14,4 +14,5 @@
     <color name="intro_description">#9C9D9F</color>
     <color name="intro_skip">#CDCED0</color>
     <color name="intro_button">#69C684</color>
+    <color name="background">#FAFAFA</color>
 </resources>

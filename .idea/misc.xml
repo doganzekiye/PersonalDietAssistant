@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_arrow_black_right.xml" value="0.22291666666666668" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_indicator_selected.xml" value="0.2703125" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_indicator_unselected.xml" value="0.2703125" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
@@ -11,15 +12,21 @@
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/font/nunito_semibold.xml" value="0.284375" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_food_nutrients.xml" value="0.3489583333333333" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_food_search.xml" value="0.264" />
+        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_info_screen.xml" value="0.4" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_intro_pager.xml" value="0.25416666666666665" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_intro_pages.xml" value="0.25416666666666665" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_main.xml" value="0.35511363636363635" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_splash.xml" value="0.264" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_test.xml" value="0.2640625" />
+        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/content_info_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_first.xml" value="0.23854166666666668" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_first_intro.xml" value="0.25416666666666665" />
+        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_second.xml" value="0.23854166666666668" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_second_intro.xml" value="0.25416666666666665" />
+        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_third.xml" value="0.23854166666666668" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_third_intro.xml" value="0.25416666666666665" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/item_food.xml" value="0.36302083333333335" />
+        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/item_info_plan.xml" value="0.264" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/item_intro.xml" value="0.264" />
       </map>
     </option>

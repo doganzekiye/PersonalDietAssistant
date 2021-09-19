@@ -48,5 +48,16 @@
         <item name="android:textSize">@dimen/introSkipSize</item>
         <item name="android:textColor">@color/intro_skip</item>
     </style>
+    <style name="Theme.PersonalDietAssistant.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="PdaTextNunitoBold.PlanText">
+        <item name="android:textColor">@color/intro_title</item>
+        <item name="android:textSize">@dimen/planTextSize</item>
+    </style>
+    <style name="Theme.PersonalDietAssistant.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.PersonalDietAssistant.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
