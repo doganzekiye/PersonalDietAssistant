@@ -47,8 +47,8 @@
 
         <ImageView
             android:id="@+id/iv_female"
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp0"
             android:layout_marginTop="@dimen/dp16"
             android:layout_marginHorizontal="@dimen/dp16"
             android:src="@drawable/intro_1_image"
@@ -59,8 +59,8 @@
 
         <ImageView
             android:id="@+id/iv_male"
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp0"
             android:layout_marginTop="@dimen/dp16"
             android:layout_marginHorizontal="@dimen/dp16"
             android:src="@drawable/intro_1_image"
