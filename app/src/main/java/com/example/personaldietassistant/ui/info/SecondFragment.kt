@@ -26,5 +26,9 @@ class SecondFragment : BaseFragment() {
         setToolbar(binding.toolbar.root, onClick = {
             findNavController().navigateUp()
         })
+
+        binding.secondNextButton.setOnClickListener {
+            findNavController().navigate(R.id.action_secondFragment_to_thirdFragment)
+        }
     }
 }

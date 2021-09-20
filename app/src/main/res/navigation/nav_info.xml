@@ -27,5 +27,14 @@
         android:id="@+id/thirdFragment"
         android:name="com.example.personaldietassistant.ui.info.ThirdFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_thirdFragment_to_ageFragment"
+            app:destination="@id/ageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ageFragment"
+        android:name="com.example.personaldietassistant.ui.info.AgeFragment"
+        android:label="AgeFragment"
+        tools:layout="@layout/fragment_age"/>
 </navigation>
