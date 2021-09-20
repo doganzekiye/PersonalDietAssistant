@@ -9,6 +9,7 @@
     <dimen name="dp56">56dp</dimen>
     <dimen name="dp64">64dp</dimen>
     <dimen name="dp96">96dp</dimen>
+    <dimen name="dp128">128dp</dimen>
     <dimen name="foodItemLineSize">1dp</dimen>
     <dimen name="indicatorCiMarginSize">5dp</dimen>
     <dimen name="searchCardCornerRadiusSize">8dp</dimen>
@@ -17,6 +18,7 @@
     <dimen name="appNameSize">24sp</dimen>
     <dimen name="searchHintSize">12sp</dimen>
     <dimen name="introSkipSize">16sp</dimen>
-    <dimen name="planTextSize">18sp</dimen>
+    <dimen name="card_title">18sp</dimen>
+    <dimen name="card_description">12sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 </resources>

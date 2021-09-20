@@ -15,7 +15,7 @@
         <TextView
             android:id="@+id/intro_skip"
             android:visibility="visible"
-            style="@style/PdaTextNunitoMedium.SkipText"
+            style="@style/SkipText"
             android:layout_width="@dimen/dp32"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp32"

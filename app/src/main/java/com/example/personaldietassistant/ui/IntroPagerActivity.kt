@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.ActivityIntroPagerBinding
 import com.example.personaldietassistant.ui.adapter.IntroPagerAdapter
+import com.example.personaldietassistant.ui.info.InfoScreenActivity
 
 class IntroPagerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityIntroPagerBinding

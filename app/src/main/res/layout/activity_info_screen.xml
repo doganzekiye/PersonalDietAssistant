@@ -11,28 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        tools:context=".ui.InfoScreenActivity">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="@dimen/dp0"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:navigationIcon="@drawable/ic_tool_bar" />
+        tools:context=".ui.info.InfoScreenActivity">
 
         <fragment
-            android:id="@+id/info_fragment"
+            android:id="@+id/info_fragment_navhost"
             android:name="androidx.navigation.fragment.NavHostFragment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp0"
-            app:defaultNavHost="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:defaultNavHost="true"
             app:navGraph="@navigation/nav_info" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

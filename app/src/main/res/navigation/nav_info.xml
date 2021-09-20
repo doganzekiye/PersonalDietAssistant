@@ -3,29 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_info"
-    app:startDestination="@id/planFragment">
+    app:startDestination="@id/firstFragment">
 
     <fragment
-        android:id="@+id/planFragment"
-        android:name="com.example.personaldietassistant.PlanFragment"
-        android:label="fragment_plan"
-        tools:layout="@layout/fragment_plan" >
+        android:id="@+id/firstFragment"
+        android:name="com.example.personaldietassistant.ui.info.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" >
         <action
-            android:id="@+id/action_planFragment_to_nameFragment"
-            app:destination="@id/nameFragment" />
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
     </fragment>
     <fragment
-        android:id="@+id/nameFragment"
-        android:name="com.example.personaldietassistant.NameFragment"
-        android:label="fragment_name"
-        tools:layout="@layout/fragment_name" >
+        android:id="@+id/secondFragment"
+        android:name="com.example.personaldietassistant.ui.info.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" >
         <action
-            android:id="@+id/action_nameFragment_to_genderFragment"
-            app:destination="@id/genderFragment" />
+            android:id="@+id/action_secondFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
     </fragment>
     <fragment
-        android:id="@+id/genderFragment"
-        android:name="com.example.personaldietassistant.GenderFragment"
-        android:label="fragment_gender"
-        tools:layout="@layout/fragment_gender" />
+        android:id="@+id/thirdFragment"
+        android:name="com.example.personaldietassistant.ui.info.ThirdFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_thirdFragment_to_ageFragment"
+            app:destination="@id/ageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ageFragment"
+        android:name="com.example.personaldietassistant.ui.info.AgeFragment"
+        android:label="AgeFragment"
+        tools:layout="@layout/fragment_age"/>
 </navigation>

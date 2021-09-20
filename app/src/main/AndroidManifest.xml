@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PersonalDietAssistant" >
         <activity
-            android:name=".ui.InfoScreenActivity"
+            android:name=".ui.info.InfoScreenActivity"
             android:exported="true"
             android:label="@string/title_activity_info_screen"
             android:theme="@style/Theme.PersonalDietAssistant.NoActionBar" />

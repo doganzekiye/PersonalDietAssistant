@@ -10,10 +10,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".PlanFragment">
+        tools:context=".ui.info.FirstFragment">
+
+        <include
+            android:id="@+id/toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            layout="@layout/toolbar_layout"/>
 
         <TextView
-            android:id="@+id/tv_planTitle"
+            android:id="@+id/infoPlanTitle"
             android:layout_width="@dimen/dp0"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp16"
@@ -22,20 +29,20 @@
             android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <TextView
-            android:id="@+id/tv_planDescription"
+            android:id="@+id/infoPlanDescription"
             android:layout_width="@dimen/dp0"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp16"
             android:layout_marginTop="@dimen/dp8"
             android:text="Let's start Let's start Let's start Let's start"
-            android:textColor="@color/black"
             android:textSize="16sp"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_planTitle" />
+            app:layout_constraintTop_toBottomOf="@id/infoPlanTitle" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_plan"
@@ -43,22 +50,23 @@
             android:layout_height="@dimen/dp0"
             android:layout_marginTop="@dimen/dp16"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@id/btn_planAccept"
+            app:layout_constraintBottom_toTopOf="@+id/buttonNext"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_planDescription"
-            tools:listitem="@layout/item_plan" />
+            app:layout_constraintTop_toBottomOf="@id/infoPlanDescription"
+            tools:listitem="@layout/item_info_plan" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn_planAccept"
+            android:id="@+id/buttonNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp48"
-            android:src="@drawable/ic_arrow_black_right"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/dp24"
             app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_arrow_black_right"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
