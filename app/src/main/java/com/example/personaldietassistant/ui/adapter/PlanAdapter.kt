@@ -3,13 +3,13 @@ package com.example.personaldietassistant.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.personaldietassistant.databinding.ItemInfoPlanBinding
+import com.example.personaldietassistant.databinding.ItemPlanBinding
 import com.example.personaldietassistant.model.PlanModel
 
 class PlanAdapter(private val planModelsList: Array<PlanModel> = PlanModel.values()) :
     RecyclerView.Adapter<PlanAdapter.ViewHolder>() {
 
-    inner class ViewHolder(private val binding: ItemInfoPlanBinding) :
+    inner class ViewHolder(private val binding: ItemPlanBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(planModel: PlanModel) {
             val res = binding.root.context.resources
@@ -25,7 +25,7 @@ class PlanAdapter(private val planModelsList: Array<PlanModel> = PlanModel.value
         val context = parent.context
         //Layout inflater is a class that reads xml view description and converts them to java based View objects.
         val inflater = LayoutInflater.from(context)
-        val binding = ItemInfoPlanBinding.inflate(inflater, parent, false)
+        val binding = ItemPlanBinding.inflate(inflater, parent, false)
         // Inflate the custom layout
         // Return a new holder instance
         return ViewHolder(binding)
