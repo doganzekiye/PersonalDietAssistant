@@ -17,19 +17,19 @@
             android:label="@string/title_activity_info_screen"
             android:theme="@style/Theme.PersonalDietAssistant.NoActionBar" />
         <activity
-            android:name=".ui.IntroPagerActivity"
+            android:name=".ui.intro.IntroPagerActivity"
             android:exported="true" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.FoodNutrientsActivity"
+            android:name=".ui.nutrients.FoodNutrientsActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.FoodSearchActivity"
+            android:name=".ui.search.FoodSearchActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

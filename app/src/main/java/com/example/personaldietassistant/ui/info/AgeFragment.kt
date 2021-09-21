@@ -9,7 +9,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.FragmentAgeBinding
-import com.example.personaldietassistant.ui.adapter.AgeAdapter
 import com.example.personaldietassistant.ui.base.BaseFragment
 import com.example.personaldietassistant.util.OnSnapPositionChangeListener
 import com.example.personaldietassistant.util.attachSnapHelperWithPositionListener
@@ -50,9 +49,7 @@ class AgeFragment : BaseFragment(), OnSnapPositionChangeListener {
         })
 
         binding.buttonNext.setOnClickListener {
-            if (mCanNavigate) {
-                showMessage("Can navigate to next screen")
-            }
+            findNavController().navigate(R.id.action_ageFragment_to_heightFragment)
         }
     }
 

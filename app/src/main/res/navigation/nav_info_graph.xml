@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_info"
+    app:startDestination="@id/planFragment">
+
+    <fragment
+        android:id="@+id/planFragment"
+        android:name="com.example.personaldietassistant.ui.info.PlanFragment"
+        android:label="PlanFragment"
+        tools:layout="@layout/fragment_plan">
+        <action
+            android:id="@+id/action_planFragment_to_nameFragment"
+            app:destination="@id/nameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nameFragment"
+        android:name="com.example.personaldietassistant.ui.info.NameFragment"
+        android:label="NameFragment"
+        tools:layout="@layout/fragment_name">
+        <action
+            android:id="@+id/action_nameFragment_to_genderFragment"
+            app:destination="@id/genderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/genderFragment"
+        android:name="com.example.personaldietassistant.ui.info.GenderFragment"
+        android:label="GenderFragment"
+        tools:layout="@layout/fragment_gender">
+        <action
+            android:id="@+id/action_genderFragment_to_ageFragment"
+            app:destination="@id/ageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ageFragment"
+        android:name="com.example.personaldietassistant.ui.info.AgeFragment"
+        android:label="AgeFragment"
+        tools:layout="@layout/fragment_age">
+        <action
+            android:id="@+id/action_ageFragment_to_heightFragment"
+            app:destination="@id/heightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/heightFragment"
+        android:name="com.example.personaldietassistant.ui.info.HeightFragment"
+        android:label="fragment_height"
+        tools:layout="@layout/fragment_height" />
+</navigation>
