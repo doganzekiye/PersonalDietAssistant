@@ -7,13 +7,6 @@ import androidx.fragment.app.Fragment
 import com.example.personaldietassistant.R
 import com.google.android.material.snackbar.Snackbar
 
-
-/**
- * Created by Akın DEMİR on 20.09.2021.
- * Copyright (c) 2021
- */
-
-
 fun Fragment.showMessage(text: String) {
     Toast.makeText(this.context, text, Toast.LENGTH_SHORT).show()
 }

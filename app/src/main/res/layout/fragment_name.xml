@@ -10,7 +10,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".NameFragment">
+        tools:context=".ui.info.NameFragment">
+
+        <include
+            android:id="@+id/toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            layout="@layout/toolbar_layout"/>
 
         <TextView
             android:id="@+id/tv_nameTitle"
@@ -23,7 +30,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
         <TextView
             android:id="@+id/tv_nameDescription"
@@ -67,8 +74,9 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_nameAccept"
             android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp48"
+            android:layout_marginBottom="@dimen/dp24"
             android:src="@drawable/ic_arrow_black_right"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

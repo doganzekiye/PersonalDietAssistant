@@ -7,20 +7,19 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.example.personaldietassistant.R
-import com.example.personaldietassistant.databinding.FragmentFirstBinding
-import com.example.personaldietassistant.ui.adapter.PlanAdapter
+import com.example.personaldietassistant.databinding.FragmentPlanBinding
 import com.example.personaldietassistant.ui.base.BaseFragment
 
-class FirstFragment : BaseFragment() {
+class PlanFragment : BaseFragment() {
 
-    lateinit var binding: FragmentFirstBinding
+    lateinit var binding: FragmentPlanBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_first, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_plan, container, false)
         return binding.root
     }
 
@@ -34,10 +33,10 @@ class FirstFragment : BaseFragment() {
         })
 
         binding.buttonNext.setOnClickListener {
-            findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+            findNavController().navigate(R.id.action_planFragment_to_nameFragment)
         }
 
-        setToolbar(binding.toolbar.root, onClick = {
+        setToolbar(binding.toolbar.root,title = "Plan Seç", onClick = {
             findNavController().navigateUp()
         })
     }

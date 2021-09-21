@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.info.FirstFragment">
+        tools:context=".ui.info.PlanFragment">
 
         <include
             android:id="@+id/toolbar"
@@ -54,7 +54,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/infoPlanDescription"
-            tools:listitem="@layout/item_info_plan" />
+            tools:listitem="@layout/item_plan" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/buttonNext"

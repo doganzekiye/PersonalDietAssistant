@@ -6,13 +6,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.personaldietassistant.R
 
-
-/**
- * Created by Akın DEMİR on 20.09.2021.
- * Copyright (c) 2021
- */
-
-
 open class BaseActivity: AppCompatActivity() {
 
     protected fun setToolbar(toolbar: View, title: String = "", onClick: () -> Unit) {

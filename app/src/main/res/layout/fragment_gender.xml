@@ -10,7 +10,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".GenderFragment">
+        tools:context=".ui.info.GenderFragment">
+        <include
+            android:id="@+id/toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            layout="@layout/toolbar_layout"/>
 
         <TextView
             android:id="@+id/tv_genderTitle"
@@ -23,7 +29,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
         <TextView
             android:id="@+id/tv_genderDescription"
@@ -74,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp16"
-            android:layout_marginBottom="@dimen/dp48"
+            android:layout_marginBottom="@dimen/dp24"
             android:src="@drawable/ic_arrow_black_right"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

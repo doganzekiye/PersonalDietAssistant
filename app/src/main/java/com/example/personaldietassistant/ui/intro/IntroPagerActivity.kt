@@ -1,4 +1,4 @@
-package com.example.personaldietassistant.ui
+package com.example.personaldietassistant.ui.intro
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.ActivityIntroPagerBinding
-import com.example.personaldietassistant.ui.adapter.IntroPagerAdapter
 import com.example.personaldietassistant.ui.info.InfoScreenActivity
 
 class IntroPagerActivity : AppCompatActivity() {

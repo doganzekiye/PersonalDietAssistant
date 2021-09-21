@@ -1,4 +1,4 @@
-package com.example.personaldietassistant.ui
+package com.example.personaldietassistant.ui.search
 
 import android.os.Bundle
 import android.text.Editable
@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.ActivityFoodSearchBinding
 import com.example.personaldietassistant.model.foodSearch.Hint
-import com.example.personaldietassistant.ui.adapter.SearchAdapter
 import com.example.personaldietassistant.util.show
 
 class FoodSearchActivity : AppCompatActivity() {

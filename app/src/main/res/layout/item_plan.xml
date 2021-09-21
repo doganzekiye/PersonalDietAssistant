@@ -13,11 +13,11 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView"
-            android:layout_width="@dimen/dp0"
-            android:layout_height="80dp"
+            android:layout_width="344dp"
+            android:layout_height="88dp"
             android:layout_margin="@dimen/dp8"
             app:cardCornerRadius="@dimen/searchCardCornerRadiusSize"
-            app:cardElevation="@dimen/searchCardElevationSize"
+            app:cardElevation="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,48 +33,49 @@
                     android:layout_width="@dimen/dp0"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp16"
-                    tools:text="@string/screen_info_plan_1_title"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/planItemImage"
+                    app:layout_constraintBottom_toBottomOf="@id/planItemImage"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toEndOf="@id/planItemImage"
+                    app:layout_constraintTop_toTopOf="@id/planItemImage"
+                    tools:text="@string/screen_info_plan_1_title" />
 
                 <TextView
                     android:id="@+id/planItemDesc"
                     style="@style/CardDescription"
-                    android:layout_width="@dimen/dp0"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    tools:text="@string/screen_info_plan_1_desc"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/planItemImage"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/planItemTitle"
-                    app:layout_constraintTop_toBottomOf="@+id/planItemTitle" />
+                    app:layout_constraintStart_toStartOf="@id/planItemTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/planItemTitle"
+                    tools:text="@string/screen_info_plan_1_desc" />
 
                 <ImageView
                     android:id="@+id/planItemImage"
-                    android:layout_width="@dimen/dp96"
-                    android:layout_height="@dimen/dp0"
-                    tools:src="@drawable/intro_1_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/intro_1_image" />
 
                 <ImageView
                     android:id="@+id/planLockLayer"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     android:background="@color/black_transparent"
                     android:padding="@dimen/dp16"
                     android:src="@drawable/ic_lock"
-                    />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

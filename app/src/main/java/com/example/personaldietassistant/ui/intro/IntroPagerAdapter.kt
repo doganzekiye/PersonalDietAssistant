@@ -1,4 +1,4 @@
-package com.example.personaldietassistant.ui.adapter
+package com.example.personaldietassistant.ui.intro
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -24,14 +24,14 @@ class IntroPagerAdapter(private val introModelsList: Array<IntroModel> = IntroMo
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): IntroPagerAdapter.IntroViewHolder {
+    ): IntroViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         val binding = ItemIntroBinding.inflate(inflater, parent, false)
         return IntroViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: IntroPagerAdapter.IntroViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: IntroViewHolder, position: Int) {
         holder.bind(introModelsList[position])
     }
 

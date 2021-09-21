@@ -3,13 +3,6 @@ package com.example.personaldietassistant.util
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 
-
-/**
- * Created by Akın DEMİR on 20.09.2021.
- * Copyright (c) 2021
- */
-
-
 class SnapScrollListener(
     private val snapHelper: SnapHelper,
     private val snapPositionChangeListener: OnSnapPositionChangeListener? = null

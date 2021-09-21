@@ -1,4 +1,4 @@
-package com.example.personaldietassistant.ui
+package com.example.personaldietassistant.ui.nutrients
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

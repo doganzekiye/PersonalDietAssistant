@@ -1,4 +1,4 @@
-package com.example.personaldietassistant.ui
+package com.example.personaldietassistant.ui.nutrients
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

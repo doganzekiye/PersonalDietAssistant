@@ -1,4 +1,4 @@
-package com.example.personaldietassistant.ui.adapter
+package com.example.personaldietassistant.ui.info
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,10 @@ import com.example.personaldietassistant.databinding.ItemAgeBinding
 import com.example.personaldietassistant.model.AgeModel
 import com.example.personaldietassistant.util.getColorRes
 
-class AgeAdapter(private val canNavigateToNextScreen: (Boolean) -> Unit, private val onAgeSelected: (Int) -> Unit) :
+class AgeAdapter(
+    private val canNavigateToNextScreen: (Boolean) -> Unit,
+    private val onAgeSelected: (Int) -> Unit
+) :
     RecyclerView.Adapter<AgeAdapter.ViewHolder>() {
 
     private val ageList: IntArray = (18..100).toList().toIntArray()
@@ -30,7 +33,7 @@ class AgeAdapter(private val canNavigateToNextScreen: (Boolean) -> Unit, private
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AgeAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         val binding = ItemAgeBinding.inflate(inflater, parent, false)

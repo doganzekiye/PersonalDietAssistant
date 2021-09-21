@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.ActivityMainBinding
+import com.example.personaldietassistant.ui.search.FoodSearchActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var mainTextView: TextView

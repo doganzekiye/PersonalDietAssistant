@@ -1,4 +1,4 @@
-package com.example.personaldietassistant.ui.adapter
+package com.example.personaldietassistant.ui.search
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import com.example.personaldietassistant.databinding.ItemFoodBinding
 import com.example.personaldietassistant.model.FoodItem
 import com.example.personaldietassistant.model.foodNutrientsRequest.NutrientsIngredient
 import com.example.personaldietassistant.model.foodSearch.Hint
-import com.example.personaldietassistant.ui.FoodNutrientsActivity
+import com.example.personaldietassistant.ui.nutrients.FoodNutrientsActivity
 
 class SearchAdapter(private var foodHintList: MutableList<Hint>) :
     RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
@@ -27,7 +27,7 @@ class SearchAdapter(private var foodHintList: MutableList<Hint>) :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val context = parent.context
         //Layout inflater is a class that reads xml view description and converts them to java based View objects.

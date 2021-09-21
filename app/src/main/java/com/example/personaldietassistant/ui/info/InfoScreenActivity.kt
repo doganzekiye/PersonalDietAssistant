@@ -19,14 +19,15 @@ class InfoScreenActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(
-            this, R.layout.activity_info_screen)
+            this, R.layout.activity_info_screen
+        )
 
         viewModel = ViewModelProvider(this).get(InfoScreenViewModel::class.java)
-        val navHost = supportFragmentManager.findFragmentById(R.id.info_fragment_navhost) as NavHostFragment
+        val navHost =
+            supportFragmentManager.findFragmentById(R.id.info_fragment_navhost) as NavHostFragment
         navController = navHost.findNavController()
 
     }
-
 
     private fun observeLiveData() {
 

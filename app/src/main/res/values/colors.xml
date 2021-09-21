@@ -16,4 +16,5 @@
     <color name="intro_skip">#CDCED0</color>
     <color name="intro_button">#69C684</color>
     <color name="background">#FAFAFA</color>
+    <color name="plan_title">#000000</color>
 </resources>
