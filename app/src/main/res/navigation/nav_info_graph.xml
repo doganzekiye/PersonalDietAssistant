@@ -45,5 +45,14 @@
         android:id="@+id/heightFragment"
         android:name="com.example.personaldietassistant.ui.info.HeightFragment"
         android:label="fragment_height"
-        tools:layout="@layout/fragment_height" />
+        tools:layout="@layout/fragment_height" >
+        <action
+            android:id="@+id/action_heightFragment_to_weightFragment"
+            app:destination="@id/weightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weightFragment"
+        android:name="com.example.personaldietassistant.ui.info.WeightFragment"
+        android:label="fragment_weight"
+        tools:layout="@layout/fragment_weight" />
 </navigation>
