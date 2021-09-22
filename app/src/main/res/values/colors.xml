@@ -17,4 +17,5 @@
     <color name="intro_button">#69C684</color>
     <color name="background">#FAFAFA</color>
     <color name="plan_title">#000000</color>
+    <color name="ruler_picker">#6CC586</color>
 </resources>
