@@ -23,16 +23,14 @@ class AgeFragment : BaseFragment(), OnSnapPositionChangeListener {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_age, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        //binding.rvAge.layoutManager = SnapScaleLayoutManager(requireContext())
-        binding.rvAge.attachSnapHelperWithPositionListener( LinearSnapHelper(), this)
-        //binding.rvAge.addItemDecoration(BoundsOffsetDecoration())
+        binding.rvAge.attachSnapHelperWithPositionListener(LinearSnapHelper(), this)
         binding.rvAge.adapter = AgeAdapter(canNavigateToNextScreen = { canNavigate ->
             mCanNavigate = canNavigate
             if (canNavigate) {
@@ -44,7 +42,7 @@ class AgeFragment : BaseFragment(), OnSnapPositionChangeListener {
             showMessage(it.toString())
         })
 
-        setToolbar(binding.toolbar.root, title = "Select Your Age" , onClick = {
+        setToolbar(binding.toolbar.root, title = "Select Your Age", onClick = {
             findNavController().navigateUp()
         })
 

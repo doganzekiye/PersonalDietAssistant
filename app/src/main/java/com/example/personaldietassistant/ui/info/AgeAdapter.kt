@@ -29,6 +29,7 @@ class AgeAdapter(
         fun bind(ageModel: AgeModel) {
             with(binding) {
                 tvAge.text = ageModel.age.toString()
+                setColor(ivBg, ageModel.isSelected)
             }
         }
     }
@@ -47,12 +48,26 @@ class AgeAdapter(
 
         viewHolder.itemView.apply {
             setOnClickListener {
+
                 ageModel.isSelected = !ageModel.isSelected
-                setColor(viewHolder.binding.ivBg, ageModel.isSelected)
+                resetGiftPackList(position)
+
                 if (ageModel.isSelected) {
                     onAgeSelected.invoke(ageModel.age)
                 }
                 canNavigateToNextScreen.invoke(ageModel.isSelected)
+
+                val test = ageModelList
+                notifyDataSetChanged()
+            }
+
+        }
+    }
+
+    private fun resetGiftPackList(exceptRow: Int) {
+        for (i in 0 until ageModelList.size) {
+            if (i != exceptRow) {
+                ageModelList[i].isSelected = false
             }
         }
     }
