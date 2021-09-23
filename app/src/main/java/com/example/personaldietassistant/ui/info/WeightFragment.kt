@@ -22,11 +22,39 @@ class WeightFragment : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        onClickNumberPicker()
         binding.btnWeightAccept.setOnClickListener {
-            //findNavController().navigate(R.id.he)
+            //findNavController().navigate(R.id.)
         }
         setToolbar(binding.toolbar.root, title = "Kilonu Gir", onClick = {
             findNavController().navigateUp()
         })
+    }
+    fun onClickNumberPicker() {
+        binding.npWeight.apply {
+            maxValue = 220
+            minValue = 30
+            value = 70
+            wrapSelectorWheel = false
+        }
+
+        binding.npWeight.setOnValueChangedListener { picker, oldVal, newVal ->
+            binding.tvPickedWeight.text = (String.format("My weight is %s.%s kg",  newVal,binding.npWeightDecimal.value))
+        }
+
+        binding.npWeightDecimal.apply {
+            maxValue = 9
+            minValue = 0
+            value = 0
+            wrapSelectorWheel = false
+        }
+
+        binding.tvPickedWeight.text = (String.format("My weight is %s.%s kg",  binding.npWeight.value,binding.npWeightDecimal.value))
+
+        binding.npWeightDecimal.setOnValueChangedListener { picker, oldVal, newVal ->
+            binding.tvPickedWeight.text = (String.format("My weight is %s.%s kg", binding.npWeight.value ,newVal))
+
+        }
+
     }
 }
