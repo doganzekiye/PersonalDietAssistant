@@ -24,6 +24,7 @@ class AgeFragment : BaseFragment(), OnSnapPositionChangeListener {
 
     override fun onCreateView(
         inflater: LayoutInflater,
+
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
