@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.example.personaldietassistant.R
@@ -18,6 +19,8 @@ class AgeFragment : BaseFragment(), OnSnapPositionChangeListener {
 
     private lateinit var binding: FragmentAgeBinding
     private var mCanNavigate: Boolean = false
+    val viewModel : InfoScreenViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,

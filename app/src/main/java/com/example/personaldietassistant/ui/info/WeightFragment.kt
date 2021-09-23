@@ -1,7 +1,6 @@
 package com.example.personaldietassistant.ui.info
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +20,7 @@ class WeightFragment : BaseFragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_weight, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.btnWeightAccept.setOnClickListener {
             //findNavController().navigate(R.id.he)
