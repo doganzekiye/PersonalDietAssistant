@@ -51,26 +51,26 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp16"
             android:fontFamily="sans-serif-medium"
+            android:gravity="center"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintVertical_bias="0.25"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_weightDescription"
+            app:layout_constraintVertical_bias="0.25"
             tools:text="My weight is 74.3 kg" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             android:layout_marginTop="@dimen/dp16"
             app:layout_constraintBottom_toTopOf="@id/btn_weightAccept"
-            app:layout_constraintTop_toBottomOf="@id/tv_pickedWeight">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_pickedWeight"
+            app:layout_constraintVertical_bias="0.0">
 
 
             <NumberPicker
@@ -86,11 +86,11 @@
             <ImageView
                 android:layout_width="@dimen/dp8"
                 android:layout_height="@dimen/dp8"
-                app:layout_constraintStart_toEndOf="@id/np_weight"
-                app:layout_constraintEnd_toStartOf="@id/np_weightDecimal"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_circle"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/ic_circle"/>
+                app:layout_constraintEnd_toStartOf="@id/np_weightDecimal"
+                app:layout_constraintStart_toEndOf="@id/np_weight"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <NumberPicker
                 android:id="@+id/np_weightDecimal"

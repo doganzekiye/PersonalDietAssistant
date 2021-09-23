@@ -30,6 +30,7 @@ class WeightFragment : BaseFragment() {
             findNavController().navigateUp()
         })
     }
+
     fun onClickNumberPicker() {
         binding.npWeight.apply {
             maxValue = 220
@@ -39,7 +40,8 @@ class WeightFragment : BaseFragment() {
         }
 
         binding.npWeight.setOnValueChangedListener { picker, oldVal, newVal ->
-            binding.tvPickedWeight.text = (String.format("My weight is %s.%s kg",  newVal,binding.npWeightDecimal.value))
+            binding.tvPickedWeight.text =
+                (String.format("My weight is %s.%s kg", newVal, binding.npWeightDecimal.value))
         }
 
         binding.npWeightDecimal.apply {
@@ -49,10 +51,15 @@ class WeightFragment : BaseFragment() {
             wrapSelectorWheel = false
         }
 
-        binding.tvPickedWeight.text = (String.format("My weight is %s.%s kg",  binding.npWeight.value,binding.npWeightDecimal.value))
+        binding.tvPickedWeight.text = (String.format(
+            "My weight is %s.%s kg",
+            binding.npWeight.value,
+            binding.npWeightDecimal.value
+        ))
 
         binding.npWeightDecimal.setOnValueChangedListener { picker, oldVal, newVal ->
-            binding.tvPickedWeight.text = (String.format("My weight is %s.%s kg", binding.npWeight.value ,newVal))
+            binding.tvPickedWeight.text =
+                (String.format("My weight is %s.%s kg", binding.npWeight.value, newVal))
 
         }
 
