@@ -2,9 +2,7 @@ package com.example.personaldietassistant.ui.info
 
 import android.annotation.SuppressLint
 import android.content.res.Resources
-import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +16,7 @@ class PlanAdapter(
     private val canNavigateToNextScreen: (Boolean) -> Unit
 ) :
     RecyclerView.Adapter<PlanAdapter.ViewHolder>() {
-    lateinit var res : Resources
+    lateinit var res: Resources
 
     inner class ViewHolder(val binding: ItemPlanBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -32,8 +30,12 @@ class PlanAdapter(
                     cardView.setBackgroundResource(R.color.white)
                 } else {
                     cardView.setBackgroundResource(R.color.gray)
-                    planItemTitle.setTextColor(ContextCompat.getColor(root.context,R.color.gray_dark))
-                    //planItemImage.setBackgroundResource(R.color.gray)
+                    planItemTitle.setTextColor(
+                        ContextCompat.getColor(
+                            root.context,
+                            R.color.gray_dark
+                        )
+                    )
                 }
             }
         }
@@ -50,15 +52,11 @@ class PlanAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val context = parent.context
-        //Layout inflater is a class that reads xml view description and converts them to java based View objects.
         val inflater = LayoutInflater.from(context)
         val binding = ItemPlanBinding.inflate(inflater, parent, false)
-        // Inflate the custom layout
-        // Return a new holder instance
         return ViewHolder(binding)
     }
 
-    // Involves populating data into the item through holder
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val plan = planModelsList[position]
         viewHolder.bind(plan)
@@ -71,14 +69,16 @@ class PlanAdapter(
                         canNavigateToNextScreen.invoke(plan.isSelected)
                         viewHolder.setSelected(plan.isSelected)
                     } else {
-                        showMessage(viewHolder.itemView, res.getString(R.string.plan_unable_message))
+                        showMessage(
+                            viewHolder.itemView,
+                            res.getString(R.string.plan_unable_message)
+                        )
                     }
                 }
             }
         }
     }
 
-    // Returns the total count of items in the list
     override fun getItemCount(): Int {
         return planModelsList.size
     }

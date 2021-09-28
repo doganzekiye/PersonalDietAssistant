@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.personaldietassistant.R
@@ -18,9 +17,7 @@ import com.example.personaldietassistant.util.showMessage
 class NameFragment : BaseFragment() {
     var binding: FragmentNameBinding? = null
 
-    //val viewModel =
-      //  ViewModelProvider(requireActivity()).get(InfoScreenViewModel::class.java)
-    val viewModel: InfoScreenViewModel by activityViewModels()
+    //val viewModel: InfoScreenViewModel by activityViewModels()
     lateinit var userName: String
 
     override fun onCreateView(
@@ -38,20 +35,18 @@ class NameFragment : BaseFragment() {
             override fun afterTextChanged(s: Editable) {
                 if (s.toString().length >= 2) {
                     userName = s.toString()
-                    val helloMessage = "Merhaba " + s.toString()+ ","
+                    val helloMessage = "Merhaba " + s.toString() + ","
                     binding!!.tvNameTitle.text = helloMessage
-                    binding!!.btnNameAccept.visibility = View.VISIBLE
                 } else {
                     showMessage("Name should be at least 2 character")
-                    binding!!.btnNameAccept.visibility = View.GONE
                 }
             }
         })
         binding!!.btnNameAccept.setOnClickListener {
-
+            val viewModel =
+                ViewModelProvider(requireActivity()).get(InfoScreenViewModel::class.java)
             viewModel.user.name = userName
-            showMessage(viewModel.user.name)
-            //findNavController().navigate(R.id.action_nameFragment_to_genderFragment)
+            findNavController().navigate(R.id.action_nameFragment_to_genderFragment)
         }
         setToolbar(binding!!.toolbar.root, title = "Adını Gir", onClick = {
             findNavController().navigateUp()

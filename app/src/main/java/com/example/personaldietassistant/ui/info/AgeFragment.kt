@@ -33,15 +33,11 @@ class AgeFragment : BaseFragment() {
         setToolbar(binding.toolbar.root, title = "Select Your Age", onClick = {
             findNavController().navigateUp()
         })
-
     }
 
     fun onClickNumberPicker() {
         val viewModel =
             ViewModelProvider(requireActivity()).get(InfoScreenViewModel::class.java)
-
-
-
         binding.npAge.apply {
             maxValue = 70
             minValue = 18

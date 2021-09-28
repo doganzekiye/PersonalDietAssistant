@@ -16,6 +16,9 @@
     <string name="info_height_title">Height</string>
     <string name="info_weight_title">Weight</string>
     <string name="info_button_title">Devam</string>
+    <string name="info_gender_title">Cinsiyet seç</string>
+
+
     <string name="screen_intro1_title">TITLE1</string>
     <string name="screen_intro1_desc">DESCRIPTION1</string>
 

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.toDrawable
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -33,26 +32,39 @@ class GenderFragment : BaseFragment() {
             findNavController().navigateUp()
         })
     }
-    fun clickOnImage(){
+
+    fun clickOnImage() {
         val viewModel =
             ViewModelProvider(requireActivity()).get(InfoScreenViewModel::class.java)
-        val res = binding.root.context.resources
         binding.clFemale.setOnClickListener {
-
-            binding.btnGenderAccept.visibility = View.VISIBLE
             binding.clFemale.setBackgroundResource(R.drawable.custom_green_rounded_corners)
             binding.clMale.setBackgroundResource(R.drawable.custom_gray_rounded_corners)
-            binding.tvGenderFemale.setTextColor(res.getColor(R.color.info_title))
-            binding.tvGenderMale.setTextColor(res.getColor(R.color.gray_dark))
-            viewModel.user.gender ="female"
+            binding.tvGenderFemale.setTextColor(
+                ContextCompat.getColor(
+                    binding.root.context, R.color.info_title
+                )
+            )
+            binding.tvGenderMale.setTextColor(
+                ContextCompat.getColor(
+                    binding.root.context, R.color.gray_dark
+                )
+            )
+            viewModel.user.gender = "female"
         }
         binding.clMale.setOnClickListener {
-            binding.btnGenderAccept.visibility = View.VISIBLE
             binding.clMale.setBackgroundResource(R.drawable.custom_green_rounded_corners)
             binding.clFemale.setBackgroundResource(R.drawable.custom_gray_rounded_corners)
-            binding.tvGenderMale.setTextColor(res.getColor(R.color.info_title))
-            binding.tvGenderFemale.setTextColor(res.getColor(R.color.gray_dark))
-            viewModel.user.gender ="male"
+            binding.tvGenderMale.setTextColor(
+                ContextCompat.getColor(
+                    binding.root.context, R.color.info_title
+                )
+            )
+            binding.tvGenderFemale.setTextColor(
+                ContextCompat.getColor(
+                    binding.root.context, R.color.gray_dark
+                )
+            )
+            viewModel.user.gender = "male"
         }
 
     }

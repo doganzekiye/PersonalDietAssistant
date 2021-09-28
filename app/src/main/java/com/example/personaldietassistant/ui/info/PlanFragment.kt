@@ -26,9 +26,9 @@ class PlanFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.rvPlan.adapter = PlanAdapter(canNavigateToNextScreen = { canNavigate ->
             if (canNavigate) {
-                binding.buttonNext.visibility = View.VISIBLE
+
             } else {
-                binding.buttonNext.visibility = View.GONE
+
             }
         })
 
@@ -36,7 +36,7 @@ class PlanFragment : BaseFragment() {
             findNavController().navigate(R.id.action_planFragment_to_nameFragment)
         }
 
-        setToolbar(binding.toolbar.root,title = "Plan Seç", onClick = {
+        setToolbar(binding.toolbar.root, title = "Plan Seç", onClick = {
             findNavController().navigateUp()
         })
     }
