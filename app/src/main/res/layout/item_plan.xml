@@ -13,11 +13,11 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView"
-            android:layout_width="344dp"
-            android:layout_height="88dp"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp88"
             android:layout_margin="@dimen/dp8"
-            app:cardCornerRadius="@dimen/searchCardCornerRadiusSize"
-            app:cardElevation="2dp"
+            app:cardCornerRadius="@dimen/cardCornerRadiusSize"
+            app:cardElevation="@dimen/dp0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,51 +35,27 @@
                     android:layout_marginStart="@dimen/dp16"
                     app:layout_constraintBottom_toBottomOf="@id/planItemImage"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@id/planItemImage"
                     app:layout_constraintTop_toTopOf="@id/planItemImage"
                     tools:text="@string/screen_info_plan_1_title" />
 
-                <TextView
-                    android:id="@+id/planItemDesc"
-                    style="@style/CardDescription"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@id/planItemTitle"
-                    app:layout_constraintTop_toBottomOf="@+id/planItemTitle"
-                    tools:text="@string/screen_info_plan_1_desc" />
-
                 <ImageView
                     android:id="@+id/planItemImage"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_width="@dimen/dp48"
+                    android:layout_height="@dimen/dp48"
+                    android:layout_marginStart="@dimen/dp16"
+                    android:layout_marginTop="@dimen/dp16"
+                    android:layout_marginBottom="@dimen/dp16"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/intro_1_image" />
-
-                <ImageView
-                    android:id="@+id/planLockLayer"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@color/black_transparent"
-                    android:padding="@dimen/dp16"
-                    android:src="@drawable/ic_lock"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:src="@drawable/ic_plan_item_body" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

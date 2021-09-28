@@ -11,81 +11,167 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.info.GenderFragment">
+
         <include
             android:id="@+id/toolbar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            layout="@layout/toolbar_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            layout="@layout/toolbar_layout"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_genderTitle"
+            style="@style/InfoTitle"
             android:layout_width="@dimen/dp0"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp16"
-            android:text="Gender"
-            android:textColor="@color/black"
-            android:textSize="32sp"
-            android:textStyle="bold"
+            android:text="Cinsiyet Seç"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
-
-        <TextView
-            android:id="@+id/tv_genderDescription"
-            android:layout_width="@dimen/dp0"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dp16"
-            android:layout_marginTop="@dimen/dp8"
-            android:text="Let's start Let's start Let's start Let's start"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_genderTitle" />
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_gender"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp0"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
 
-        <ImageView
-            android:id="@+id/iv_female"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="@dimen/dp0"
-            android:layout_height="@dimen/dp0"
-            android:layout_marginTop="@dimen/dp16"
-            android:layout_marginHorizontal="@dimen/dp16"
-            android:src="@drawable/intro_1_image"
-            app:layout_constraintBottom_toTopOf="@id/gl_gender"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="@dimen/dp88"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp32"
+            android:layout_marginEnd="@dimen/dp8"
+            app:layout_constraintEnd_toStartOf="@id/gl_gender"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_genderDescription" />
+            app:layout_constraintTop_toBottomOf="@id/tv_genderTitle">
 
-        <ImageView
-            android:id="@+id/iv_male"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_female"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_gray_rounded_corners"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/iv_female"
+                    android:layout_width="@dimen/dp48"
+                    android:layout_height="@dimen/dp48"
+                    android:layout_marginVertical="@dimen/dp16"
+                    android:layout_marginStart="@dimen/dp16"
+                    android:layout_marginTop="@dimen/dp32"
+                    android:src="@drawable/ic_female"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_genderFemale"
+                    style="@style/GenderType"
+                    android:layout_width="@dimen/dp0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/female"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_female"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_female"
+                    app:layout_constraintTop_toTopOf="@id/iv_female" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="@dimen/dp0"
-            android:layout_height="@dimen/dp0"
-            android:layout_marginTop="@dimen/dp16"
-            android:layout_marginHorizontal="@dimen/dp16"
-            android:src="@drawable/intro_1_image"
-            app:layout_constraintBottom_toTopOf="@id/btn_genderAccept"
+            android:layout_height="@dimen/dp88"
+            android:layout_marginStart="@dimen/dp8"
+            android:layout_marginTop="@dimen/dp32"
+            android:layout_marginEnd="@dimen/dp16"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gl_gender" />
+            app:layout_constraintStart_toEndOf="@id/gl_gender"
+            app:layout_constraintTop_toBottomOf="@id/tv_genderTitle">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_male"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_gray_rounded_corners"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/iv_male"
+                    android:layout_width="@dimen/dp48"
+                    android:layout_height="@dimen/dp48"
+                    android:layout_marginVertical="@dimen/dp16"
+                    android:layout_marginStart="@dimen/dp16"
+                    android:layout_marginTop="@dimen/dp32"
+                    android:src="@drawable/ic_male"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_genderMale"
+                    style="@style/GenderType"
+                    android:layout_width="@dimen/dp0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/male"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_male"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_male"
+                    app:layout_constraintTop_toTopOf="@id/iv_male" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
             android:id="@+id/btn_genderAccept"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp16"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp48"
+            android:layout_marginHorizontal="@dimen/dp16"
             android:layout_marginBottom="@dimen/dp24"
-            android:src="@drawable/ic_arrow_black_right"
-            app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:backgroundTint="@color/green"
+            android:text="@string/info_button_title"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/cv_weightDesc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_weightDesc"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp16"
+            android:layout_marginBottom="@dimen/dp24"
+            app:cardBackgroundColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/InfoNameEt"
+                    android:layout_width="@dimen/dp0"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/dp16"
+                    android:paddingVertical="@dimen/dp16"
+                    android:text="Bu bilgileri hesaplamak ve size günlük kişiselleştirilmiş öneriler sunmak için kullanıyoruz."
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

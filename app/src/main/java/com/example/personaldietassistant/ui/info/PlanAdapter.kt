@@ -1,5 +1,8 @@
 package com.example.personaldietassistant.ui.info
 
+import android.annotation.SuppressLint
+import android.content.res.Resources
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,29 +18,31 @@ class PlanAdapter(
     private val canNavigateToNextScreen: (Boolean) -> Unit
 ) :
     RecyclerView.Adapter<PlanAdapter.ViewHolder>() {
+    lateinit var res : Resources
 
     inner class ViewHolder(val binding: ItemPlanBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("ResourceAsColor")
         fun bind(planModel: PlanModel) {
-            val res = binding.root.context.resources
+            res = binding.root.context.resources
             with(binding) {
                 planItemTitle.text = res.getString(planModel.title)
                 planItemImage.setImageResource(planModel.image)
                 if (planModel.isEnabled) {
-                    planLockLayer.visibility = View.GONE
+                    cardView.setBackgroundResource(R.color.white)
                 } else {
-                    planLockLayer.visibility = View.VISIBLE
+                    cardView.setBackgroundResource(R.color.gray)
+                    planItemTitle.setTextColor(res.getColor(R.color.gray_dark))
+                    //planItemImage.setBackgroundResource(R.color.gray)
                 }
             }
         }
 
         fun setSelected(isSelected: Boolean) {
             if (isSelected) {
-                binding.cardView.strokeWidth = 2
-                binding.cardView.strokeColor =
-                    ContextCompat.getColor(binding.root.context, R.color.pumpkin)
+                binding.cardView.setBackgroundResource(R.drawable.custom_green_rounded_corners)
             } else {
-                binding.cardView.strokeWidth = 0
+                binding.cardView.setBackgroundResource(R.drawable.custom_gray_rounded_corners)
             }
         }
     }
@@ -66,7 +71,7 @@ class PlanAdapter(
                         canNavigateToNextScreen.invoke(plan.isSelected)
                         viewHolder.setSelected(plan.isSelected)
                     } else {
-                        showMessage(viewHolder.itemView, "This feature will be enabled soon!")
+                        showMessage(viewHolder.itemView, res.getString(R.string.plan_unable_message))
                     }
                 }
             }

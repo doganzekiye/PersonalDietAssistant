@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.NumberPicker
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.FragmentHeightBinding
@@ -14,8 +13,8 @@ import com.example.personaldietassistant.ui.base.BaseFragment
 
 class HeightFragment : BaseFragment() {
     lateinit var binding: FragmentHeightBinding
-
-    lateinit var pickedHeight: TextView
+    var height: Float = 0.0f
+    var heightDecimal: Float = 0.0f
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +26,11 @@ class HeightFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         onClickNumberPicker()
+        val viewModel =
+            ViewModelProvider(requireActivity()).get(InfoScreenViewModel::class.java)
+
         binding.btnHeightAccept.setOnClickListener {
+            viewModel.user.height = height + heightDecimal
             findNavController().navigate(R.id.action_heightFragment_to_weightFragment)
         }
         setToolbar(binding.toolbar.root, title = "Boyunu Gir", onClick = {
@@ -36,7 +39,7 @@ class HeightFragment : BaseFragment() {
     }
 
     fun onClickNumberPicker() {
-         binding.npHeight.apply {
+        binding.npHeight.apply {
             maxValue = 220
             minValue = 120
             value = 150
@@ -44,7 +47,9 @@ class HeightFragment : BaseFragment() {
         }
 
         binding.npHeight.setOnValueChangedListener { picker, oldVal, newVal ->
-            binding.tvPickedHeight.text = (String.format("My height is %s.%s cm",  newVal,binding.npHeightDecimal.value))
+            binding.tvPickedHeight.text =
+                (String.format("My height is %s.%s cm", newVal, binding.npHeightDecimal.value))
+            height = newVal.toFloat()
         }
 
         binding.npHeightDecimal.apply {
@@ -54,12 +59,17 @@ class HeightFragment : BaseFragment() {
             wrapSelectorWheel = false
         }
 
-        binding.tvPickedHeight.text = (String.format("My height is %s.%s cm",  binding.npHeight.value,binding.npHeightDecimal.value))
+        binding.tvPickedHeight.text = (String.format(
+            "My height is %s.%s cm",
+            binding.npHeight.value,
+            binding.npHeightDecimal.value
+        ))
 
         binding.npHeightDecimal.setOnValueChangedListener { picker, oldVal, newVal ->
-            binding.tvPickedHeight.text = (String.format("My height is %s.%s cm", binding.npHeight.value ,newVal))
+            binding.tvPickedHeight.text =
+                (String.format("My height is %s.%s cm", binding.npHeight.value, newVal))
 
+            heightDecimal = (newVal.toFloat() / 10)
         }
-
     }
 }

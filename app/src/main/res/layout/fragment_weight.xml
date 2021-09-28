@@ -21,62 +21,52 @@
 
         <TextView
             android:id="@+id/tv_weightTitle"
+            style="@style/InfoTitle"
             android:layout_width="@dimen/dp0"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp16"
-            android:text="Weight"
-            android:textColor="@color/black"
-            android:textSize="32sp"
-            android:textStyle="bold"
+            android:text="@string/info_weight_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
         <TextView
-            android:id="@+id/tv_weightDescription"
-            android:layout_width="@dimen/dp0"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dp16"
-            android:layout_marginTop="@dimen/dp8"
-            android:text="Let's start Let's start Let's start Let's start"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_weightTitle" />
-
-        <TextView
             android:id="@+id/tv_pickedWeight"
+            style="@style/InfoTitle"
             android:layout_width="@dimen/dp0"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp16"
-            android:fontFamily="sans-serif-medium"
+            android:layout_marginTop="@dimen/dp128"
             android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_weightDescription"
-            app:layout_constraintVertical_bias="0.25"
+            app:layout_constraintTop_toBottomOf="@id/tv_weightTitle"
             tools:text="My weight is 74.3 kg" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp0"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp16"
             android:layout_marginTop="@dimen/dp16"
-            app:layout_constraintBottom_toTopOf="@id/btn_weightAccept"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_pickedWeight"
             app:layout_constraintVertical_bias="0.0">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="@dimen/dp0"
+                android:layout_height="@dimen/dp48"
+                android:background="@drawable/custom_number_picker_rounded_corners"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <NumberPicker
                 android:id="@+id/np_weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:theme="@style/NumberPickerTheme"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/np_weightDecimal"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -96,6 +86,7 @@
                 android:id="@+id/np_weightDecimal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:theme="@style/NumberPickerTheme"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -104,16 +95,47 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn_weightAccept"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_weightDesc"
+            android:layout_width="@dimen/dp0"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp16"
             android:layout_marginBottom="@dimen/dp24"
-            android:src="@drawable/ic_arrow_black_right"
-            app:backgroundTint="@color/white"
+            android:layout_marginHorizontal="@dimen/dp16"
+            app:cardBackgroundColor="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_weightAccept">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/InfoNameEt"
+                    android:layout_width="@dimen/dp0"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/dp16"
+                    android:paddingVertical="@dimen/dp16"
+                    android:text="Bu bilgileri hesaplamak ve size günlük kişiselleştirilmiş öneriler sunmak için kullanıyoruz."
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_weightAccept"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp48"
+            android:layout_marginHorizontal="@dimen/dp16"
+            android:layout_marginBottom="@dimen/dp24"
+            android:backgroundTint="@color/green"
+            android:text="@string/info_button_title"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

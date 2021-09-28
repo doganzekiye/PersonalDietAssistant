@@ -5,23 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearSnapHelper
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.FragmentAgeBinding
 import com.example.personaldietassistant.ui.base.BaseFragment
-import com.example.personaldietassistant.util.OnSnapPositionChangeListener
-import com.example.personaldietassistant.util.attachSnapHelperWithPositionListener
-import com.example.personaldietassistant.util.showMessage
 
-class AgeFragment : BaseFragment(), OnSnapPositionChangeListener {
+class AgeFragment : BaseFragment() {
 
     private lateinit var binding: FragmentAgeBinding
-    private var mCanNavigate: Boolean = false
-    val viewModel : InfoScreenViewModel by activityViewModels()
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
 
@@ -33,30 +25,39 @@ class AgeFragment : BaseFragment(), OnSnapPositionChangeListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        binding.rvAge.attachSnapHelperWithPositionListener(LinearSnapHelper(), this)
-        binding.rvAge.adapter = AgeAdapter(canNavigateToNextScreen = { canNavigate ->
-            mCanNavigate = canNavigate
-            if (canNavigate) {
-                binding.buttonNext.visibility = View.VISIBLE
-            } else {
-                binding.buttonNext.visibility = View.GONE
-            }
-        }, onAgeSelected = {
-            showMessage(it.toString())
-        })
+        onClickNumberPicker()
+        binding.buttonNext.setOnClickListener {
+            findNavController().navigate(R.id.action_ageFragment_to_heightFragment)
+        }
 
         setToolbar(binding.toolbar.root, title = "Select Your Age", onClick = {
             findNavController().navigateUp()
         })
 
-        binding.buttonNext.setOnClickListener {
-            findNavController().navigate(R.id.action_ageFragment_to_heightFragment)
-        }
     }
 
-    override fun onSnapPositionChange(position: Int) {
-        //showMessage(position.toString())
+    fun onClickNumberPicker() {
+        val viewModel =
+            ViewModelProvider(requireActivity()).get(InfoScreenViewModel::class.java)
+
+
+
+        binding.npAge.apply {
+            maxValue = 70
+            minValue = 18
+            value = 18
+            wrapSelectorWheel = false
+        }
+        binding.tvPickedAge.text = (String.format(
+            "My age is %s",
+            binding.npAge.value
+        ))
+
+        binding.npAge.setOnValueChangedListener { picker, oldVal, newVal ->
+            viewModel.user.age = newVal
+            binding.tvPickedAge.text =
+                (String.format("My age is %s", newVal))
+        }
     }
 }
 

@@ -15,7 +15,7 @@
             android:layout_marginTop="@dimen/dp24"
             android:layout_marginEnd="@dimen/dp24"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="@dimen/searchCardCornerRadiusSize"
+            app:cardCornerRadius="@dimen/cardCornerRadiusSize"
             app:cardElevation="@dimen/searchCardElevationSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

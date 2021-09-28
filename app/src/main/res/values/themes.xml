@@ -14,6 +14,8 @@
         <!-- Customize your theme here. -->
     </style>
 
+    /////////////////////////////////////////////////////////////////
+
     <style name="PdaTextBold">
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">cursive</item>
@@ -23,6 +25,8 @@
         <item name="android:textSize">@dimen/appNameSize</item>
         <item name="android:textColor">@color/pumpkin</item>
     </style>
+
+    /////////////////////////////////////////////////////////////////
 
     <style name="PdaTextNunitoRegular">
         <item name="android:fontFamily">@font/nunito</item>
@@ -49,22 +53,59 @@
         <item name="android:textColor">@color/intro_skip</item>
     </style>
 
-    <style name="CardTitle" parent="PdaTextNunitoBold">
-        <item name="android:textColor">@color/intro_title</item>
-        <item name="android:textSize">@dimen/card_title</item>
-    </style>
     <style name="CardDescription" parent="PdaTextNunitoRegular">
         <item name="android:textColor">@color/intro_description</item>
         <item name="android:textSize">@dimen/card_description</item>
     </style>
+    /////////////////////////////////////////////////////////////////////
 
+    <style name="PdaTextMontserratRegular">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="PdaTextMontserratBold">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+    </style>
+
+    <style name="CardTitle" parent="PdaTextMontserratRegular">
+        <item name="android:textColor">@color/plan_item_title</item>
+        <item name="android:textSize">@dimen/card_title</item>
+    </style>
+
+    <style name="InfoTitle" parent="PdaTextMontserratBold">
+        <item name="android:textColor">@color/info_title</item>
+        <item name="android:textSize">@dimen/infoTitleSize</item>
+    </style>
+
+    <style name="InfoNameEt" parent="PdaTextMontserratRegular">
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textSize">@dimen/infoTextSize</item>
+    </style>
+
+    <style name="GenderType" parent="PdaTextMontserratRegular">
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textSize">@dimen/infoTextSize</item>
+    </style>
+
+    /////////////////////////////////////////////////////////////////////
 
     <style name="Theme.PersonalDietAssistant.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="Theme.PersonalDietAssistant.AppBarOverlay"
-        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.PersonalDietAssistant.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Theme.PersonalDietAssistant.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    /////////////////////////////////////////////////////////////////////
+    <style name="NumberPickerTheme" parent="Theme.PersonalDietAssistant">
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="android:textSize">@dimen/numberPickerTextSize</item>
+        <item name="fontFamily">@font/montserrat_bold</item>
+        <item name="android:textColor">@color/info_title</item>
+    </style>
 
 </resources>

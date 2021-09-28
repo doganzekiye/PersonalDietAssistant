@@ -2,8 +2,6 @@ package com.example.personaldietassistant.ui.info
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -14,7 +12,6 @@ import com.example.personaldietassistant.ui.base.BaseActivity
 class InfoScreenActivity : BaseActivity() {
 
     private lateinit var binding: ActivityInfoScreenBinding
-    private lateinit var viewModel: InfoScreenViewModel
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,18 +19,9 @@ class InfoScreenActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(
             this, R.layout.activity_info_screen
         )
-
-        viewModel = ViewModelProvider(this).get(InfoScreenViewModel::class.java)
-        viewModel.test.value = true
         val navHost =
             supportFragmentManager.findFragmentById(R.id.info_fragment_navhost) as NavHostFragment
         navController = navHost.findNavController()
 
-    }
-
-    private fun observeLiveData() {
-        viewModel.test.observe(this, Observer {
-
-        })
     }
 }

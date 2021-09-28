@@ -5,9 +5,17 @@
     <string name="food_cal_exp">195</string>
     <string name="app_name">Application Name</string>
     <string name="skip">Atla</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
     <string name="start">Başla</string>
     <string name="empty"></string>
-
+    <string name="info_age_title">Yaş</string>
+    <string name="info_plan_title">Bir Hedef Seç</string>
+    <string name="plan_unable_message">This feature will be enabled soon!</string>
+    <string name="info_name_et">Kullanıcı adınızı yazınız.</string>
+    <string name="info_height_title">Height</string>
+    <string name="info_weight_title">Weight</string>
+    <string name="info_button_title">Devam</string>
     <string name="screen_intro1_title">TITLE1</string>
     <string name="screen_intro1_desc">DESCRIPTION1</string>
 
@@ -16,6 +24,7 @@
 
     <string name="screen_intro3_title">TITLE3</string>
     <string name="screen_intro3_desc">DESCRIPTION3</string>
+
     <string name="title_activity_info_screen">InfoScreenActivity</string>
 
     <!-- Info screens -->
