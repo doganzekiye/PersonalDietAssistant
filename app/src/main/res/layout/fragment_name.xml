@@ -32,60 +32,39 @@
 
         <EditText
             android:id="@+id/et_enterName"
+            style="@style/InfoNameEt"
             android:layout_width="@dimen/dp0"
             android:layout_height="@dimen/dp48"
             android:layout_marginHorizontal="@dimen/dp16"
+            android:background="@drawable/custom_gray_rounded_corners"
             android:hint="@string/info_name_et"
             android:paddingStart="@dimen/dp24"
-            android:inputType="textPersonName"
-            style="@style/InfoNameEt"
-            android:background="@drawable/custom_gray_rounded_corners"
+            app:layout_constraintBottom_toTopOf="@id/btn_nameAccept"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/cv_weightDesc"
             app:layout_constraintTop_toBottomOf="@id/tv_nameTitle" />
+
+        <include
+            layout="@layout/info_desc"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp16"
+            android:layout_marginBottom="@dimen/dp24"
+            app:layout_constraintBottom_toTopOf="@id/btn_nameAccept"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btn_nameAccept"
             android:layout_width="@dimen/dp0"
             android:layout_height="@dimen/dp48"
             android:layout_marginHorizontal="@dimen/dp16"
-            android:visibility="gone"
             android:layout_marginBottom="@dimen/dp16"
             android:backgroundTint="@color/green"
             android:text="@string/info_button_title"
-            app:layout_constraintBottom_toTopOf="@id/cv_weightDesc"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_weightDesc"
-            android:layout_width="@dimen/dp0"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dp16"
-            android:layout_marginBottom="@dimen/dp24"
-            app:cardBackgroundColor="@color/gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    style="@style/InfoNameEt"
-                    android:layout_width="@dimen/dp0"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/dp16"
-                    android:paddingVertical="@dimen/dp16"
-                    android:text="Bu bilgileri hesaplamak ve size günlük kişiselleştirilmiş öneriler sunmak için kullanıyoruz."
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,4 +22,5 @@
     <color name="plan_item_title">#000000</color>
     <color name="gray_dark">#9C9D9F</color>
     <color name="gray">#E3E3E3</color>
+    <color name="info_desc_bg">#F7F8FC</color>
 </resources>

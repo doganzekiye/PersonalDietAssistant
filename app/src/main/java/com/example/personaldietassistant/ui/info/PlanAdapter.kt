@@ -32,7 +32,7 @@ class PlanAdapter(
                     cardView.setBackgroundResource(R.color.white)
                 } else {
                     cardView.setBackgroundResource(R.color.gray)
-                    planItemTitle.setTextColor(res.getColor(R.color.gray_dark))
+                    planItemTitle.setTextColor(ContextCompat.getColor(root.context,R.color.gray_dark))
                     //planItemImage.setBackgroundResource(R.color.gray)
                 }
             }

@@ -26,6 +26,7 @@
     <dimen name="infoTextSize">16sp</dimen>
     <dimen name="numberPickerTextSize">21sp</dimen>
     <dimen name="card_title">18sp</dimen>
+    <dimen name="infoDescSize">14sp</dimen>
     <dimen name="card_description">12sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 </resources>

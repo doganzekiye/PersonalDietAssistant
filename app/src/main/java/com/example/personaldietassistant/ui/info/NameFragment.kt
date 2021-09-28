@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.personaldietassistant.R
@@ -17,7 +18,9 @@ import com.example.personaldietassistant.util.showMessage
 class NameFragment : BaseFragment() {
     var binding: FragmentNameBinding? = null
 
-    //val viewModel: InfoScreenViewModel by activityViewModels()
+    //val viewModel =
+      //  ViewModelProvider(requireActivity()).get(InfoScreenViewModel::class.java)
+    val viewModel: InfoScreenViewModel by activityViewModels()
     lateinit var userName: String
 
     override fun onCreateView(
@@ -45,10 +48,10 @@ class NameFragment : BaseFragment() {
             }
         })
         binding!!.btnNameAccept.setOnClickListener {
-            val viewModel =
-                ViewModelProvider(requireActivity()).get(InfoScreenViewModel::class.java)
+
             viewModel.user.name = userName
-            findNavController().navigate(R.id.action_nameFragment_to_genderFragment)
+            showMessage(viewModel.user.name)
+            //findNavController().navigate(R.id.action_nameFragment_to_genderFragment)
         }
         setToolbar(binding!!.toolbar.root, title = "Adını Gir", onClick = {
             findNavController().navigateUp()

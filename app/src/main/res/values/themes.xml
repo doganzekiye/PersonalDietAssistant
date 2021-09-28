@@ -89,6 +89,10 @@
         <item name="android:textSize">@dimen/infoTextSize</item>
     </style>
 
+    <style name="InfoDesc" parent="PdaTextMontserratRegular">
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textSize">@dimen/infoDescSize</item>
+    </style>
     /////////////////////////////////////////////////////////////////////
 
     <style name="Theme.PersonalDietAssistant.NoActionBar">
