@@ -13,6 +13,7 @@
     <dimen name="dp128">128dp</dimen>
     <dimen name="dp88">88dp</dimen>
     <dimen name="dp340">340dp</dimen>
+    <dimen name="buttonHeight">56dp</dimen>
     <dimen name="foodItemLineSize">1dp</dimen>
     <dimen name="indicatorCiMarginSize">5dp</dimen>
     <dimen name="cardCornerRadiusSize">8dp</dimen>
