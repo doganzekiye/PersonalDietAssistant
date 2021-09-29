@@ -63,5 +63,14 @@
         android:id="@+id/targetFragment"
         android:name="com.example.personaldietassistant.ui.info.TargetFragment"
         android:label="fragment_target"
-        tools:layout="@layout/fragment_target" />
+        tools:layout="@layout/fragment_target" >
+        <action
+            android:id="@+id/action_targetFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.example.personaldietassistant.ui.info.SummaryFragment"
+        android:label="fragment_summary"
+        tools:layout="@layout/fragment_summary" />
 </navigation>

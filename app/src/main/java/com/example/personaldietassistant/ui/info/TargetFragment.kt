@@ -31,7 +31,7 @@ class TargetFragment : BaseFragment() {
         onClickNumberPicker()
         binding.btnTargetAccept.setOnClickListener {
             viewModel.user.targetWeight = mTarget + mTargetDecimal
-            //findNavController().navigate(R.id)
+            findNavController().navigate(R.id.action_targetFragment_to_summaryFragment)
         }
         setToolbar(binding.toolbar.root, title = "Hedef Kilonu Gir", onClick = {
             findNavController().navigateUp()

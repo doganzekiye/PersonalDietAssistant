@@ -13,7 +13,8 @@ import com.example.personaldietassistant.util.showMessage
 
 class PlanAdapter(
     private val planModelsList: Array<PlanModel> = PlanModel.values(),
-    private val canNavigateToNextScreen: (Boolean) -> Unit
+    private val canNavigateToNextScreen: (Boolean) -> Unit,
+    private val viewModel: InfoScreenViewModel
 ) :
     RecyclerView.Adapter<PlanAdapter.ViewHolder>() {
     lateinit var res: Resources
@@ -21,7 +22,7 @@ class PlanAdapter(
     inner class ViewHolder(val binding: ItemPlanBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("ResourceAsColor")
-        fun bind(planModel: PlanModel) {
+        fun bind(planModel: PlanModel, position: Int) {
             res = binding.root.context.resources
             with(binding) {
                 planItemTitle.text = res.getString(planModel.title)
@@ -38,6 +39,9 @@ class PlanAdapter(
                     )
                 }
             }
+            if (position == viewModel.validPlanRowId.value) {
+                setSelected(viewModel.isPlanValid.value!!)
+            }
         }
 
         fun setSelected(isSelected: Boolean) {
@@ -50,16 +54,17 @@ class PlanAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         val binding = ItemPlanBinding.inflate(inflater, parent, false)
+
+
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val plan = planModelsList[position]
-        viewHolder.bind(plan)
+        viewHolder.bind(plan,position)
 
         viewHolder.itemView.apply {
             setOnClickListener {
@@ -67,6 +72,7 @@ class PlanAdapter(
                     if (plan.isEnabled) {
                         plan.isSelected = plan.isSelected.not()
                         canNavigateToNextScreen.invoke(plan.isSelected)
+                        viewModel.validPlanRowId.value = position
                         viewHolder.setSelected(plan.isSelected)
                     } else {
                         showMessage(

@@ -29,7 +29,7 @@ class PlanFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.rvPlan.adapter = PlanAdapter(canNavigateToNextScreen = { canNavigate ->
             viewModel.isPlanValid.postValue(canNavigate)
-        })
+        },viewModel = viewModel!!)
 
         binding.buttonNext.setOnClickListener {
             findNavController().navigate(R.id.action_planFragment_to_nameFragment)

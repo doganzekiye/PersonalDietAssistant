@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.FragmentGenderBinding
@@ -28,18 +29,39 @@ class GenderFragment : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        clickOnGender()
-        binding.btnGenderAccept.setOnClickListener {
-            findNavController().navigate(R.id.action_genderFragment_to_ageFragment)
-        }
+        setClickListeners()
+        observeViewModel()
         setToolbar(binding.toolbar.root, title = "Cinsiyet Seç", onClick = {
             findNavController().navigateUp()
         })
     }
 
-    private fun clickOnGender() {
+    private fun observeViewModel() {
+        viewModel.selectedGender.observe(viewLifecycleOwner, Observer {
+            if (it.first == getString(R.string.female) && it.second) {
+                setGenderLayout("female")
+            } else if (it.first == getString(R.string.male) && it.second) {
+                setGenderLayout("male")
+            }
+        })
+    }
+
+    private fun setClickListeners() {
         binding.clFemale.setOnClickListener {
-            viewModel.isGenderValid.postValue(true)
+            viewModel.selectedGender.postValue(Pair(getString(R.string.female), true))
+        }
+
+        binding.clMale.setOnClickListener {
+            viewModel.selectedGender.postValue(Pair(getString(R.string.male), true))
+        }
+
+        binding.btnGenderAccept.setOnClickListener {
+            findNavController().navigate(R.id.action_genderFragment_to_ageFragment)
+        }
+    }
+
+    private fun setGenderLayout(gender: String) {
+        if (gender == "female") {
             binding.clFemale.setBackgroundResource(R.drawable.custom_green_rounded_corners)
             binding.clMale.setBackgroundResource(R.drawable.custom_gray_rounded_corners)
             binding.tvGenderFemale.setTextColor(
@@ -53,10 +75,7 @@ class GenderFragment : BaseFragment() {
                 )
             )
             viewModel.user.gender = getString(R.string.female)
-        }
-
-        binding.clMale.setOnClickListener {
-            viewModel.isGenderValid.postValue(true)
+        } else if (gender == "male") {
             binding.clMale.setBackgroundResource(R.drawable.custom_green_rounded_corners)
             binding.clFemale.setBackgroundResource(R.drawable.custom_gray_rounded_corners)
             binding.tvGenderMale.setTextColor(

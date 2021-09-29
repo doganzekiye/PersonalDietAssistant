@@ -143,13 +143,11 @@
 
         <Button
             android:id="@+id/btn_genderAccept"
-            android:layout_width="@dimen/dp0"
-            android:layout_height="@dimen/dp48"
+            style="@style/PdaButton"
             android:layout_marginHorizontal="@dimen/dp16"
             android:layout_marginBottom="@dimen/dp24"
-            android:backgroundTint="@color/green"
-            android:enabled="@{viewModel.isGenderValid()}"
             android:text="@string/info_button_title"
+            android:enabled="@{viewModel.selectedGender.second}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

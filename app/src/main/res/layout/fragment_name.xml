@@ -37,7 +37,7 @@
                 android:layout_width="@dimen/dp0"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/dp16"
-                android:text="@{viewModel.userName}"
+                android:text="@{viewModel.userWelcomeText}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/toolbar" />
@@ -50,6 +50,7 @@
                 android:layout_marginHorizontal="@dimen/dp16"
                 android:background="@drawable/custom_gray_rounded_corners"
                 android:hint="@string/info_name_et"
+                android:text="@{viewModel.user.name}"
                 android:paddingStart="@dimen/dp24"
                 app:layout_constraintBottom_toTopOf="@+id/include"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -71,13 +72,11 @@
 
         <Button
             android:id="@+id/btn_nameAccept"
-            android:layout_width="@dimen/dp0"
-            android:layout_height="@dimen/buttonHeight"
+            style="@style/PdaButton"
             android:layout_marginHorizontal="@dimen/dp16"
             android:layout_marginBottom="@dimen/dp24"
-            android:backgroundTint="@color/green"
-            android:enabled="@{viewModel.isNameValid()}"
             android:text="@string/info_button_title"
+            android:enabled="@{viewModel.isNameValid()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

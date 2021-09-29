@@ -73,14 +73,11 @@
 
         <Button
             android:id="@+id/buttonNext"
-            android:layout_width="@dimen/dp0"
-            android:layout_height="@dimen/dp48"
+            style="@style/PdaButton"
             android:layout_marginHorizontal="@dimen/dp16"
-            android:layout_marginTop="@dimen/dp16"
             android:layout_marginBottom="@dimen/dp24"
-            android:enabled="@{viewModel.isPlanValid()}"
-            android:backgroundTint="@color/green"
             android:text="@string/info_button_title"
+            android:enabled="@{viewModel.isPlanValid()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
