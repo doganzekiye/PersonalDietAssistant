@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.FragmentNameBinding
 import com.example.personaldietassistant.ui.base.BaseFragment
-import com.example.personaldietassistant.util.showMessage
 
 class NameFragment : BaseFragment() {
 
@@ -29,25 +28,29 @@ class NameFragment : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        onClickText()
         setToolbar(binding.toolbar.root, title = "Adını Gir", onClick = {
             findNavController().navigateUp()
         })
 
+        binding.btnNameAccept.setOnClickListener {
+            findNavController().navigate(R.id.action_nameFragment_to_genderFragment)
+        }
+    }
+
+    private fun onClickText() {
         binding.etEnterName.doAfterTextChanged { s ->
             s?.let {
                 viewModel.isNameValid.postValue((s.length >= 2))
 
                 if (s.toString().length >= 2) {
-                    viewModel.userName.postValue("Merhaba $s,")
+                    viewModel.userName.postValue(getString(R.string.hello)+" "+s.toString()+",")
+                    viewModel.user.name = s.toString()
                 } else {
-                    viewModel.userName.postValue("Hadi seni tanıyalım..")
+                    viewModel.userName.postValue(getString(R.string.info_name_title))
+                    viewModel.user.name = getString(R.string.empty)
                 }
             }
-        }
-
-        binding.btnNameAccept.setOnClickListener {
-            findNavController().navigate(R.id.action_nameFragment_to_genderFragment)
         }
     }
 }

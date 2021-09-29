@@ -1,7 +1,6 @@
 package com.example.personaldietassistant.ui.info
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -13,6 +12,7 @@ import com.example.personaldietassistant.ui.base.BaseActivity
 
 class InfoScreenActivity : BaseActivity() {
 
+    private lateinit var viewModel: InfoScreenViewModel
     private lateinit var binding: ActivityInfoScreenBinding
     private lateinit var navController: NavController
 
@@ -21,8 +21,7 @@ class InfoScreenActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(
             this, R.layout.activity_info_screen
         )
-
-        val viewModel: InfoScreenViewModel by viewModels()
+        viewModel = ViewModelProvider(this).get(InfoScreenViewModel::class.java)
 
         val navHost =
             supportFragmentManager.findFragmentById(R.id.info_fragment_navhost) as NavHostFragment

@@ -6,21 +6,22 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#2E2E2E</color>
-    <color name="black_transparent">#402E2E2E</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="divider">#ecf0f1</color>
+
     <color name="orange">#f39c12</color>
     <color name="pumpkin">#d35400</color>
-    <color name="intro_title">#263238</color>
-    <color name="intro_description">#9C9D9F</color>
+
+    <color name="divider">#ECF0F1</color>
+    <color name="background">#FAFAFA</color>
+
+    <color name="page_title">#263238</color>
+    <color name="gray_dark">#9C9D9F</color>
+    <color name="green">#6CC586</color>
+    <color name="gray">#E3E3E3</color>
+
     <color name="intro_skip">#CDCED0</color>
     <color name="intro_button">#69C684</color>
-    <color name="background">#FAFAFA</color>
-    <color name="info_title">#263238</color>
-    <color name="green">#6CC586</color>
-    <color name="plan_unselected_border">#80E3E3E3</color>
+
     <color name="plan_item_title">#000000</color>
-    <color name="gray_dark">#9C9D9F</color>
-    <color name="gray">#E3E3E3</color>
     <color name="info_desc_bg">#F7F8FC</color>
 </resources>

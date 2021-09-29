@@ -42,7 +42,7 @@ class IntroPagerActivity : AppCompatActivity() {
     }
 
     fun lastPageProcess() {
-        binding.introPageButton.text = getString(R.string.start)
+        binding.introPageButton.text = getString(R.string.intro_start)
         binding.introPageButton.icon = null
         binding.introSkip.visibility = View.GONE
 

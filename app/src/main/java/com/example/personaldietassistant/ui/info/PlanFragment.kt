@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.FragmentPlanBinding
@@ -13,23 +14,21 @@ import com.example.personaldietassistant.ui.base.BaseFragment
 class PlanFragment : BaseFragment() {
 
     lateinit var binding: FragmentPlanBinding
+    private val viewModel: InfoScreenViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_plan, container, false)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.rvPlan.adapter = PlanAdapter(canNavigateToNextScreen = { canNavigate ->
-            if (canNavigate) {
-
-            } else {
-
-            }
+            viewModel.isPlanValid.postValue(canNavigate)
         })
 
         binding.buttonNext.setOnClickListener {

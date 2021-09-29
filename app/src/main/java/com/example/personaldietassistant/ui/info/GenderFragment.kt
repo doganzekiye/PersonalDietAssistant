@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.FragmentGenderBinding
@@ -15,16 +15,20 @@ import com.example.personaldietassistant.ui.base.BaseFragment
 class GenderFragment : BaseFragment() {
 
     lateinit var binding: FragmentGenderBinding
+    private val viewModel: InfoScreenViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gender, container, false)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        clickOnImage()
+        clickOnGender()
         binding.btnGenderAccept.setOnClickListener {
             findNavController().navigate(R.id.action_genderFragment_to_ageFragment)
         }
@@ -33,15 +37,14 @@ class GenderFragment : BaseFragment() {
         })
     }
 
-    fun clickOnImage() {
-        val viewModel =
-            ViewModelProvider(requireActivity()).get(InfoScreenViewModel::class.java)
+    private fun clickOnGender() {
         binding.clFemale.setOnClickListener {
+            viewModel.isGenderValid.postValue(true)
             binding.clFemale.setBackgroundResource(R.drawable.custom_green_rounded_corners)
             binding.clMale.setBackgroundResource(R.drawable.custom_gray_rounded_corners)
             binding.tvGenderFemale.setTextColor(
                 ContextCompat.getColor(
-                    binding.root.context, R.color.info_title
+                    binding.root.context, R.color.page_title
                 )
             )
             binding.tvGenderMale.setTextColor(
@@ -49,14 +52,16 @@ class GenderFragment : BaseFragment() {
                     binding.root.context, R.color.gray_dark
                 )
             )
-            viewModel.user.gender = "female"
+            viewModel.user.gender = getString(R.string.female)
         }
+
         binding.clMale.setOnClickListener {
+            viewModel.isGenderValid.postValue(true)
             binding.clMale.setBackgroundResource(R.drawable.custom_green_rounded_corners)
             binding.clFemale.setBackgroundResource(R.drawable.custom_gray_rounded_corners)
             binding.tvGenderMale.setTextColor(
                 ContextCompat.getColor(
-                    binding.root.context, R.color.info_title
+                    binding.root.context, R.color.page_title
                 )
             )
             binding.tvGenderFemale.setTextColor(
@@ -64,9 +69,7 @@ class GenderFragment : BaseFragment() {
                     binding.root.context, R.color.gray_dark
                 )
             )
-            viewModel.user.gender = "male"
+            viewModel.user.gender = getString(R.string.male)
         }
-
     }
-
 }

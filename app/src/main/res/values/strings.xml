@@ -4,33 +4,35 @@
     <string name="food_name_exp">Banana</string>
     <string name="food_cal_exp">195</string>
     <string name="app_name">Application Name</string>
-    <string name="skip">Atla</string>
     <string name="female">Female</string>
     <string name="male">Male</string>
-    <string name="start">Başla</string>
+    <string name="hello">Merhaba</string>
     <string name="empty"></string>
-    <string name="info_age_title">Yaş</string>
-    <string name="info_plan_title">Bir Hedef Seç</string>
-    <string name="plan_unable_message">This feature will be enabled soon!</string>
-    <string name="info_name_et">Kullanıcı adınızı yazınız.</string>
-    <string name="info_height_title">Height</string>
-    <string name="info_weight_title">Weight</string>
-    <string name="info_button_title">Devam</string>
-    <string name="info_gender_title">Cinsiyet seç</string>
 
-
+    ///////////////////////////////////////////////////////
+    <string name="intro_start">Başla</string>
+    <string name="intro_skip">Atla</string>
     <string name="screen_intro1_title">TITLE1</string>
     <string name="screen_intro1_desc">DESCRIPTION1</string>
-
     <string name="screen_intro2_title">TITLE2</string>
     <string name="screen_intro2_desc">DESCRIPTION2</string>
-
     <string name="screen_intro3_title">TITLE3</string>
     <string name="screen_intro3_desc">DESCRIPTION3</string>
 
+    ///////////////////////////////////////////////////////
     <string name="title_activity_info_screen">InfoScreenActivity</string>
+    <string name="info_age_title">Yaş</string>
+    <string name="info_plan_title">Bir Hedef Seç</string>
+    <string name="info_name_title">Hadi seni tanıyalım..</string>
+    <string name="info_height_title">Boy</string>
+    <string name="info_weight_title">Kilo</string>
+    <string name="info_button_title">Devam</string>
+    <string name="info_gender_title">Cinsiyet seç</string>
+    <string name="info_plan_unable_message">This feature will be enabled soon!</string>
+    <string name="info_name_et">Kullanıcı adınızı yazınız.</string>,
+    <string name="info_desc_tv">Bu bilgileri hesaplamak ve size günlük kişiselleştirilmiş öneriler sunmak için kullanıyoruz.</string>
 
-    <!-- Info screens -->
+    <!-- Info model fields -->
     <string name="screen_info_plan_1_title">Kilo Verme</string>
     <string name="screen_info_plan_2_title">Kilo Alma</string>
     <string name="screen_info_plan_3_title">Detoks</string>
@@ -42,14 +44,6 @@
     <string name="screen_info_plan_4_desc">pH Dengesi description</string>
     <string name="screen_info_plan_5_desc">Şeker Dengesi description</string>
 
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    ///////////////////////////////////////////////////////
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

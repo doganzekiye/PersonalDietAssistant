@@ -14,7 +14,7 @@ fun Context.showMessage(text: String) {
 
 fun Context.showMessage(view: View, text: String) {
     val snack = Snackbar.make(view, text, Snackbar.LENGTH_SHORT)
-    snack.setBackgroundTint(ContextCompat.getColor(view.context, R.color.pumpkin))
+    snack.setBackgroundTint(ContextCompat.getColor(view.context, R.color.black))
     snack.setTextColor(ContextCompat.getColor(view.context, R.color.white))
     snack.show()
 }

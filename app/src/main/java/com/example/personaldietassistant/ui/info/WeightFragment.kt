@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.FragmentWeightBinding
@@ -13,8 +13,9 @@ import com.example.personaldietassistant.ui.base.BaseFragment
 
 class WeightFragment : BaseFragment() {
     lateinit var binding: FragmentWeightBinding
-    var mWeight : Float = 0.0f
-    var mWeightDecimal : Float = 0.0f
+    private val viewModel: InfoScreenViewModel by activityViewModels()
+    var mWeight: Float = 0.0f
+    var mWeightDecimal: Float = 0.0f
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,19 +28,16 @@ class WeightFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         onClickNumberPicker()
-        val viewModel =
-            ViewModelProvider(requireActivity()).get(InfoScreenViewModel::class.java)
-
         binding.btnWeightAccept.setOnClickListener {
-            viewModel.user.weight = mWeight+ mWeightDecimal
-            //findNavController().navigate(R.id.)
+            viewModel.user.weight = mWeight + mWeightDecimal
+            findNavController().navigate(R.id.action_weightFragment_to_targetFragment)
         }
         setToolbar(binding.toolbar.root, title = "Kilonu Gir", onClick = {
             findNavController().navigateUp()
         })
     }
 
-    fun onClickNumberPicker() {
+    private fun onClickNumberPicker() {
         binding.npWeight.apply {
             maxValue = 220
             minValue = 30
@@ -69,9 +67,8 @@ class WeightFragment : BaseFragment() {
         binding.npWeightDecimal.setOnValueChangedListener { picker, oldVal, newVal ->
             binding.tvPickedWeight.text =
                 (String.format("My weight is %s.%s kg", binding.npWeight.value, newVal))
-            mWeightDecimal = (newVal.toFloat()/10)
+            mWeightDecimal = (newVal.toFloat() / 10)
 
         }
-
     }
 }

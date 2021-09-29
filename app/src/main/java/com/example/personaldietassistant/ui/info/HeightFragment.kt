@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.FragmentHeightBinding
@@ -13,6 +13,7 @@ import com.example.personaldietassistant.ui.base.BaseFragment
 
 class HeightFragment : BaseFragment() {
     lateinit var binding: FragmentHeightBinding
+    private val viewModel: InfoScreenViewModel by activityViewModels()
     var height: Float = 0.0f
     var heightDecimal: Float = 0.0f
 
@@ -21,14 +22,13 @@ class HeightFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_height, container, false)
+        //binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         onClickNumberPicker()
-        val viewModel =
-            ViewModelProvider(requireActivity()).get(InfoScreenViewModel::class.java)
-
         binding.btnHeightAccept.setOnClickListener {
             viewModel.user.height = height + heightDecimal
             findNavController().navigate(R.id.action_heightFragment_to_weightFragment)
@@ -38,7 +38,7 @@ class HeightFragment : BaseFragment() {
         })
     }
 
-    fun onClickNumberPicker() {
+    private fun onClickNumberPicker() {
         binding.npHeight.apply {
             maxValue = 220
             minValue = 120

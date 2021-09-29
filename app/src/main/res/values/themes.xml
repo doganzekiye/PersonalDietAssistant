@@ -44,7 +44,7 @@
     </style>
 
     <style name="BoldTitle" parent="PdaTextNunitoBold">
-        <item name="android:textColor">@color/intro_title</item>
+        <item name="android:textColor">@color/page_title</item>
         <item name="android:textSize">@dimen/fontTitleSize</item>
     </style>
 
@@ -54,7 +54,7 @@
     </style>
 
     <style name="CardDescription" parent="PdaTextNunitoRegular">
-        <item name="android:textColor">@color/intro_description</item>
+        <item name="android:textColor">@color/gray_dark</item>
         <item name="android:textSize">@dimen/card_description</item>
     </style>
     /////////////////////////////////////////////////////////////////////
@@ -75,7 +75,7 @@
     </style>
 
     <style name="InfoTitle" parent="PdaTextMontserratBold">
-        <item name="android:textColor">@color/info_title</item>
+        <item name="android:textColor">@color/page_title</item>
         <item name="android:textSize">@dimen/infoTitleSize</item>
     </style>
 
@@ -109,7 +109,7 @@
         <item name="colorControlNormal">@android:color/transparent</item>
         <item name="android:textSize">@dimen/numberPickerTextSize</item>
         <item name="fontFamily">@font/montserrat_bold</item>
-        <item name="android:textColor">@color/info_title</item>
+        <item name="android:textColor">@color/page_title</item>
     </style>
 
 </resources>

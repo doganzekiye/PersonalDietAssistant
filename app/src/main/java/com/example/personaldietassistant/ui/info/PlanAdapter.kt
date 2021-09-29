@@ -71,7 +71,7 @@ class PlanAdapter(
                     } else {
                         showMessage(
                             viewHolder.itemView,
-                            res.getString(R.string.plan_unable_message)
+                            res.getString(R.string.info_plan_unable_message)
                         )
                     }
                 }

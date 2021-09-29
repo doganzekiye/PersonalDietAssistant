@@ -40,7 +40,7 @@
             android:fontFamily="@font/nunito_semibold"
             android:gravity="start"
             android:text="Acıklama bla bla.."
-            android:textColor="@color/intro_description"
+            android:textColor="@color/gray_dark"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

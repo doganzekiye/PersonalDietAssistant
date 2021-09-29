@@ -19,7 +19,7 @@
             android:layout_width="@dimen/dp32"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp32"
-            android:text="@string/skip"
+            android:text="@string/intro_skip"
             app:layout_constraintBottom_toBottomOf="@+id/intro_page_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/intro_page_button" />

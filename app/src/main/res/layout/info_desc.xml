@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="@dimen/dp16"
             android:paddingVertical="@dimen/dp16"
-            android:text="Bu bilgileri hesaplamak ve size günlük kişiselleştirilmiş öneriler sunmak için kullanıyoruz."
+            android:text="@string/info_desc_tv"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
