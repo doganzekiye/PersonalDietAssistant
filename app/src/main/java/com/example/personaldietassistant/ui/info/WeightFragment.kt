@@ -21,8 +21,9 @@ class WeightFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_weight, container, false)
+        //binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 

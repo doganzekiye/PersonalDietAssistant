@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/targetFragment"
-        android:name="com.example.personaldietassistant.TargetFragment"
+        android:name="com.example.personaldietassistant.ui.info.TargetFragment"
         android:label="fragment_target"
         tools:layout="@layout/fragment_target" />
 </navigation>

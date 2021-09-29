@@ -28,6 +28,7 @@
     <string name="info_weight_title">Kilo</string>
     <string name="info_button_title">Devam</string>
     <string name="info_gender_title">Cinsiyet seç</string>
+    <string name="info_target_title">Hedefin</string>
     <string name="info_plan_unable_message">This feature will be enabled soon!</string>
     <string name="info_name_et">Kullanıcı adınızı yazınız.</string>,
     <string name="info_desc_tv">Bu bilgileri hesaplamak ve size günlük kişiselleştirilmiş öneriler sunmak için kullanıyoruz.</string>
