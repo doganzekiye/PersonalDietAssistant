@@ -3,54 +3,35 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/custom_gray_rounded_corners.xml" value="0.23385416666666667" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/custom_green_rounded_corners.xml" value="0.23385416666666667" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/custom_name_et_rounded_corners.xml" value="0.2520833333333333" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/custom_number_picker_rounded_corners.xml" value="0.240625" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/custom_rounded_corners.xml" value="0.2520833333333333" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/custum_rounded_corners.xml" value="0.2703125" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/gender_bg.xml" value="0.2703125" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_arrow_black_right.xml" value="0.22291666666666668" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_indicator_selected.xml" value="0.2703125" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_indicator_unselected.xml" value="0.2703125" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_plan_description.xml" value="0.2546875" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_plan_item_body.xml" value="0.2546875" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_search_icon.xml" value="0.2703125" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_steps_gender.xml" value="0.2546875" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/drawable/ic_white_arrow.xml" value="0.2703125" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/font/nunito_semibold.xml" value="0.284375" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_food_nutrients.xml" value="0.3489583333333333" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_food_search.xml" value="0.264" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_info_screen.xml" value="0.2" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_intro_pager.xml" value="0.25416666666666665" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_intro_pages.xml" value="0.25416666666666665" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_main.xml" value="0.35511363636363635" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_splash.xml" value="0.264" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_test.xml" value="0.2640625" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/content_info_screen.xml" value="0.25416666666666665" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_age.xml" value="0.2" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_first.xml" value="0.23854166666666668" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_first_intro.xml" value="0.25416666666666665" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_gender.xml" value="0.264" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_height.xml" value="0.23097826086956522" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_name.xml" value="0.264" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_plan.xml" value="0.25416666666666665" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_second.xml" value="0.23854166666666668" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_second_intro.xml" value="0.25416666666666665" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_third.xml" value="0.23854166666666668" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_third_intro.xml" value="0.25416666666666665" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/fragment_weight.xml" value="0.23097826086956522" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/info_desc.xml" value="0.2536231884057971" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/item_age.xml" value="0.17135416666666667" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/item_food.xml" value="0.36302083333333335" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/item_info_plan.xml" value="0.264" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/item_intro.xml" value="0.264" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/item_plan.xml" value="0.264" />
-        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/toolbar_layout.xml" value="0.23052536231884058" />
+        <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="app/src/main/res/drawable/custom_indicator_selected.xml" value="0.42604166666666665" />
+        <entry key="app/src/main/res/drawable/custom_indicator_unselected.xml" value="0.42604166666666665" />
+        <entry key="app/src/main/res/drawable/ic_arrow_black_right.xml" value="0.2515625" />
+        <entry key="app/src/main/res/drawable/ic_arrow_right_green.xml" value="0.2515625" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.42604166666666665" />
+        <entry key="app/src/main/res/drawable/ic_circle.xml" value="0.2515625" />
+        <entry key="app/src/main/res/drawable/ic_indicator_selected.xml" value="0.42604166666666665" />
+        <entry key="app/src/main/res/drawable/ic_lock.xml" value="0.42604166666666665" />
+        <entry key="app/src/main/res/drawable/ic_search_icon.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/drawable/ic_white_arrow.xml" value="0.2515625" />
+        <entry key="app/src/main/res/layout/activity_food_search.xml" value="0.23143115942028986" />
+        <entry key="app/src/main/res/layout/activity_info_screen.xml" value="0.40989583333333335" />
+        <entry key="app/src/main/res/layout/activity_intro_pager.xml" value="0.29891314184617307" />
+        <entry key="app/src/main/res/layout/fragment_age.xml" value="0.2807971014492754" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.2807971014492754" />
+        <entry key="app/src/main/res/layout/fragment_height.xml" value="0.2767210144927536" />
+        <entry key="app/src/main/res/layout/fragment_name.xml" value="0.3079710144927536" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.2807971014492754" />
+        <entry key="app/src/main/res/layout/fragment_third.xml" value="0.2807971014492754" />
+        <entry key="app/src/main/res/layout/fragment_weight.xml" value="0.23541666666666666" />
+        <entry key="app/src/main/res/layout/item_age.xml" value="0.2807971014492754" />
+        <entry key="app/src/main/res/layout/item_food.xml" value="0.3079710144927536" />
+        <entry key="app/src/main/res/layout/item_info_plan.xml" value="0.40293099588598263" />
+        <entry key="app/src/main/res/layout/toolbar_layout.xml" value="0.4911611900545979" />
       </map>
     </option>
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
