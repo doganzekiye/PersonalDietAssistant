@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.personaldietassistant.R
 
-open class BaseActivity: AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     protected fun setToolbar(toolbar: View, title: String = "", onClick: () -> Unit) {
         val backButton = findViewById<ImageView>(R.id.backButton)

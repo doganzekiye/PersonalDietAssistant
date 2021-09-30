@@ -1,6 +1,5 @@
 package com.example.personaldietassistant.ui.info
 
-import android.annotation.SuppressLint
 import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -21,7 +20,6 @@ class PlanAdapter(
 
     inner class ViewHolder(val binding: ItemPlanBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        @SuppressLint("ResourceAsColor")
         fun bind(planModel: PlanModel, position: Int) {
             res = binding.root.context.resources
             with(binding) {
@@ -64,7 +62,7 @@ class PlanAdapter(
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val plan = planModelsList[position]
-        viewHolder.bind(plan,position)
+        viewHolder.bind(plan, position)
 
         viewHolder.itemView.apply {
             setOnClickListener {

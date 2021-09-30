@@ -35,7 +35,7 @@ class FoodNutrientsViewModel : ViewModel() {
             override fun onResponse(
                 call: Call<FoodNutrientsResponse?>,
                 response: Response<FoodNutrientsResponse?>
-            ) { // if response exist -> response
+            ) {
                 val responseBody = response.body()
                 responseBody?.let {
                     nutrientsLiveData.value = responseBody
@@ -45,7 +45,7 @@ class FoodNutrientsViewModel : ViewModel() {
             override fun onFailure(
                 call: Call<FoodNutrientsResponse?>,
                 t: Throwable
-            ) { //if response does not exist -> t
+            ) {
                 Log.d("error", t.toString())
             }
         })

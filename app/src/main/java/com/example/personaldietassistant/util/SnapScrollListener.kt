@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.SnapHelper
 class SnapScrollListener(
     private val snapHelper: SnapHelper,
     private val snapPositionChangeListener: OnSnapPositionChangeListener? = null
-    ): RecyclerView.OnScrollListener() {
+) : RecyclerView.OnScrollListener() {
     private var snapPosition = RecyclerView.NO_POSITION
 
     override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {

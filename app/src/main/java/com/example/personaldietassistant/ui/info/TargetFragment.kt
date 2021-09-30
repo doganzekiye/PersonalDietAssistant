@@ -49,7 +49,7 @@ class TargetFragment : BaseFragment() {
         binding.npTarget.setOnValueChangedListener { picker, oldVal, newVal ->
             binding.tvPickedTarget.text =
                 (String.format(
-                    "My target weight is %s.%s kg",
+                    "My targe is %s.%s kg",
                     newVal,
                     binding.npTargetDecimal.value
                 ))
@@ -64,14 +64,14 @@ class TargetFragment : BaseFragment() {
         }
 
         binding.tvPickedTarget.text = (String.format(
-            "My target weight is %s.%s kg",
+            "My target is %s.%s kg",
             binding.npTarget.value,
             binding.npTargetDecimal.value
         ))
 
         binding.npTargetDecimal.setOnValueChangedListener { picker, oldVal, newVal ->
             binding.tvPickedTarget.text =
-                (String.format("My target weight is %s.%s kg", binding.npTarget.value, newVal))
+                (String.format("My target is %s.%s kg", binding.npTarget.value, newVal))
             mTargetDecimal = (newVal.toFloat() / 10)
         }
     }

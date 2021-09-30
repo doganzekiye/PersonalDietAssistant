@@ -38,6 +38,4 @@ class IntroPagerAdapter(private val introModelsList: Array<IntroModel> = IntroMo
     override fun getItemCount(): Int {
         return introModelsList.size
     }
-
-
 }

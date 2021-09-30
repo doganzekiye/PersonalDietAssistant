@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.personaldietassistant.R
 
-open class BaseFragment: Fragment() {
+open class BaseFragment : Fragment() {
 
     protected fun setToolbar(toolbar: View, title: String = "", onClick: () -> Unit) {
         val backButton = toolbar.findViewById<ImageView>(R.id.backButton)

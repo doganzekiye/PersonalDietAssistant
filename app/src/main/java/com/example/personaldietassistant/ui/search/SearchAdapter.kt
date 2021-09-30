@@ -60,10 +60,9 @@ class SearchAdapter(private var foodHintList: MutableList<Hint>) :
     // Returns the total count of items in the list
     override fun getItemCount(): Int {
         return foodHintList.size
-
     }
 
-    fun filterList(filteredList: List<Hint>) {
+    /*fun filterList(filteredList: List<Hint>) {
         foodHintList.clear()
         foodHintList.addAll(filteredList)
         notifyDataSetChanged()
@@ -72,6 +71,5 @@ class SearchAdapter(private var foodHintList: MutableList<Hint>) :
     fun clearAdapterList() {
         foodHintList.clear()
         notifyDataSetChanged()
-    }
-
+    }*/
 }

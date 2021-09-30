@@ -17,8 +17,8 @@ class InfoScreenViewModel : ViewModel() {
 
     var isNameValid: MutableLiveData<Boolean> = MutableLiveData()
     var isPlanValid: MutableLiveData<Boolean> = MutableLiveData(false)
-    var validPlanRowId : MutableLiveData<Int> = MutableLiveData(0)
-    var selectedGender: MutableLiveData<Pair<String,Boolean>> = MutableLiveData()
+    var validPlanRowId: MutableLiveData<Int> = MutableLiveData(0)
+    var selectedGender: MutableLiveData<Pair<String, Boolean>> = MutableLiveData()
     var userWelcomeText: MutableLiveData<String> = MutableLiveData()
 
     init {

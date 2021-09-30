@@ -39,9 +39,9 @@ class GenderFragment : BaseFragment() {
     private fun observeViewModel() {
         viewModel.selectedGender.observe(viewLifecycleOwner, Observer {
             if (it.first == getString(R.string.female) && it.second) {
-                setGenderLayout("female")
+                setGenderLayout(getString(R.string.female))
             } else if (it.first == getString(R.string.male) && it.second) {
-                setGenderLayout("male")
+                setGenderLayout(getString(R.string.male))
             }
         })
     }
@@ -61,7 +61,7 @@ class GenderFragment : BaseFragment() {
     }
 
     private fun setGenderLayout(gender: String) {
-        if (gender == "female") {
+        if (gender == getString(R.string.female)) {
             binding.clFemale.setBackgroundResource(R.drawable.custom_green_rounded_corners)
             binding.clMale.setBackgroundResource(R.drawable.custom_gray_rounded_corners)
             binding.tvGenderFemale.setTextColor(
@@ -75,7 +75,7 @@ class GenderFragment : BaseFragment() {
                 )
             )
             viewModel.user.gender = getString(R.string.female)
-        } else if (gender == "male") {
+        } else if (gender == getString(R.string.male)) {
             binding.clMale.setBackgroundResource(R.drawable.custom_green_rounded_corners)
             binding.clFemale.setBackgroundResource(R.drawable.custom_gray_rounded_corners)
             binding.tvGenderMale.setTextColor(

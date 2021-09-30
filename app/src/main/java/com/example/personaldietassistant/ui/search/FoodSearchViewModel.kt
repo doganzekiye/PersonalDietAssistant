@@ -33,17 +33,15 @@ class FoodSearchViewModel : ViewModel() {
                         hintLiveData.value = response.body()?.hints
                     }
                 }
-
             }
 
             override fun onFailure(
                 call: Call<FoodResponse?>,
                 t: Throwable
-            ) { //if response does not exist -> t
+            ) {
                 showLoading.invoke(false)
                 Log.d("error", t.toString())
             }
-
         })
     }
 }

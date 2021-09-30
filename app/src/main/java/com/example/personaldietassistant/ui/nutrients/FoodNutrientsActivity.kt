@@ -17,7 +17,7 @@ class FoodNutrientsActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_food_nutrients)
         nutrientsViewModel = ViewModelProvider(this).get(FoodNutrientsViewModel::class.java)
         val dataForRequest = intent.getParcelableExtra<NutrientsIngredient>("data")
-        nutrientsViewModel.getFoodNutrients(dataForRequest!!.foodId, dataForRequest!!.measureURI)
+        nutrientsViewModel.getFoodNutrients(dataForRequest!!.foodId, dataForRequest.measureURI)
         observeFoodNutrients()
     }
 

@@ -20,7 +20,8 @@ fun SnapHelper.getSnapPosition(recyclerView: RecyclerView): Int {
 
 fun RecyclerView.attachSnapHelperWithPositionListener(
     snapHelper: SnapHelper,
-    onSnapPositionChangeListener: OnSnapPositionChangeListener) {
+    onSnapPositionChangeListener: OnSnapPositionChangeListener
+) {
     snapHelper.attachToRecyclerView(this)
     val snapOnScrollListener = SnapScrollListener(snapHelper, onSnapPositionChangeListener)
     addOnScrollListener(snapOnScrollListener)

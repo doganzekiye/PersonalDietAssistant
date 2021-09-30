@@ -53,10 +53,6 @@
         <item name="android:textColor">@color/intro_skip</item>
     </style>
 
-    <style name="CardDescription" parent="PdaTextNunitoRegular">
-        <item name="android:textColor">@color/gray_dark</item>
-        <item name="android:textSize">@dimen/card_description</item>
-    </style>
     /////////////////////////////////////////////////////////////////////
 
     <style name="PdaTextMontserratRegular">
@@ -100,11 +96,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.PersonalDietAssistant.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.PersonalDietAssistant.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
     /////////////////////////////////////////////////////////////////////
+
     <style name="NumberPickerTheme" parent="Theme.PersonalDietAssistant">
         <item name="colorControlNormal">@android:color/transparent</item>
         <item name="android:textSize">@dimen/numberPickerTextSize</item>

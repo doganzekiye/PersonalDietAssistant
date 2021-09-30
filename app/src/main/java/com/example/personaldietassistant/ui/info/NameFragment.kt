@@ -44,7 +44,7 @@ class NameFragment : BaseFragment() {
                 viewModel.isNameValid.postValue((s.length >= 2))
 
                 if (s.toString().length >= 2) {
-                    viewModel.userWelcomeText.postValue(getString(R.string.hello)+" "+s.toString()+",")
+                    viewModel.userWelcomeText.postValue(getString(R.string.hello) + " " + s.toString() + ",")
                     viewModel.user.name = s.toString()
                 } else {
                     viewModel.userWelcomeText.postValue(getString(R.string.info_name_title))

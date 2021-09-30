@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import com.example.personaldietassistant.R
-import com.example.personaldietassistant.databinding.FragmentNameBinding
 import com.example.personaldietassistant.databinding.FragmentSummaryBinding
 import com.example.personaldietassistant.ui.base.BaseFragment
 
@@ -24,16 +23,4 @@ class SummaryFragment : BaseFragment() {
         binding.lifecycleOwner = this
         return binding.root
     }
-
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        with(binding){
-            userAge.text = viewModel!!.user.age.toString()
-            userDaily.text = viewModel!!.user.dailyCal.toString()
-            userGender.text = viewModel?.user?.gender
-            userHeight.text = viewModel?.user?.height.toString()
-            userName.text = viewModel?.user?.name
-            userWeight.text = viewModel?.user?.weight.toString()
-            userTarget.text = viewModel?.user?.targetWeight.toString()
-        }
-    }*/
 }
