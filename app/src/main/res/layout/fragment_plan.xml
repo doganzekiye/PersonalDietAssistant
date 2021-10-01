@@ -16,7 +16,7 @@
 
         <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar_layout"
+            layout="@layout/toolbar_step_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,6 +24,7 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="@dimen/dp0"
             android:layout_height="@dimen/dp0"
+            android:layout_marginTop="@dimen/dp48"
             app:layout_constraintBottom_toTopOf="@id/buttonNext"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

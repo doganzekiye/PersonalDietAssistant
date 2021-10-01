@@ -51,6 +51,10 @@
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/item_intro.xml" value="0.264" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/item_plan.xml" value="0.264" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/toolbar_layout.xml" value="0.23052536231884058" />
+        <entry key="app/src/main/res/layout/fragment_age.xml" value="0.2857789855072464" />
+        <entry key="app/src/main/res/layout/fragment_plan.xml" value="0.30434782608695654" />
+        <entry key="app/src/main/res/layout/toolbar_layout.xml" value="0.2318840579710145" />
+        <entry key="app/src/main/res/layout/toolbar_step_layout.xml" value="0.1" />
       </map>
     </option>
   </component>

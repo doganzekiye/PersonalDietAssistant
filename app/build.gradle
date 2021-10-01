@@ -87,6 +87,6 @@ dependencies {
 
     // Kotlin components
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.21"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3"
 }

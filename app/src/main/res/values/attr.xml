@@ -7,4 +7,22 @@
         <attr name="defaultValue" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="PdaStepView">
+        <attr name="pdaStepWidth" format="dimension" />
+        <attr name="pdaStepHeight" format="dimension" />
+        <attr name="pdaSpace" format="dimension" />
+        <attr name="pdaStepTotalCount" format="integer" />
+        <attr name="pdaStepSelectedCount" format="integer" />
+        <attr name="pdaStepRadiusAll" format="dimension" />
+        <attr name="pdaStepRadiusTop" format="dimension" />
+        <attr name="pdaStepRadiusBottom" format="dimension" />
+        <attr name="pdaStepRadiusTopLeft" format="dimension" />
+        <attr name="pdaStepRadiusTopRight" format="dimension" />
+        <attr name="pdaStepRadiusBottomLeft" format="dimension" />
+        <attr name="pdaStepRadiusBottomRight" format="dimension" />
+        <attr name="pdaStepColor" format="color"/>
+        <attr name="pdaStepSelectedColor" format="color" />
+        <attr name="pdaStepUnselectedColor" format="color" />
+    </declare-styleable>
+
 </resources>
