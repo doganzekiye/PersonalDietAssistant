@@ -52,6 +52,8 @@
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/item_plan.xml" value="0.264" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/toolbar_layout.xml" value="0.23052536231884058" />
         <entry key="..\:/PersonalDietAssistant/app/src/main/res/layout/toolbar_step_layout.xml" value="0.4" />
+        <entry key="app/src/main/res/layout/fragment_height.xml" value="0.32382246376811596" />
+        <entry key="app/src/main/res/layout/toolbar_step_layout.xml" value="0.32382246376811596" />
       </map>
     </option>
   </component>

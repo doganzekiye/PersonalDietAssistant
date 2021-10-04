@@ -1,5 +1,7 @@
 package com.example.personaldietassistant.ui.base
 
+import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -30,8 +32,20 @@ open class BaseFragment : Fragment() {
             onClick.invoke()
         }
         val stepView = toolbar.findViewById<PdaStepView>(R.id.pdaStepView)
-        //stepView.setStepSelectedCount(stepSelectedCount)
-        //stepView.setStepTotalCount(stepTotalCount)
         stepView.setStepCount(selected = stepSelectedCount, total = stepTotalCount)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        logLifecycleEvents("onCreate")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        logLifecycleEvents("onDestroy")
+    }
+
+    private fun logLifecycleEvents(lifeCycleName: String) {
+        Log.d("Lifecycle", this::class.simpleName + " " + lifeCycleName)
     }
 }

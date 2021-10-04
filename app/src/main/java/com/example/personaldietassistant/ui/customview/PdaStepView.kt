@@ -166,20 +166,10 @@ class PdaStepView @JvmOverloads constructor(
         return measuredSize
     }
 
-    fun setStepSelectedCount(count: Int) {
-        this.mStepSelectedCount = count
-        invalidate()
-    }
-
-    fun setStepTotalCount(count: Int) {
-        this.mStepTotalCount = count
-        invalidate()
-    }
-
     fun setStepCount(selected: Int, total: Int) {
         this.mStepSelectedCount = selected
         this.mStepTotalCount = total
-        invalidate()
+        postInvalidate()
     }
 
     companion object {
