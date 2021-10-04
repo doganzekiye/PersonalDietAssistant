@@ -20,7 +20,7 @@
         <attr name="pdaStepRadiusTopRight" format="dimension" />
         <attr name="pdaStepRadiusBottomLeft" format="dimension" />
         <attr name="pdaStepRadiusBottomRight" format="dimension" />
-        <attr name="pdaStepColor" format="color"/>
+        <attr name="pdaStepColor" format="color" />
         <attr name="pdaStepSelectedColor" format="color" />
         <attr name="pdaStepUnselectedColor" format="color" />
     </declare-styleable>

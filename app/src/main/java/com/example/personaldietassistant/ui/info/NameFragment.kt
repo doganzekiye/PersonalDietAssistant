@@ -28,17 +28,13 @@ class NameFragment : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        onClickText()
-        setToolbar(binding.toolbar.root, title = "Adını Gir", onClick = {
+        setOnClick()
+        setStepToolbar(binding.toolbar.root, stepSelectedCount = 2, stepTotalCount = 8, onClick = {
             findNavController().navigateUp()
         })
-
-        binding.btnNameAccept.setOnClickListener {
-            findNavController().navigate(R.id.action_nameFragment_to_genderFragment)
-        }
     }
 
-    private fun onClickText() {
+    private fun setOnClick() {
         binding.etEnterName.doAfterTextChanged { s ->
             s?.let {
                 viewModel.isNameValid.postValue((s.length >= 2))
@@ -51,6 +47,9 @@ class NameFragment : BaseFragment() {
                     viewModel.user.name = getString(R.string.empty)
                 }
             }
+        }
+        binding.btnNameAccept.setOnClickListener {
+            findNavController().navigate(R.id.action_nameFragment_to_genderFragment)
         }
     }
 }

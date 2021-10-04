@@ -22,38 +22,32 @@ class AgeFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_age, container, false)
-        //binding.viewModel = viewModel
+        binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        onClickNumberPicker()
-        binding.buttonNext.setOnClickListener {
-            findNavController().navigate(R.id.action_ageFragment_to_heightFragment)
-        }
-
-        setToolbar(binding.toolbar.root, title = "Select Your Age", onClick = {
+        setOnClick()
+        setStepToolbar(binding.toolbar.root, stepSelectedCount = 4, stepTotalCount = 8, onClick = {
             findNavController().navigateUp()
         })
     }
 
-    private fun onClickNumberPicker() {
+    private fun setOnClick() {
         binding.npAge.apply {
             maxValue = 70
             minValue = 18
-            value = 18
+            value = viewModel.user.age
             wrapSelectorWheel = false
         }
-        binding.tvPickedAge.text = (String.format(
-            "My age is %s",
-            binding.npAge.value
-        ))
-
         binding.npAge.setOnValueChangedListener { picker, oldVal, newVal ->
             viewModel.user.age = newVal
-            binding.tvPickedAge.text =
-                (String.format("My age is %s", newVal))
+            viewModel.userAgeText.postValue("My age is " + viewModel.user.age.toString())
+        }
+
+        binding.buttonNext.setOnClickListener {
+            findNavController().navigate(R.id.action_ageFragment_to_heightFragment)
         }
     }
 }

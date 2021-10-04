@@ -10,66 +10,61 @@ import androidx.navigation.fragment.findNavController
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.FragmentHeightBinding
 import com.example.personaldietassistant.ui.base.BaseFragment
+import com.example.personaldietassistant.util.getDecimal
+import com.example.personaldietassistant.util.getNumber
 
 class HeightFragment : BaseFragment() {
     lateinit var binding: FragmentHeightBinding
     private val viewModel: InfoScreenViewModel by activityViewModels()
-    var height: Float = 0.0f
-    var heightDecimal: Float = 0.0f
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_height, container, false)
-        //binding.viewModel = viewModel
+        binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        onClickNumberPicker()
-        binding.btnHeightAccept.setOnClickListener {
-            viewModel.user.height = height + heightDecimal
-            findNavController().navigate(R.id.action_heightFragment_to_weightFragment)
-        }
-        setToolbar(binding.toolbar.root, title = "Boyunu Gir", onClick = {
+        setOnClick()
+        setStepToolbar(binding.toolbar.root, stepSelectedCount = 5, stepTotalCount = 8, onClick = {
             findNavController().navigateUp()
         })
     }
 
-    private fun onClickNumberPicker() {
+    private fun setOnClick() {
+        var mHeight = 0.0f
+        var mHeightDecimal = 0.0f
+
         binding.npHeight.apply {
             maxValue = 220
             minValue = 120
-            value = 150
+            value = viewModel.user.height.getNumber()
             wrapSelectorWheel = false
         }
 
         binding.npHeight.setOnValueChangedListener { picker, oldVal, newVal ->
-            binding.tvPickedHeight.text =
-                (String.format("My height is %s.%s cm", newVal, binding.npHeightDecimal.value))
-            height = newVal.toFloat()
+            viewModel.userHeightText.postValue("My height is " + newVal + "." + binding.npHeightDecimal.value + "cm")
+            mHeight = newVal.toFloat()
+            viewModel.user.height = mHeight + mHeightDecimal
         }
 
         binding.npHeightDecimal.apply {
             maxValue = 9
             minValue = 0
-            value = 0
+            value = viewModel.user.height.getDecimal()
             wrapSelectorWheel = false
         }
 
-        binding.tvPickedHeight.text = (String.format(
-            "My height is %s.%s cm",
-            binding.npHeight.value,
-            binding.npHeightDecimal.value
-        ))
-
         binding.npHeightDecimal.setOnValueChangedListener { picker, oldVal, newVal ->
-            binding.tvPickedHeight.text =
-                (String.format("My height is %s.%s cm", binding.npHeight.value, newVal))
-
-            heightDecimal = (newVal.toFloat() / 10)
+            viewModel.userHeightText.postValue("My height is " + binding.npHeight.value + "." + newVal + "cm")
+            mHeightDecimal = (newVal.toFloat() / 10)
+            viewModel.user.height = mHeight + mHeightDecimal
+        }
+        binding.btnHeightAccept.setOnClickListener {
+            findNavController().navigate(R.id.action_heightFragment_to_weightFragment)
         }
     }
 }

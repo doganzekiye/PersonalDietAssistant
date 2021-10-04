@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.example.personaldietassistant.ui.info.InfoScreenViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,7 +15,7 @@
         tools:context=".ui.info.TargetFragment">
         <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar_layout"
+            layout="@layout/toolbar_step_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,11 +38,12 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp16"
             android:layout_marginTop="@dimen/dp128"
+            android:text="@{viewModel.userTargetText}"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_targetTitle"
-            tools:text="My target weight is 74.3 kg" />
+            tools:text="My target is 74.3 kg" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="@dimen/dp0"

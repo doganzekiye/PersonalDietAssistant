@@ -1,25 +1,10 @@
 package com.example.personaldietassistant.ui.customview
 
-import android.R.attr
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
-import androidx.annotation.ColorRes
-import androidx.core.content.ContextCompat
 import com.example.personaldietassistant.R
-import android.R.attr.factor
-import android.util.Log
-import android.view.View.MeasureSpec
-import androidx.core.view.marginBottom
-import kotlin.math.min
-
-
-/**
- * Created by Akın DEMİR on 30.09.2021.
- * Copyright (c) 2021
- */
-
 
 class PdaStepView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -40,9 +25,7 @@ class PdaStepView @JvmOverloads constructor(
     private var mStepWidth = DEFAULT_WIDTH
     private var mStepHeight = DEFAULT_HEIGHT
     private var mStepsList: MutableList<Step> = mutableListOf()
-    private var mX: Float = 0f
     private var mStepSpace: Float = DEFAULT_SPACE
-
 
     private val mPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
@@ -152,7 +135,6 @@ class PdaStepView @JvmOverloads constructor(
         val width =
             (mStepWidth * resources.displayMetrics.density * mStepTotalCount + mStepSpace * mStepTotalCount) + paddingHorizontal
 
-
         setMeasuredDimension(
             measureDimension(width.toInt(), widthMeasureSpec),
             measureDimension(height.toInt(), heightMeasureSpec)
@@ -191,6 +173,12 @@ class PdaStepView @JvmOverloads constructor(
 
     fun setStepTotalCount(count: Int) {
         this.mStepTotalCount = count
+        invalidate()
+    }
+
+    fun setStepCount(selected: Int, total: Int) {
+        this.mStepSelectedCount = selected
+        this.mStepTotalCount = total
         invalidate()
     }
 

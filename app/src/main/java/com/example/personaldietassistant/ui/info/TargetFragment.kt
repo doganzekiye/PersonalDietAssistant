@@ -1,5 +1,6 @@
 package com.example.personaldietassistant.ui.info
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,69 +11,78 @@ import androidx.navigation.fragment.findNavController
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.FragmentTargetBinding
 import com.example.personaldietassistant.ui.base.BaseFragment
+import com.example.personaldietassistant.util.getDecimal
+import com.example.personaldietassistant.util.getNumber
+import kotlin.math.pow
 
 class TargetFragment : BaseFragment() {
     lateinit var binding: FragmentTargetBinding
     private val viewModel: InfoScreenViewModel by activityViewModels()
-    var mTarget: Float = 0.0f
-    var mTargetDecimal: Float = 0.0f
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_target, container, false)
-        //binding.viewModel = viewModel
+        binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        onClickNumberPicker()
-        binding.btnTargetAccept.setOnClickListener {
-            viewModel.user.targetWeight = mTarget + mTargetDecimal
-            findNavController().navigate(R.id.action_targetFragment_to_summaryFragment)
-        }
-        setToolbar(binding.toolbar.root, title = "Hedef Kilonu Gir", onClick = {
+        setOnClick()
+        setStepToolbar(binding.toolbar.root, stepSelectedCount = 7, stepTotalCount = 8, onClick = {
             findNavController().navigateUp()
         })
     }
 
-    private fun onClickNumberPicker() {
+    @SuppressLint("SetTextI18n")
+    private fun setOnClick() {
+        var mTarget = 0.0f
+        var mTargetDecimal = 0.0f
+        var target = 0.0f
+        if (viewModel.user.gender == getString(R.string.female)) {
+            target = 49 + ((1.7) * (viewModel.user.height - 152.4) / (2.54)).toFloat()
+            binding.tvTargetTitle.text = target.toString() + "female"
+        } else if (viewModel.user.gender == getString(R.string.male)) {
+            target = 52 + ((1.9) * (viewModel.user.height - 152.4) / (2.54)).toFloat()
+            binding.tvTargetTitle.text = target.toString() + "male"
+        }
+
         binding.npTarget.apply {
-            maxValue = 220
-            minValue = 45
-            value = 70
+            maxValue = (((viewModel.user.height / 100).pow(2)) * (25)).toInt()
+            minValue = (((viewModel.user.height / 100).pow(2)) * (18.5)).toInt()
+            value = target.getNumber()
             wrapSelectorWheel = false
         }
 
         binding.npTarget.setOnValueChangedListener { picker, oldVal, newVal ->
-            binding.tvPickedTarget.text =
-                (String.format(
-                    "My targe is %s.%s kg",
-                    newVal,
-                    binding.npTargetDecimal.value
-                ))
+            viewModel.userTargetText.postValue("My target is " + newVal + "." + binding.npTargetDecimal.value + "kg")
             mTarget = newVal.toFloat()
+            viewModel.user.targetWeight = mTarget + mTargetDecimal
         }
 
         binding.npTargetDecimal.apply {
             maxValue = 9
             minValue = 0
-            value = 0
+            value = target.getDecimal()
             wrapSelectorWheel = false
         }
 
-        binding.tvPickedTarget.text = (String.format(
+        /*binding.tvPickedTarget.text = (String.format(
             "My target is %s.%s kg",
             binding.npTarget.value,
             binding.npTargetDecimal.value
-        ))
+        ))*/
 
         binding.npTargetDecimal.setOnValueChangedListener { picker, oldVal, newVal ->
-            binding.tvPickedTarget.text =
-                (String.format("My target is %s.%s kg", binding.npTarget.value, newVal))
+            viewModel.userTargetText.postValue("My target is " + binding.npTarget.value + "." + newVal + "kg")
             mTargetDecimal = (newVal.toFloat() / 10)
+            viewModel.user.targetWeight = mTarget + mTargetDecimal
+        }
+
+        binding.btnTargetAccept.setOnClickListener {
+            findNavController().navigate(R.id.action_targetFragment_to_summaryFragment)
         }
     }
 }

@@ -35,7 +35,7 @@ class PlanFragment : BaseFragment() {
             findNavController().navigate(R.id.action_planFragment_to_nameFragment)
         }
 
-        setStepToolbar(binding.toolbar.root, stepSelectedCount = 3, stepTotalCount = 8, onClick = {
+        setStepToolbar(binding.toolbar.root, stepSelectedCount = 1, stepTotalCount = 8, onClick = {
             findNavController().navigateUp()
         })
     }

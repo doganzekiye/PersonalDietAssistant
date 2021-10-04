@@ -20,6 +20,7 @@ open class BaseFragment : Fragment() {
 
     protected fun setStepToolbar(
         toolbar: View,
+
         stepSelectedCount: Int,
         stepTotalCount: Int,
         onClick: () -> Unit
@@ -29,7 +30,8 @@ open class BaseFragment : Fragment() {
             onClick.invoke()
         }
         val stepView = toolbar.findViewById<PdaStepView>(R.id.pdaStepView)
-        stepView.setStepSelectedCount(stepSelectedCount)
-        stepView.setStepTotalCount(stepTotalCount)
+        //stepView.setStepSelectedCount(stepSelectedCount)
+        //stepView.setStepTotalCount(stepTotalCount)
+        stepView.setStepCount(selected = stepSelectedCount, total = stepTotalCount)
     }
 }
