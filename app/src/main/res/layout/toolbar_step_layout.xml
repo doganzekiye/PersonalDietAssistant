@@ -33,7 +33,7 @@
             app:pdaStepSelectedColor="@color/green"
             app:pdaStepUnselectedColor="@color/gray"
             app:pdaStepTotalCount="8"
-            app:pdaStepSelectedCount="5"
+            app:pdaStepSelectedCount="7"
             app:pdaStepHeight="@dimen/dp4"
             app:pdaStepWidth="@dimen/dp24"
             app:pdaStepRadiusAll="@dimen/dp4"

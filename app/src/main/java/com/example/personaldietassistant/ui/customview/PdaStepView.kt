@@ -89,7 +89,7 @@ class PdaStepView @JvmOverloads constructor(
         )
 
         for (i in 0 until mStepTotalCount) {
-            if (i in 0..mStepSelectedCount) {
+            if (i in 0 until mStepSelectedCount) {
                 mStepsList.add(Step(isSelected = true, stepSize, stepColor, stepRadius))
             } else {
                 mStepsList.add(Step(isSelected = false, stepSize, stepColor, stepRadius))
