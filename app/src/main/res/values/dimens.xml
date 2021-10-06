@@ -12,6 +12,13 @@
     <dimen name="dp96">96dp</dimen>
     <dimen name="dp128">128dp</dimen>
     <dimen name="dp88">88dp</dimen>
+
+    <dimen name="ratioCarbs">45</dimen>
+    <dimen name="ratioProtein">25</dimen>
+    <dimen name="ratioFat">30</dimen>
+    <dimen name="ratioTotal">100</dimen>
+
+
     <dimen name="buttonHeight">56dp</dimen>
     <dimen name="foodItemLineSize">1dp</dimen>
     <dimen name="indicatorCiMarginSize">5dp</dimen>

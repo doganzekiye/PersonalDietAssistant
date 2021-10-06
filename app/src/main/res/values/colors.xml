@@ -8,7 +8,6 @@
     <color name="black">#2E2E2E</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="orange">#f39c12</color>
     <color name="pumpkin">#d35400</color>
 
     <color name="divider">#ECF0F1</color>
@@ -19,8 +18,14 @@
     <color name="green">#6CC586</color>
     <color name="gray">#E3E3E3</color>
 
+    <color name="red">#E34034</color>
+    <color name="orange">#FFAA64</color>
+    <color name="purple">#6C63FF</color>
+    <color name="blue">#4996E9</color>
+
     <color name="intro_skip">#CDCED0</color>
     <color name="intro_button">#69C684</color>
+
 
     <color name="plan_item_title">#000000</color>
     <color name="info_desc_bg">#F7F8FC</color>

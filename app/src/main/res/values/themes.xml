@@ -80,6 +80,20 @@
         <item name="android:textSize">@dimen/infoTextSize</item>
     </style>
 
+    <style name="InfoSummaryLabels" parent="PdaTextMontserratRegular">
+        <item name="android:textColor">@color/page_title</item>
+        <item name="android:textSize">@dimen/infoTextSize</item>
+    </style>
+
+    <style name="InfoSummaryValues" parent="PdaTextMontserratBold">
+        <item name="android:textColor">@color/page_title</item>
+        <item name="android:textSize">@dimen/card_title</item>
+    </style>
+    <style name="InfoSummaryTarget" parent="PdaTextMontserratBold">
+        <item name="android:textColor">@color/page_title</item>
+        <item name="android:textSize">@dimen/appNameSize</item>
+    </style>
+
     <style name="GenderType" parent="PdaTextMontserratRegular">
         <item name="android:textColor">@color/gray_dark</item>
         <item name="android:textSize">@dimen/infoTextSize</item>
