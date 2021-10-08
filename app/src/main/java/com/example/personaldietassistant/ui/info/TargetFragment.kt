@@ -16,7 +16,9 @@ import com.example.personaldietassistant.util.getNumber
 class TargetFragment : BaseFragment() {
     lateinit var binding: FragmentTargetBinding
     private val viewModel: InfoScreenViewModel by activityViewModels()
-    var target = 0.0f
+    var mTarget = 0.0f
+    var mTargetDecimal = 0.0f
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +31,7 @@ class TargetFragment : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setTarget(viewModel.user.gender)
+        setRecommendedCal(getString(R.string.female))
         setOnClick()
         setStepToolbar(binding.toolbar.root, stepSelectedCount = 7, stepTotalCount = 8, onClick = {
             findNavController().navigateUp()
@@ -37,32 +39,30 @@ class TargetFragment : BaseFragment() {
     }
 
     private fun setOnClick() {
-        var mTarget = 0.0f
-        var mTargetDecimal = 0.0f
 
         binding.npTarget.apply {
             maxValue = viewModel.getTargetMaxValue()
             minValue = viewModel.getTargetMinValue()
-            value = target.getNumber()
+            value = viewModel.user.targetWeight.getNumber()
             wrapSelectorWheel = false
-        }
-
-        binding.npTarget.setOnValueChangedListener { picker, oldVal, newVal ->
-            viewModel.userTargetText.postValue("My target is " + newVal + "." + binding.npTargetDecimal.value + "kg")
-            mTarget = newVal.toFloat()
-            viewModel.user.targetWeight = mTarget + mTargetDecimal
         }
 
         binding.npTargetDecimal.apply {
             maxValue = 9
             minValue = 0
-            value = target.getDecimal()
+            value = viewModel.user.targetWeight.getDecimal()
             wrapSelectorWheel = false
+        }
+
+        binding.npTarget.setOnValueChangedListener { picker, oldVal, newVal ->
+            viewModel.userTargetText.postValue("My target is " + newVal + "." + binding.npTargetDecimal.value + " kg")
+            mTarget = newVal.toFloat()
+            viewModel.user.targetWeight = mTarget + mTargetDecimal
         }
 
         //TODO oldVal if kosulu
         binding.npTargetDecimal.setOnValueChangedListener { picker, oldVal, newVal ->
-            viewModel.userTargetText.postValue("My target is " + binding.npTarget.value + "." + newVal + "kg")
+            viewModel.userTargetText.postValue("My target is " + binding.npTarget.value + "." + newVal + " kg")
             mTargetDecimal = (newVal.toFloat() / 10)
             viewModel.user.targetWeight = mTarget + mTargetDecimal
         }
@@ -72,12 +72,10 @@ class TargetFragment : BaseFragment() {
         }
     }
 
-    private fun setTarget(gender: String) {
+    private fun setRecommendedCal(gender: String) {
         if (gender == getString(R.string.female)) {
-            target = viewModel.getTargetFemale()
             viewModel.setRecommendedCal(true)
         } else if (gender == getString(R.string.male)) {
-            target = viewModel.getTargetMale()
             viewModel.setRecommendedCal(false)
         }
     }
