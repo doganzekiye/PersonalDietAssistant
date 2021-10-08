@@ -9,39 +9,38 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/dp48"
-        android:maxHeight="@dimen/dp56">
+        android:maxHeight="@dimen/dp56"
+        android:minHeight="@dimen/dp48">
 
         <ImageView
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/dp8"
             android:paddingHorizontal="@dimen/dp16"
+            android:paddingVertical="@dimen/dp8"
             android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.example.personaldietassistant.ui.customview.PdaStepView
             android:id="@+id/pdaStepView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
             android:layout_marginStart="@dimen/dp48"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="@dimen/dp48"
-            app:pdaStepSelectedColor="@color/green"
-            app:pdaStepUnselectedColor="@color/gray"
-            app:pdaStepTotalCount="8"
-            app:pdaStepSelectedCount="7"
-            app:pdaStepHeight="@dimen/dp4"
-            app:pdaStepWidth="@dimen/dp24"
-            app:pdaStepRadiusAll="@dimen/dp4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            />
+            app:pdaStepHeight="@dimen/dp4"
+            app:pdaStepRadiusAll="@dimen/dp4"
+            app:pdaStepSelectedColor="@color/green"
+            app:pdaStepSelectedCount="8"
+            app:pdaStepTotalCount="8"
+            app:pdaStepUnselectedColor="@color/gray"
+            app:pdaStepWidth="@dimen/dp24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

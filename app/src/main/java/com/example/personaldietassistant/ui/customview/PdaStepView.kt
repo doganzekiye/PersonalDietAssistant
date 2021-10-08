@@ -10,13 +10,18 @@ class PdaStepView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
+    var stepSize: Step.StepSize
+    var stepColor: Step.StepColor
+    var stepRadius: Step.StepRadius
+
     private var mRadiusAll = NO_RADIUS
-    private var mRadiusTop = NO_RADIUS
-    private var mRadiusBottom = NO_RADIUS
-    private var mRadiusTopLeft = NO_RADIUS
-    private var mRadiusTopRight = NO_RADIUS
-    private var mRadiusBottomLeft = NO_RADIUS
-    private var mRadiusBottomRight = NO_RADIUS
+
+    //    private var mRadiusTop = NO_RADIUS
+//    private var mRadiusBottom = NO_RADIUS
+//    private var mRadiusTopLeft = NO_RADIUS
+//    private var mRadiusTopRight = NO_RADIUS
+//    private var mRadiusBottomLeft = NO_RADIUS
+//    private var mRadiusBottomRight = NO_RADIUS
     private var mStepColor = NO_STEP_COLOR
     private var mStepSelectedColor = NO_STEP_COLOR
     private var mStepUnselectedColor = NO_STEP_COLOR
@@ -35,10 +40,10 @@ class PdaStepView @JvmOverloads constructor(
     private val mRect = RectF(0f, mStepHeight, mStepWidth, 0f)
 
     private var mCorners = floatArrayOf(
-        mRadiusTopLeft, mRadiusTopLeft,   // Top left radius in px
-        mRadiusTopRight, mRadiusTopRight,   // Top right radius in px
-        mRadiusBottomRight, mRadiusBottomRight,     // Bottom right radius in px
-        mRadiusBottomLeft, mRadiusBottomLeft      // Bottom left radius in px
+        mRadiusAll, mRadiusAll,   // Top left radius in px
+        mRadiusAll, mRadiusAll,   // Top right radius in px
+        mRadiusAll, mRadiusAll,     // Bottom right radius in px
+        mRadiusAll, mRadiusAll      // Bottom left radius in px
     )
 
     init {
@@ -54,31 +59,30 @@ class PdaStepView @JvmOverloads constructor(
         mStepSelectedCount =
             a.getInt(R.styleable.PdaStepView_pdaStepSelectedCount, DEFAULT_STEP_SELECTED_COUNT)
         mRadiusAll = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusAll)
-        mRadiusTop = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusTop)
-        mRadiusBottom = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusBottom)
-        mRadiusTopLeft = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusTopLeft)
-        mRadiusTopRight = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusTopRight)
-        mRadiusBottomLeft =
-            a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusBottomLeft)
-        mRadiusBottomRight =
-            a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusBottomRight)
+//        mRadiusTop = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusTop)
+//        mRadiusBottom = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusBottom)
+//        mRadiusTopLeft = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusTopLeft)
+//        mRadiusTopRight = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusTopRight)
+//        mRadiusBottomLeft =
+//            a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusBottomLeft)
+//        mRadiusBottomRight =
+//            a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusBottomRight)
         mStepColor = a.getInt(R.styleable.PdaStepView_pdaStepColor, DEFAULT_STEP_UNSELECTED_COLOR)
         mStepSelectedColor =
             a.getInt(R.styleable.PdaStepView_pdaStepSelectedColor, DEFAULT_STEP_SELECTED_COLOR)
         mStepUnselectedColor =
             a.getInt(R.styleable.PdaStepView_pdaStepUnselectedColor, DEFAULT_STEP_UNSELECTED_COLOR)
 
-        val stepSize = Step.StepSize(mStepWidth, mStepHeight)
-        val stepColor = Step.StepColor(mStepSelectedColor, mStepUnselectedColor)
-
-        val stepRadius = Step.StepRadius(
-            mRadiusAll,
-            if (mRadiusAll != NO_RADIUS) mRadiusAll else mRadiusTop,
-            if (mRadiusAll != NO_RADIUS) mRadiusAll else mRadiusBottom,
-            if (mRadiusAll != NO_RADIUS) mRadiusAll else if (mRadiusTop != NO_RADIUS) mRadiusTop else mRadiusTopLeft,
-            if (mRadiusAll != NO_RADIUS) mRadiusAll else if (mRadiusTop != NO_RADIUS) mRadiusTop else mRadiusTopRight,
-            if (mRadiusAll != NO_RADIUS) mRadiusAll else if (mRadiusBottom != NO_RADIUS) mRadiusBottom else mRadiusBottomLeft,
-            if (mRadiusAll != NO_RADIUS) mRadiusAll else if (mRadiusBottom != NO_RADIUS) mRadiusBottom else mRadiusBottomRight
+        stepSize = Step.StepSize(mStepWidth, mStepHeight)
+        stepColor = Step.StepColor(mStepSelectedColor, mStepUnselectedColor)
+        stepRadius = Step.StepRadius(
+            mRadiusAll, mRadiusAll, mRadiusAll, mRadiusAll, mRadiusAll, mRadiusAll, mRadiusAll
+//            if (mRadiusAll != NO_RADIUS) mRadiusAll else mRadiusTop,
+//            if (mRadiusAll != NO_RADIUS) mRadiusAll else mRadiusBottom,
+//            if (mRadiusAll != NO_RADIUS) mRadiusAll else if (mRadiusTop != NO_RADIUS) mRadiusTop else mRadiusTopLeft,
+//            if (mRadiusAll != NO_RADIUS) mRadiusAll else if (mRadiusTop != NO_RADIUS) mRadiusTop else mRadiusTopRight,
+//            if (mRadiusAll != NO_RADIUS) mRadiusAll else if (mRadiusBottom != NO_RADIUS) mRadiusBottom else mRadiusBottomLeft,
+//            if (mRadiusAll != NO_RADIUS) mRadiusAll else if (mRadiusBottom != NO_RADIUS) mRadiusBottom else mRadiusBottomRight
         )
 
         mCorners = floatArrayOf(
@@ -97,6 +101,17 @@ class PdaStepView @JvmOverloads constructor(
         }
 
         a.recycle()
+    }
+
+    private fun loadStepList() {
+        mStepsList.clear()
+        for (i in 0 until mStepTotalCount) {
+            if (i in 0 until mStepSelectedCount) {
+                mStepsList.add(Step(isSelected = true, stepSize, stepColor, stepRadius))
+            } else {
+                mStepsList.add(Step(isSelected = false, stepSize, stepColor, stepRadius))
+            }
+        }
     }
 
     override fun onDraw(canvas: Canvas?) {
@@ -169,6 +184,7 @@ class PdaStepView @JvmOverloads constructor(
     fun setStepCount(selected: Int, total: Int) {
         this.mStepSelectedCount = selected
         this.mStepTotalCount = total
+        loadStepList()
         postInvalidate()
     }
 
