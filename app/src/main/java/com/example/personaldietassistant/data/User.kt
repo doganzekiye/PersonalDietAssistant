@@ -13,7 +13,8 @@ data class User(
     var gender: String,
     var age: Int,
     var dailyCal: Int,
-    var targetWeight: Float
+    var targetWeight: Float,
+    var recommendedCal : Int
 ) {
 
 }
