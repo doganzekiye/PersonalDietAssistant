@@ -21,7 +21,8 @@ class InfoScreenViewModel : ViewModel() {
         gender = "",
         age = 18,
         dailyCal = 0,
-        targetWeight = 0.0f
+        targetWeight = 0.0f,
+        recommendedCal = 0,
     )
 
     var isNameValid: MutableLiveData<Boolean> = MutableLiveData()
@@ -36,28 +37,21 @@ class InfoScreenViewModel : ViewModel() {
     var userTargetText: MutableLiveData<String> = MutableLiveData()
     var targetMaxValue: MutableLiveData<Int> = MutableLiveData()
     var targetMinValue: MutableLiveData<Int> = MutableLiveData()
-
-    var targetFemale: MutableLiveData<Float> = MutableLiveData()
-    var targetMale: MutableLiveData<Float> = MutableLiveData()
-
-    var recommendedCal : MutableLiveData<Int> = MutableLiveData()
-
-
-    /*For men:
-    BMR = 10W + 6.25H - 5A + 5
-    For women:
-    BMR = 10W + 6.25H - 5A - 161*/
+    //var targetFemale: MutableLiveData<Float> = MutableLiveData()
+    //var targetMale: MutableLiveData<Float> = MutableLiveData()
 
     init {
         userWelcomeText.value = "Hadi seni tanıyalım.."
         userAgeText.value = "My age is " + user.age
         userHeightText.value = "My height is " + user.height + " cm"
         userWeightText.value = "My weight is " + user.weight + " kg"
+        userTargetText.value = "My target is " + user.targetWeight + " kg"
     }
 
-    fun setRecommendedCal(isFemale : Boolean) {
-        val genderMultiplier = if(isFemale) -161 else 5
-        recommendedCal.value = ((10*user.weight) + (6.25 * user.height) - (5 * user.age) + genderMultiplier).toInt()
+    fun setRecommendedCal(isFemale: Boolean) {
+        val genderMultiplier = if (isFemale) -161 else 5
+        user.recommendedCal =
+            ((10 * user.weight) + (6.25 * user.height) - (5 * user.age) + genderMultiplier).toInt()
     }
 
     fun getTargetMaxValue(): Int {
@@ -70,15 +64,17 @@ class InfoScreenViewModel : ViewModel() {
         return targetMinValue.value!!
     }
 
-    fun getTargetFemale(): Float {
-        targetFemale.value =
+    fun setTargetFemale() {
+        //targetFemale.value =
+        // BMI_FEMALE_HEIGHT_CONSTANT + (BMI_FEMALE_FACTOR_CONSTANT * (this.user.height - BMI_HEIGHT_CONSTANT) / BMI_RANGE_CONSTANT).toFloat()
+        user.targetWeight =
             BMI_FEMALE_HEIGHT_CONSTANT + (BMI_FEMALE_FACTOR_CONSTANT * (this.user.height - BMI_HEIGHT_CONSTANT) / BMI_RANGE_CONSTANT).toFloat()
-        return targetFemale.value!!
     }
 
-    fun getTargetMale(): Float {
-        targetMale.value =
+    fun setTargetMale() {
+        // targetMale.value =
+        //BMI_MALE_HEIGHT_CONSTANT + (BMI_MALE_FACTOR_CONSTANT * (this.user.height - BMI_HEIGHT_CONSTANT) / BMI_RANGE_CONSTANT).toFloat()
+        user.targetWeight =
             BMI_MALE_HEIGHT_CONSTANT + (BMI_MALE_FACTOR_CONSTANT * (this.user.height - BMI_HEIGHT_CONSTANT) / BMI_RANGE_CONSTANT).toFloat()
-        return targetMale.value!!
     }
 }
