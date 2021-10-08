@@ -129,4 +129,20 @@
 
     ////////////////////////////////////////////////////////////////////
 
+    <style name="PdaSliderCal" parent="Widget.MaterialComponents.Slider">
+        <item name="colorPrimary">@color/red</item>
+    </style>
+
+    <style name="PdaSliderCarbs" parent="Widget.MaterialComponents.Slider">
+        <item name="colorPrimary">@color/orange</item>
+    </style>
+
+    <style name="PdaSliderFat" parent="Widget.MaterialComponents.Slider">
+        <item name="colorPrimary">@color/purple</item>
+    </style>
+
+    <style name="PdaSliderProtein" parent="Widget.MaterialComponents.Slider">
+        <item name="colorPrimary">@color/blue</item>
+    </style>
+
 </resources>

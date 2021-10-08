@@ -17,6 +17,7 @@
     <dimen name="ratioProtein">25</dimen>
     <dimen name="ratioFat">30</dimen>
     <dimen name="ratioTotal">100</dimen>
+    <dimen name="ratioZero">0</dimen>
 
 
     <dimen name="buttonHeight">56dp</dimen>

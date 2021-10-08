@@ -34,6 +34,14 @@
     <string name="info_name_et">Kullanıcı adınızı yazınız.</string>,
     <string name="info_desc_tv">Bu bilgileri hesaplamak ve size günlük kişiselleştirilmiş öneriler sunmak için kullanıyoruz.</string>
 
+    <string name="protein_text">Protein</string>
+    <string name="protein_ratio">%25</string>
+    <string name="fat_text">Fat</string>
+    <string name="fat_ratio">%30</string>
+    <string name="carbs_text">Carbs</string>
+    <string name="carbs_ratio">%45</string>
+    <string name="calories_text">Calories</string>
+
     <!-- Info model fields -->
     <string name="screen_info_plan_1_title">Kilo Verme</string>
     <string name="screen_info_plan_2_title">Kilo Alma</string>
