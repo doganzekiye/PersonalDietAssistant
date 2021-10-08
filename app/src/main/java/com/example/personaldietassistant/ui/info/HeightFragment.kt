@@ -28,6 +28,7 @@ class HeightFragment : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setTargetWeight(getString(R.string.female))
         setOnClick()
         setStepToolbar(binding.toolbar.root, stepSelectedCount = 5, stepTotalCount = 8, onClick = {
             findNavController().navigateUp()
@@ -65,6 +66,13 @@ class HeightFragment : BaseFragment() {
         }
         binding.btnHeightAccept.setOnClickListener {
             findNavController().navigate(R.id.action_heightFragment_to_weightFragment)
+        }
+    }
+    private fun setTargetWeight(gender: String) {
+        if (gender == getString(R.string.female)) {
+            viewModel.setTargetFemale()
+        } else if (gender == getString(R.string.male)) {
+            viewModel.setTargetMale()
         }
     }
 }
