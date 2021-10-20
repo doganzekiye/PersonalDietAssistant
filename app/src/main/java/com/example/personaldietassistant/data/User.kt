@@ -7,14 +7,12 @@ import androidx.room.PrimaryKey
 data class User(
     @PrimaryKey(autoGenerate = true)// generates unique ids automatically
     val id: Int = 0,
-    var name: String,
-    var height: Float,
-    var weight: Float,
-    var gender: String,
-    var age: Int,
-    var dailyCal: Int,
-    var targetWeight: Float,
-    var recommendedCal : Int
-) {
-
-}
+    var name: String = "",
+    var height: Float = 150f,
+    var weight: Float = 70f,
+    var gender: String = "",
+    var age: Int = 18,
+    var dailyCal: Int = 0,
+    var targetWeight: Float = 0f,
+    var recommendedCal: Int = 0,
+)
