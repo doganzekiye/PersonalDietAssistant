@@ -50,7 +50,7 @@
                 android:layout_marginHorizontal="@dimen/dp16"
                 android:background="@drawable/custom_gray_rounded_corners"
                 android:hint="@string/info_name_et"
-                android:text="@{viewModel.user.name}"
+                android:text="@{viewModel.mUser.name}"
                 android:paddingStart="@dimen/dp24"
                 app:layout_constraintBottom_toTopOf="@+id/include"
                 app:layout_constraintEnd_toEndOf="parent"
