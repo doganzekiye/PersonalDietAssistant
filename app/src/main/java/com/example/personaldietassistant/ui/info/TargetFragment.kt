@@ -19,7 +19,6 @@ class TargetFragment : BaseFragment() {
     var mTarget = 0.0f
     var mTargetDecimal = 0.0f
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,9 +32,13 @@ class TargetFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setRecommendedCal(getString(R.string.female))
         setOnClick()
-        setStepToolbar(binding.toolbar.root, stepSelectedCount = 7, stepTotalCount = 8, onClick = {
-            findNavController().navigateUp()
-        })
+        setStepToolbar(
+            toolbar = binding.toolbar.root,
+            stepSelectedCount = 7,
+            stepTotalCount = 8,
+            onClick = {
+                findNavController().navigateUp()
+            })
     }
 
     private fun setOnClick() {

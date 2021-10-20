@@ -16,9 +16,7 @@ class AgeFragment : BaseFragment() {
     lateinit var binding: FragmentAgeBinding
     private val viewModel: InfoScreenViewModel by activityViewModels()
     override fun onCreateView(
-        inflater: LayoutInflater,
-
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_age, container, false)
@@ -29,9 +27,13 @@ class AgeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setOnClick()
-        setStepToolbar(binding.toolbar.root, stepSelectedCount = 4, stepTotalCount = 8, onClick = {
-            findNavController().navigateUp()
-        })
+        setStepToolbar(
+            toolbar = binding.toolbar.root,
+            stepSelectedCount = 4,
+            stepTotalCount = 8,
+            onClick = {
+                findNavController().navigateUp()
+            })
     }
 
     private fun setOnClick() {

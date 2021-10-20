@@ -31,9 +31,13 @@ class GenderFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setClickListeners()
         observeViewModel()
-        setStepToolbar(binding.toolbar.root, stepSelectedCount = 3, stepTotalCount = 8, onClick = {
-            findNavController().navigateUp()
-        })
+        setStepToolbar(
+            toolbar = binding.toolbar.root,
+            stepSelectedCount = 3,
+            stepTotalCount = 8,
+            onClick = {
+                findNavController().navigateUp()
+            })
     }
 
     private fun observeViewModel() {

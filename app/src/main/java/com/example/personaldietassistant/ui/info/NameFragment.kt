@@ -29,9 +29,13 @@ class NameFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setOnClick()
-        setStepToolbar(binding.toolbar.root, stepSelectedCount = 2, stepTotalCount = 8, onClick = {
-            findNavController().navigateUp()
-        })
+        setStepToolbar(
+            toolbar = binding.toolbar.root,
+            stepSelectedCount = 2,
+            stepTotalCount = 8,
+            onClick = {
+                findNavController().navigateUp()
+            })
     }
 
     private fun setOnClick() {
@@ -41,10 +45,10 @@ class NameFragment : BaseFragment() {
 
                 if (s.toString().length >= 2) {
                     viewModel.userWelcomeText.postValue(getString(R.string.hello) + " " + s.toString() + ",")
-                    viewModel.user.name = s.toString()
+                    viewModel.mUser.value!!.name = s.toString()
                 } else {
                     viewModel.userWelcomeText.postValue(getString(R.string.info_name_title))
-                    viewModel.user.name = getString(R.string.empty)
+                    viewModel.mUser.value!!.name = getString(R.string.empty)
                 }
             }
         }

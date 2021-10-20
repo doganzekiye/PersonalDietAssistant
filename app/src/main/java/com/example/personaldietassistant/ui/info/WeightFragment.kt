@@ -12,7 +12,6 @@ import com.example.personaldietassistant.databinding.FragmentWeightBinding
 import com.example.personaldietassistant.ui.base.BaseFragment
 import com.example.personaldietassistant.util.getDecimal
 import com.example.personaldietassistant.util.getNumber
-import kotlin.math.min
 
 class WeightFragment : BaseFragment() {
     lateinit var binding: FragmentWeightBinding
@@ -30,9 +29,13 @@ class WeightFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setOnClick()
-        setStepToolbar(binding.toolbar.root, stepSelectedCount = 6, stepTotalCount = 8, onClick = {
-            findNavController().navigateUp()
-        })
+        setStepToolbar(
+            toolbar = binding.toolbar.root,
+            stepSelectedCount = 6,
+            stepTotalCount = 8,
+            onClick = {
+                findNavController().navigateUp()
+            })
     }
 
     private fun setOnClick() {
@@ -64,6 +67,7 @@ class WeightFragment : BaseFragment() {
             mWeightDecimal = (newVal.toFloat() / 10)
             viewModel.user.weight = mWeight + mWeightDecimal
         }
+
         binding.btnWeightAccept.setOnClickListener {
             findNavController().navigate(R.id.action_weightFragment_to_targetFragment)
         }
