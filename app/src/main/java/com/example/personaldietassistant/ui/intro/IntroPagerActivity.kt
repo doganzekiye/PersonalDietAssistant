@@ -10,9 +10,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.databinding.ActivityIntroPagerBinding
 import com.example.personaldietassistant.ui.info.InfoScreenActivity
+import com.example.personaldietassistant.util.AppConstants.PREF_INTRO_COMPLETED
+import com.example.personaldietassistant.util.PrefUtil
 
 class IntroPagerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityIntroPagerBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro_pager)
@@ -50,6 +53,7 @@ class IntroPagerActivity : AppCompatActivity() {
             val context = it.context
             val intent = Intent(context, InfoScreenActivity::class.java)
             context.startActivity(intent)
+            PrefUtil.setIntroCompleted(context)
         }
     }
 
@@ -63,10 +67,10 @@ class IntroPagerActivity : AppCompatActivity() {
             val context = it.context
             val intent = Intent(context, InfoScreenActivity::class.java)
             context.startActivity(intent)
+            PrefUtil.setIntroCompleted(context)
         }
         binding.introPageButton.setOnClickListener {
             binding.introViewPager.setCurrentItem(position.inc(), true)
-
         }
     }
 }
