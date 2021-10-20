@@ -12,16 +12,9 @@ class PdaStepView @JvmOverloads constructor(
 
     var stepSize: Step.StepSize
     var stepColor: Step.StepColor
-    var stepRadius: Step.StepRadius
+    var stepRadius: Float
 
     private var mRadiusAll = NO_RADIUS
-
-    //    private var mRadiusTop = NO_RADIUS
-//    private var mRadiusBottom = NO_RADIUS
-//    private var mRadiusTopLeft = NO_RADIUS
-//    private var mRadiusTopRight = NO_RADIUS
-//    private var mRadiusBottomLeft = NO_RADIUS
-//    private var mRadiusBottomRight = NO_RADIUS
     private var mStepColor = NO_STEP_COLOR
     private var mStepSelectedColor = NO_STEP_COLOR
     private var mStepUnselectedColor = NO_STEP_COLOR
@@ -59,14 +52,6 @@ class PdaStepView @JvmOverloads constructor(
         mStepSelectedCount =
             a.getInt(R.styleable.PdaStepView_pdaStepSelectedCount, DEFAULT_STEP_SELECTED_COUNT)
         mRadiusAll = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusAll)
-//        mRadiusTop = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusTop)
-//        mRadiusBottom = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusBottom)
-//        mRadiusTopLeft = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusTopLeft)
-//        mRadiusTopRight = a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusTopRight)
-//        mRadiusBottomLeft =
-//            a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusBottomLeft)
-//        mRadiusBottomRight =
-//            a.getDimension(R.styleable.PdaStepView_pdaStepRadiusAll, mRadiusBottomRight)
         mStepColor = a.getInt(R.styleable.PdaStepView_pdaStepColor, DEFAULT_STEP_UNSELECTED_COLOR)
         mStepSelectedColor =
             a.getInt(R.styleable.PdaStepView_pdaStepSelectedColor, DEFAULT_STEP_SELECTED_COLOR)
@@ -75,21 +60,12 @@ class PdaStepView @JvmOverloads constructor(
 
         stepSize = Step.StepSize(mStepWidth, mStepHeight)
         stepColor = Step.StepColor(mStepSelectedColor, mStepUnselectedColor)
-        stepRadius = Step.StepRadius(
-            mRadiusAll, mRadiusAll, mRadiusAll, mRadiusAll, mRadiusAll, mRadiusAll, mRadiusAll
-//            if (mRadiusAll != NO_RADIUS) mRadiusAll else mRadiusTop,
-//            if (mRadiusAll != NO_RADIUS) mRadiusAll else mRadiusBottom,
-//            if (mRadiusAll != NO_RADIUS) mRadiusAll else if (mRadiusTop != NO_RADIUS) mRadiusTop else mRadiusTopLeft,
-//            if (mRadiusAll != NO_RADIUS) mRadiusAll else if (mRadiusTop != NO_RADIUS) mRadiusTop else mRadiusTopRight,
-//            if (mRadiusAll != NO_RADIUS) mRadiusAll else if (mRadiusBottom != NO_RADIUS) mRadiusBottom else mRadiusBottomLeft,
-//            if (mRadiusAll != NO_RADIUS) mRadiusAll else if (mRadiusBottom != NO_RADIUS) mRadiusBottom else mRadiusBottomRight
-        )
-
+        stepRadius = mRadiusAll
         mCorners = floatArrayOf(
-            stepRadius.topLeftRadius, stepRadius.topLeftRadius,
-            stepRadius.topRightRadius, stepRadius.topRightRadius,
-            stepRadius.bottomRightRadius, stepRadius.bottomRightRadius,
-            stepRadius.bottomLeftRadius, stepRadius.bottomLeftRadius
+            stepRadius, stepRadius,
+            stepRadius, stepRadius,
+            stepRadius, stepRadius,
+            stepRadius, stepRadius
         )
 
         for (i in 0 until mStepTotalCount) {
@@ -205,7 +181,7 @@ class PdaStepView @JvmOverloads constructor(
         var isSelected: Boolean = false,
         val size: StepSize,
         val color: StepColor,
-        val radius: StepRadius
+        val radius: Float = NO_RADIUS
     ) {
 
         data class StepSize(
@@ -216,16 +192,6 @@ class PdaStepView @JvmOverloads constructor(
         data class StepColor(
             val selectedColor: Int = DEFAULT_STEP_SELECTED_COLOR,
             val unselectedColor: Int = DEFAULT_STEP_UNSELECTED_COLOR
-        )
-
-        data class StepRadius(
-            val radius: Float = NO_RADIUS,
-            val topRadius: Float = NO_RADIUS,
-            val bottomRadius: Float = NO_RADIUS,
-            val topLeftRadius: Float = NO_RADIUS,
-            val topRightRadius: Float = NO_RADIUS,
-            val bottomLeftRadius: Float = NO_RADIUS,
-            val bottomRightRadius: Float = NO_RADIUS
         )
     }
 }
