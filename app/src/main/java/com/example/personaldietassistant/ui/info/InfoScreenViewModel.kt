@@ -22,8 +22,9 @@ class InfoScreenViewModel : ViewModel() {
         age = 18,
         dailyCal = 0,
         targetWeight = 0.0f,
-        recommendedCal = 0,
+        recommendedCal = 0
     )
+    var mUser: MutableLiveData<User> = MutableLiveData(user)
 
     var isNameValid: MutableLiveData<Boolean> = MutableLiveData()
     var isPlanValid: MutableLiveData<Boolean> = MutableLiveData(false)
@@ -37,15 +38,14 @@ class InfoScreenViewModel : ViewModel() {
     var userTargetText: MutableLiveData<String> = MutableLiveData()
     var targetMaxValue: MutableLiveData<Int> = MutableLiveData()
     var targetMinValue: MutableLiveData<Int> = MutableLiveData()
-    //var targetFemale: MutableLiveData<Float> = MutableLiveData()
-    //var targetMale: MutableLiveData<Float> = MutableLiveData()
 
     init {
+        mUser.value = user
         userWelcomeText.value = "Hadi seni tanıyalım.."
-        userAgeText.value = "My age is " + user.age
-        userHeightText.value = "My height is " + user.height + " cm"
-        userWeightText.value = "My weight is " + user.weight + " kg"
-        userTargetText.value = "My target is " + user.targetWeight + " kg"
+        userAgeText.value = "My age is " + mUser.value!!.age
+        userHeightText.value = "My height is " + mUser.value!!.height + " cm"
+        userWeightText.value = "My weight is " + mUser.value!!.weight + " kg"
+        userTargetText.value = "My target is " + mUser.value!!.targetWeight + " kg"
     }
 
     fun setRecommendedCal(isFemale: Boolean) {
@@ -65,15 +65,11 @@ class InfoScreenViewModel : ViewModel() {
     }
 
     fun setTargetFemale() {
-        //targetFemale.value =
-        // BMI_FEMALE_HEIGHT_CONSTANT + (BMI_FEMALE_FACTOR_CONSTANT * (this.user.height - BMI_HEIGHT_CONSTANT) / BMI_RANGE_CONSTANT).toFloat()
         user.targetWeight =
             BMI_FEMALE_HEIGHT_CONSTANT + (BMI_FEMALE_FACTOR_CONSTANT * (this.user.height - BMI_HEIGHT_CONSTANT) / BMI_RANGE_CONSTANT).toFloat()
     }
 
     fun setTargetMale() {
-        // targetMale.value =
-        //BMI_MALE_HEIGHT_CONSTANT + (BMI_MALE_FACTOR_CONSTANT * (this.user.height - BMI_HEIGHT_CONSTANT) / BMI_RANGE_CONSTANT).toFloat()
         user.targetWeight =
             BMI_MALE_HEIGHT_CONSTANT + (BMI_MALE_FACTOR_CONSTANT * (this.user.height - BMI_HEIGHT_CONSTANT) / BMI_RANGE_CONSTANT).toFloat()
     }
