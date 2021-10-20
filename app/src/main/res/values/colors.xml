@@ -10,7 +10,7 @@
 
     <color name="pumpkin">#d35400</color>
 
-    <color name="divider">#ECF0F1</color>
+    <color name="divider">#E3E3E3</color>
     <color name="background">#FAFAFA</color>
 
     <color name="page_title">#263238</color>
@@ -22,10 +22,12 @@
     <color name="orange">#FFAA64</color>
     <color name="purple">#6C63FF</color>
     <color name="blue">#4996E9</color>
+    <color name="pink">#F05FAD</color>
 
     <color name="intro_skip">#CDCED0</color>
     <color name="intro_button">#69C684</color>
 
+    <color name="daily_value_color">#263238</color>
 
     <color name="plan_item_title">#000000</color>
     <color name="info_desc_bg">#F7F8FC</color>

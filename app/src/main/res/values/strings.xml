@@ -55,4 +55,7 @@
     <string name="screen_info_plan_5_desc">Şeker Dengesi description</string>
 
     ///////////////////////////////////////////////////////
+    <string name="preference_file_key">PdaSharedPreference</string>
+
+
 </resources>

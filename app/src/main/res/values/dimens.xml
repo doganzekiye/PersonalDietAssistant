@@ -19,7 +19,6 @@
     <dimen name="ratioTotal">100</dimen>
     <dimen name="ratioZero">0</dimen>
 
-
     <dimen name="buttonHeight">56dp</dimen>
     <dimen name="foodItemLineSize">1dp</dimen>
     <dimen name="indicatorCiMarginSize">5dp</dimen>
@@ -28,10 +27,13 @@
     <dimen name="fontTitleSize">32sp</dimen>
     <dimen name="appNameSize">24sp</dimen>
     <dimen name="searchHintSize">12sp</dimen>
+    <dimen name="dailyFeatureTextSize">12sp</dimen>
     <dimen name="infoTitleSize">28sp</dimen>
     <dimen name="introSkipSize">16sp</dimen>
     <dimen name="infoTextSize">16sp</dimen>
     <dimen name="numberPickerTextSize">21sp</dimen>
     <dimen name="card_title">18sp</dimen>
     <dimen name="infoDescSize">14sp</dimen>
+    <dimen name="dailyValuesSize">16sp</dimen>
+    <dimen name="featureUnitSize">10sp</dimen>
 </resources>
