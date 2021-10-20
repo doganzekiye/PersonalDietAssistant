@@ -39,6 +39,7 @@ class DailyMealsActivity : AppCompatActivity() {
         fatCal = 104.0,
         proteinCal = 86.2
     )
+
     var test: MutableList<MealDescItem> = mutableListOf(testMeal, testMeal2, testMeal3, testMeal4)
 
     override fun onCreate(savedInstanceState: Bundle?) {
