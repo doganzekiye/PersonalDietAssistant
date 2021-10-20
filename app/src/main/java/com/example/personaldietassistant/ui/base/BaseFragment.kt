@@ -4,32 +4,26 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.personaldietassistant.R
 import com.example.personaldietassistant.ui.customview.PdaStepView
 
 open class BaseFragment : Fragment() {
 
-    protected fun setToolbar(toolbar: View, title: String = "", onClick: () -> Unit) {
-        val backButton = toolbar.findViewById<ImageView>(R.id.backButton)
-        backButton.setOnClickListener {
-            onClick.invoke()
-        }
-        val titleView = toolbar.findViewById<TextView>(R.id.toolbarTitle)
-        titleView.text = title
-    }
-
     protected fun setStepToolbar(
+        showBackIcon: Boolean = true,
         toolbar: View,
-
         stepSelectedCount: Int,
         stepTotalCount: Int,
         onClick: () -> Unit
     ) {
+
         val backButton = toolbar.findViewById<ImageView>(R.id.backButton)
         backButton.setOnClickListener {
             onClick.invoke()
+        }
+        if (showBackIcon.not()) {
+            backButton.visibility = View.GONE
         }
         val stepView = toolbar.findViewById<PdaStepView>(R.id.pdaStepView)
         stepView.setStepCount(selected = stepSelectedCount, total = stepTotalCount)
@@ -38,6 +32,11 @@ open class BaseFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         logLifecycleEvents("onCreate")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        logLifecycleEvents("onResume")
     }
 
     override fun onDestroy() {
