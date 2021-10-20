@@ -14,6 +14,11 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Theme.PersonalDietAssistant.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
     /////////////////////////////////////////////////////////////////
 
     <style name="PdaTextBold">
@@ -24,6 +29,13 @@
     <style name="SplashAppName" parent="PdaTextBold">
         <item name="android:textSize">@dimen/appNameSize</item>
         <item name="android:textColor">@color/pumpkin</item>
+
+    </style>
+
+    <style name="SplashTheme" parent="Theme.PersonalDietAssistant.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     /////////////////////////////////////////////////////////////////
@@ -89,6 +101,7 @@
         <item name="android:textColor">@color/page_title</item>
         <item name="android:textSize">@dimen/card_title</item>
     </style>
+
     <style name="InfoSummaryTarget" parent="PdaTextMontserratBold">
         <item name="android:textColor">@color/page_title</item>
         <item name="android:textSize">@dimen/appNameSize</item>
@@ -103,13 +116,21 @@
         <item name="android:textColor">@color/gray_dark</item>
         <item name="android:textSize">@dimen/infoDescSize</item>
     </style>
-    /////////////////////////////////////////////////////////////////////
 
-    <style name="Theme.PersonalDietAssistant.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="DailyFeatureTextStyle" parent="PdaTextMontserratRegular">
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textSize">@dimen/dailyFeatureTextSize</item>
     </style>
 
+    <style name="DailyFeatureValueStyle" parent="PdaTextMontserratRegular">
+        <item name="android:textColor">@color/daily_value_color</item>
+        <item name="android:textSize">@dimen/dailyValuesSize</item>
+    </style>
+
+    <style name="FeatureUnitStyle" parent="PdaTextMontserratRegular">
+        <item name="android:textColor">@color/daily_value_color</item>
+        <item name="android:textSize">@dimen/featureUnitSize</item>
+    </style>
     /////////////////////////////////////////////////////////////////////
 
     <style name="NumberPickerTheme" parent="Theme.PersonalDietAssistant">
