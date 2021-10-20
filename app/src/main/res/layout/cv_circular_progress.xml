@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_progress"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/cp_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cpb_background_progressbar_color="@color/gray"
+        app:cpb_background_progressbar_width="3dp"
+        app:cpb_progressbar_width="3dp"
+        app:cpb_round_border="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_progressValue"
+        style="@style/DailyFeatureValueStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="690"
+        app:layout_constraintBottom_toTopOf="@id/progress_guideline"
+        app:layout_constraintEnd_toEndOf="@id/cp_progress"
+        app:layout_constraintStart_toStartOf="@id/cp_progress" />
+
+    <TextView
+        android:id="@+id/tv_measurementType"
+        style="@style/FeatureUnitStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kcal"
+        app:layout_constraintEnd_toEndOf="@id/cp_progress"
+        app:layout_constraintStart_toStartOf="@id/cp_progress"
+        app:layout_constraintTop_toBottomOf="@id/progress_guideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/progress_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
